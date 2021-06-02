@@ -27,6 +27,7 @@ def post(postid):
     content = Markup(post.content)
 
     
+
     try:
         prev = Posts.query.get(int(postid)-1)
         nxt = Posts.query.get(int(postid)+1)
