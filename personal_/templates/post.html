@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+
+{% block css%}
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="../static/css/aos.css" rel="stylesheet">
+<link href="../static/css/bootstrap-icons.css" rel="stylesheet">
+
+<link href="../static/css/style.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+{% if post.lang == 'ar' %}
+<div class="container mt-5" style="direction: rtl;">
+    {% else %}
+<div class="container mt-5">
+{% endif %}
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{post.title}}</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Posted on {{post.date.strftime('%d/%m/%Y')}} </div>
+                    <!-- Post categories-->
+                    
+                </header>
+                <br>
+                <!-- Post content-->
+                <section class="mb-5">
+                    {{content}}
+                </section>
+            </article>
+           
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4 ">
+            
+            <!-- Categories widget-->
+            {% if next or previous %}
+            <div class="card mb-4">
+                <div class="card-header">Autre article</div>
+                <div class="card-body">
+                    <div class="row">
+                                {% if next %}
+                                <a href="./{{next.id}} ">
+                                    #{{next.id}}: {{next.title}} 
+                                </a>
+                                {% endif %}
+                                {% if previous %}
+                                <a href="./{{previous.id}} ">
+                                    #{{previous.id}}: {{previous.title}} 
+                                </a>
+                                {% endif %}
+                       
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Menu</div>
+                <div class="card-body">
+                    <a href="/">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
