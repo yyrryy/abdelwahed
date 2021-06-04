@@ -9,9 +9,11 @@
     {% else %}
     <title> Abdelouahed | Portfolio </title>
     {% endif %}
-    <meta name="robots" content="noindex, nofollow">
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    
+    <meta name="robots" content="index, follow">
+    
+    {% block tags%}
+    {% endblock %}
 
     <!-- Favicons -->
     <link href="../static/images/fav.jpg" rel="icon">
