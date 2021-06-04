@@ -55,8 +55,7 @@ def adminpanel():
 
 
 @bp.route("/login", methods=["GET", "POST"])
-@limiter.limit("4 per day")
-
+@limiter.limit("2 per day")
 def login():
     """
     Logs a user in (given the email and password are correct).
