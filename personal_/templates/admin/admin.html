@@ -56,6 +56,7 @@
             </p>
             
             <div class="row">
+
                 <a href=" edit/{{i.id}}" class="btn col-4">
                     Edit
                 </a>
@@ -64,12 +65,16 @@
                     View
                 </a>
                 
-                <form action="delete/{{i.id}}" method="POST" class="col-4">
-                    <button type="submit" class="btn btn-danger">
-                        Delete
-                    </button>
-                </form>
-            </div>
+                
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Link with href
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
+                    </div>
+                </div>
             
 
             
@@ -110,5 +115,9 @@
         {% endfor %}
     </div>
 </div>
+
+{% endblock %}
+
+{% block js %}
 
 {% endblock %}

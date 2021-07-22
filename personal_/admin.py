@@ -76,7 +76,6 @@ def login():
         return render_template("admin/login.html")
 
 
-
 #create project
 @bp.route("/createproject", methods=["GET", "POST"])
 @login_required
