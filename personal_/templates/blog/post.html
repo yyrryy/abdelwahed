@@ -1,10 +1,10 @@
 {% extends 'blog/bloglyt.html' %}
 
-
-{% block tags %}
+{% block meta%}
 <meta content="{{post.slogan}}" name="description">
 <meta content="{{post.title}}" name="keywords">
 {% endblock %}
+
 
 
 
@@ -34,7 +34,7 @@
                     <br>
                     <!-- Post content-->
                     <section class="mb-5">
-                        {{post.content}}
+                        {{content}}
                     </section>
                 </article>
 

@@ -41,9 +41,9 @@
                     {{i.slogan}}.
                 </p>
                 {% if i.lang == 'ar' %}
-                <a href="post/{{i.id}}" class="btn btn-primary">اقرأ</a>
+                <a href="post/{{i.id}}/{{i.title}}" class="btn btn-primary">اقرأ</a>
                 {% else %}
-                <a href="post/{{i.id}}" class="btn btn-primary">Lire</a>
+                <a href="post/{{i.id}}/{{i.title}}" class="btn btn-primary">Lire</a>
                 {% endif %}
 
             </div>

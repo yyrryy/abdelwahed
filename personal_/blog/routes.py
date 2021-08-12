@@ -4,6 +4,7 @@ from flask import (
     redirect,
     url_for,
     Blueprint,
+    Markup
 )
 from personal_.models import Posts
 
@@ -18,11 +19,12 @@ def blog():
     posts=Posts.query.all())
 
 
-@log.route('/post/<id>')
-def post(id):
+@log.route('/post/<int:id>/<name>')
+def post(id, name):
     p=Posts.query.get(id)
     
     return render_template('blog/post.html', 
+    content=Markup(p.content),
     title=p.title, 
     post=p,
     next=Posts.query.get(p.id+1),
