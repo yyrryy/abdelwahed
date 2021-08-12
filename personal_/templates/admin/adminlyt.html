@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-icons.css">
+    <link href="/static/images/fav.jpg" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+
+
+
+
+        <header class="py-2 d-flex justify-content-between bg-light">
+            <a class="border btn bi bi-house" href="/admin">
+            </a>
+
+            <div class="border dropdown">
+                <button class="btn dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Menu
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href="/" target=_blank>
+                            Portfolio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="./create">
+                            Craete a post
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="./createproject">
+                            Craete a project
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        </header>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+
+        {% for category, message in messages %}
+        <p class="alert-{{category}}">{{ message }}</p>
+        {% endfor %}
+
+        {% endif %}
+        {% endwith %}
+        {% block main %}
+        {% endblock %}
+    </div>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    {% block js %}
+    {% endblock %}
+</body>
+
+</html>

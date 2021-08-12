@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'admin/adminlyt.html' %}
 
 
 {% block css%}
@@ -7,57 +7,113 @@
 {% endblock %}
 
 {% block main %}
-<div class="container">
-    {% if message %}
-    <p class='error-message'>{{ message }}</p>
-    {% endif %}
     
-    <form action="/admin/createproject" method="POST" enctype="multipart/form-data">
+    {% if update %}
+    <form action="/admin/updatepr/{{p.id}}" method="POST" enctype="multipart/form-data">
+    
+        <h1 class="mt-5">Update Project {{p.title}}</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-6 form-outline mb-4">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" value="{{p.title}}"/>
+            </div>
+    
+            <!-- Email input -->
+            <div class="col-md-6 form-outline mb-4">
+                <label class="form-label">cat</label>
+                <select name="cat" class="form-select" aria-label="Default select example">
+                    <option value="{{p.cat}}" selected>{{p.cat}}</option>
+                    <option >-----------</option>
+                    <option value="app">app</option>
+                    <option value="web">web</option>
+                    <option value="books">books</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="form-outline mb-4">
+                <label class="form-label">data</label>
+                <textarea name="data" class="form-control" rows="4">
+{{p.data}}
+                </textarea>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">link</label>
+                <input value="{{p.libk}}" type="text" name="link" class="form-control" />
+            </div>
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label class="form-label" for="customFile">Project image</label>
+            <input type="file" class="form-control" name='img' />
+        </div>
+    
+    
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+            Update
+        </button>
+    
+    
+        <!-- Name input -->
+    
+    </form>
 
+
+    {% else %}
+    <form action="/admin/createproject" method="POST" enctype="multipart/form-data">
+    
         <h1 class="mt-5">Create Project (#{{ project_id }})</h1>
         <br>
-        <div class="form-outline mb-4">
-            <label class="form-label">Title</label>
-            <input type="text" name="title" class="form-control" />
+        <div class="row">
+            <div class="col-md-6 form-outline mb-4">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" />
+            </div>
+    
+            <!-- Email input -->
+            <div class="col-md-6 form-outline mb-4">
+                <label class="form-label">cat</label>
+                <select name="cat" class="form-select" aria-label="Default select example">
+                    <option value="app" selected>app</option>
+                    <option value="web">web</option>
+                    <option value="books">books</option>
+                </select>
+            </div>
         </div>
-
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-            <label class="form-label">cat</label>
-            <input type="text" name="cat" class="form-control" />
+    
+        <div class="row">
+            <div class="form-outline mb-4">
+                <label class="form-label">data</label>
+                <textarea name="data" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">link</label>
+                <input type="text" name="link" class="form-control" />
+            </div>
         </div>
-
+    
         <div class="form-outline mb-4">
-            <label class="form-label">link</label>
-            <input type="text" name="link" class="form-control" />
+            <label class="form-label" for="customFile">Project image</label>
+            <input type="file" class="form-control" name='img' />
         </div>
-
-        <div class="form-outline mb-4">
-        <label class="form-label" for="customFile">Project image</label>
-        <input type="file" class="form-control" name='img' />
-        </div>
-
-        <!-- Checkbox 
-                    <div class="form-check d-flex justify-content-center mb-4">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
-                        <label class="form-check-label">
-                            I have read and agree to the terms
-                        </label>
-                    </div>-->
-
-        <!-- Submit button -->
+    
+    
         <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
-
-
+    
+    
         <!-- Name input -->
-
+    
     </form>
+
+
+    {% endif %}
     
 
 
 
 
 
-</div>
 
 {% endblock %}

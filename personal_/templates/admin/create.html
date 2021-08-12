@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'admin/adminlyt.html' %}
 
 
 {% block css%}
@@ -7,113 +7,100 @@
 {% endblock %}
 
 {% block main %}
-<div class="container">
-    {% if message %}
-    <p class='error-message'>{{ message }}</p>
-    {% endif %}
-    {% if update %}
-    <form action="/admin/edit/{{postid}}" method="POST" >
-        
-            <h1 class="mt-5">Update Post (#{{ post_id }})</h1>
-            <br>
-            <div class="form-outline mb-4">
-                <label class="form-label">Title</label>
-                <input type="text" name="title" class="form-control" value=" {{posttitle}} "/>
-            </div>
-            
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <label class="form-label">Slogan</label>
-                <input type="text" name="Slogan" class="form-control" maxlength="40" value=" {{postslogan}} "/>
-            </div>
-            
-            <div class="form-outline mb-4">
-                <label class="form-label">Content</label>
-                <textarea name="content" class="form-control" rows="8">
+
+{% if update %}
+<form action="/admin/edit/{{postid}}" method="POST">
+
+    <h1 class="mt-5">Update Post (#{{ post_id }})</h1>
+    <br>
+    <div class="form-outline mb-4">
+        <label class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" value=" {{posttitle}} " />
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <label class="form-label">slogan</label>
+        <input type="text" name="slogan" class="form-control" maxlength="40" value=" {{postslogan}} " />
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label">Content</label>
+        <textarea name="content" class="form-control" rows="8">
                     {{postcontent}}
                 </textarea>
-            </div>
-            
-            <!-- Checkbox 
+    </div>
+
+    <!-- Checkbox 
                     <div class="form-check d-flex justify-content-center mb-4">
                         <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
                         <label class="form-check-label">
                             I have read and agree to the terms
                         </label>
                     </div>-->
-            
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
-            
-        
-        <!-- Name input -->
-        
-    </form>
-    {% else %}
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
 
 
-    <!-- create form -->
-    <form action="/admin/create" method="POST" enctype="multipart/form-data">
-    
-        <h1 class="mt-5">New Post (#{{ post_id }})</h1>
-        <br>
+    <!-- Name input -->
 
-        <div class="form-outline mb-4">
-            <label class="form-label">language</label>
-            <input type="text" name="lang" class="form-control" />
-        </div>
+</form>
+<button class="btn btn-danger deletepost">Delete</button>
+{% else %}
 
-        <div class="form-outline mb-4">
+
+<!-- create form -->
+<form action="/admin/create" method="POST" enctype="multipart/form-data">
+
+    <h1 class="mt-5">New Post (#{{ post_id }})</h1>
+    <br>
+    <div class="row">
+        <div class="form-outline mb-4 col-md-6">
             <label class="form-label">Title</label>
             <input type="text" name="title" class="form-control" />
         </div>
-        
-        <!-- Slogan input -->
-        <div class="form-outline mb-4">
-            <label class="form-label">Slogan</label>
-            <input type="text" name="Slogan" class="form-control" maxlength="40" />
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">language</label>
+            <select class="form-select" aria-label="Default select example" name="lang">
+                <option value="fr" selected>fr</option>
+                <option value="ar">ar</option>
+            </select>
         </div>
-        
-        <div class="form-outline mb-4">
-            <label class="form-label">Content</label>
-            <textarea name="content" class="form-control" rows="8"></textarea>
-        </div>
-        
-        <!-- Checkbox 
-                                                <div class="form-check d-flex justify-content-center mb-4">
-                                                    <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
-                                                    <label class="form-check-label">
-                                                        I have read and agree to the terms
-                                                    </label>
-                                                </div>-->
-        
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Post</button>
-    
-    
-        <!-- Name input -->
-    
-    </form>
-    
- 
-    {% endif %}
+    </div>
 
-   
 
-</div>
+    <!-- slogan input -->
+    <div class="form-outline mb-4">
+        <label class="form-label">slogan</label>
+        <input type="text" name="slogan" class="form-control" maxlength="40" />
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label">Content</label>
+        <textarea name="content" class="form-control" rows="8"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-block mb-4">Post</button>
+
+
+    <!-- Name input -->
+
+</form>
+
+
+{% endif %}
+
+
+
 
 {% endblock %}
+{% block js %}
+<script>
+    $('.deletepost').click(() => {
+        console.log('clicked')
+    })
+</script>
+{% endblock %}
 
-<p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis enim, doloribus veritatis tempora labore modi saepe autem cupiditate quas blanditiis omnis sequi impedit reprehenderit perspiciatis nulla aspernatur exercitationem! Quibusdam pariatur ipsam, possimus doloremque assumenda atque maiores animi est sunt officia commodi placeat quas recusandae sint doloribus exercitationem! Nam quibusdam, odit, repellendus consequatur delectus minima necessitatibus itaque libero mollitia harum molestiae?
-</p>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis saepe quam quod distinctio ipsam veniam! Vero quo eum reiciendis sed in. Laboriosam, quidem rem? Cum consequuntur excepturi voluptatem voluptatum aperiam.
-</p>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, eum?
-</p>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sit dolorem amet deleniti nam ad laudantium explicabo, fugit voluptatum atque.
-</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel quasi quae ab accusantium, omnis, explicabo culpa perferendis minima reprehenderit, nihil atque eveniet voluptatem tempore ducimus corrupti expedita dolorem non ea commodi in. Doloremque excepturi in obcaecati saepe dignissimos quidem!</p>

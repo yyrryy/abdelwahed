@@ -15,7 +15,10 @@ from personal_.models import Admin, Posts, Projects
 import os
 from PIL import Image
 
-bp = Blueprint('admin', __name__, url_prefix='/admin')
+
+
+admin = Blueprint('admin', __name__, url_prefix='/admin')
+
 
 def login_required(view):
     """
@@ -32,15 +35,9 @@ def login_required(view):
 
 
 
-@bp.route("/", methods=["GET"])
-@login_required
-def admin():
-    """
-    Renders the admin panel.
-    """
-    return redirect(url_for("admin.adminpanel"))
 
-@bp.route('/admin')
+
+@admin.route('/')
 @login_required
 def adminpanel():
     """ admin panel """
@@ -54,7 +51,7 @@ def adminpanel():
 
 
 
-@bp.route("/login", methods=["GET", "POST"])
+@admin.route("/login", methods=["GET", "POST"])
 def login():
     """
     Logs a user in (given the email and password are correct).
@@ -67,16 +64,16 @@ def login():
             session.clear()
             session['user_id'] = user.username
             flash("What would you like to do today?")
-            return redirect(url_for("admin.admin"))
+            return redirect(url_for("admin.adminpanel"))
         return render_template("admin/login.html", message="Username or password incorrect.")
     elif session.get('user_id') is not None:
-        return redirect(url_for("admin.admin"))
+        return redirect(url_for("admin.adminpanel"))
     else:
         return render_template("admin/login.html")
 
 
 #create project
-@bp.route("/createproject", methods=["GET", "POST"])
+@admin.route("/createproject", methods=["GET", "POST"])
 @login_required
 def createproject():
     project_id = Projects.query.order_by(Projects.id.desc()).first()
@@ -87,8 +84,9 @@ def createproject():
     if request.method == 'POST':
         title = request.form['title']
         cat = request.form['cat']
+        data = request.form['data']
         link = request.form['link']
-        project = Projects(title=title, cat=cat, link=link)
+        project = Projects(title=title, cat=cat, data=data, link=link)
         
         img = request.files["img"]
         
@@ -96,43 +94,56 @@ def createproject():
         size = (500, 500)
         i.thumbnail(size)
         
-        #picture_path = os.path.join("personal_", "static", "images", "projects")
         
-        with open(f'personal_/static/images/projects/{project_id}.jpg', 'w', encoding='utf-8') as file:
+        with open(f'personal_/static/images/project{project_id}.jpg', 'w', encoding='utf-8') as file:
             i.save(file)
         db.session.add(project)
         db.session.commit()
-        flash(f'project #{project_id} added')
-
-        return redirect(url_for("admin.admin")) 
+        flash(f'project #{project_id} added', 'success')
+        return redirect(url_for('admin.createproject'))
     return render_template("admin/createproject.html", 
         project_id = project_id,
         title=f'craete project #{project_id}')
+ 
 
-
+@admin.route('/updatepr/<id>', methods=['GET', 'POST'])
+@login_required
+def updatepr(id):
+    update=True
+    p= Projects.query.get(id)
+    if request.method=='POST':
+        p.title = request.form['title']
+        p.data = request.form['data']
+        p.link = request.form['link']
+        img = request.files["img"]
+        if img:
+            i = Image.open(img)
+            size = (500, 500)
+            i.thumbnail(size)
+            with open(f'personal_/static/images/project{p.id}.jpg', 'w', encoding='utf-8') as file:
+                i.save(file)
+        db.session.commit()
+        flash(f'project #{id} updated', 'success')
+        return redirect(url_for('admin.adminpanel'))
+    return render_template('admin/createproject.html', update=True, p=p)
 
 #delete project
-@bp.route("/deletepr/<id>", methods=["POST"])
+@admin.route("/deletepr/<id>", methods=["POST"])
 @login_required
 def deletepr(id):
     project = Projects.query.get(id)
-    if request.method=='POST':
-        db.session.delete(project)
-        db.session.commit()
-        flash(f'project #{id} deleted')
-        return redirect(url_for("admin.admin"))
+    db.session.delete(project)
+    db.session.commit()
+    flash(f'project #{id} deleted', 'danger')
+    return redirect(url_for("admin.adminpanel"))
     
 
 
 #create a post
-@bp.route("/create", methods=["GET", "POST"])
+@admin.route("/create", methods=["GET", "POST"])
 @login_required
 def create():
-    """
-    Get: renders the screen where the user can create a new post.
-    Post: Adds the new post's information to the post and body images database.
-    """
-    update = False
+    
     post_id = Posts.query.order_by(Posts.id.desc()).first()
     if post_id:
         post_id = str(int(post_id.id) + 1)
@@ -143,20 +154,18 @@ def create():
         lang = request.form["lang"]
         slogan = request.form["slogan"]
         content = request.form["content"]
-        if title and slogan and content:
-            data = Posts(title=title, slogan=slogan, content=content, lang=lang)
-            db.session.add(data)
-            db.session.commit()
-            flash("Success, your post is live.")
-            return redirect(url_for("admin.admin"))
-        else:
-            return redirect(url_for("admin.create"))
+        
+        data = Posts(title=title, slogan=slogan, content=content, lang=lang)
+        db.session.add(data)
+        db.session.commit()
+        flash("Success, your post is live.", 'success')
+        return redirect(url_for("admin.create"))
             
 
     else:
         return render_template("admin/create.html", 
         post_id=post_id, 
-        update=update,
+        update=False,
         title=f'craete post #{post_id}')
 
 
@@ -170,7 +179,7 @@ def create():
 
 
 #Updating a post
-@bp.route("/edit/<postid>", methods=["GET", "POST"])
+@admin.route("/edit/<postid>", methods=["GET", "POST"])
 @login_required
 def edit(postid):
     update = True
@@ -181,7 +190,7 @@ def edit(postid):
         post.content = request.form['content']
         db.session.commit()
         flash(f'post #{postid} updated')
-        return redirect(url_for("admin.admin"))
+        return redirect(url_for("admin.adminpanel"))
     else:
         return render_template("admin/create.html", 
         posttitle=post.title,
@@ -195,13 +204,13 @@ def edit(postid):
 
 
 #delete a post
-@bp.route("/delete/<postid>", methods=["POST"])
+@admin.route("/deletepost/<postid>", methods=["POST"])
 @login_required
 def delete(postid):
     post = Posts.query.get(postid)
     if request.method=='POST':
         db.session.delete(post)
         db.session.commit()
-        flash(f'post #{postid} deleted')
-        return redirect(url_for("admin.admin"))
+        flash(f'post #{postid} deleted', 'danger')
+        return redirect(url_for("admin.adminpanel"))
     

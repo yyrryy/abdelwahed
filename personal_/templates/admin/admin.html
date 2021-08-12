@@ -1,123 +1,109 @@
-{% extends 'layout.html' %}
+{% extends 'admin/adminlyt.html' %}
 
 
 
 {% block css%}
-<link rel="stylesheet" href="../../static/css/admin.css">
-<link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
 {% endblock %}
 
 {% block main%}
 
 
 
-<div class="container">
 
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-    {% endwith %}
+<h1>
+    Posts
+</h1>
 
-
-    <div class="row mb-5 mt-5">
-        <div class="col">
-
-            <a href=" ./create" class="btn btn-dark">
-                create a post
-            </a>
-        </div>
-
-        <div class="col">
-
-            <a href=" ./createproject" class="btn btn-dark">
-                create a Project
-            </a>
-        </div>
-
-        
-    </div>
-
-    <div class="row mb-5">
-
-        <h1>
-            Posts
-        </h1>
-
-        {% for i in posts %}
-        <div class="col-lg-3 mb-5 d-flex flex-column align-items-center ">
-
-            <p>
+<div class="row ">
+    {% for i in posts %}
+    <div class="mb-2 col-md-3">
+        <div class="card">
+            <div class="card-header">
                 {{i.title}}
-            </p>
-            
-            <div class="row">
-
-                <a href=" edit/{{i.id}}" class="btn col-4">
-                    Edit
-                </a>
-
-                <a href=" ../post/{{i.id}}" target="_blank" class="btn col-4">
-                    View
-                </a>
-                
-                
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
-                </a>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                    </div>
-                </div>
-            
-
-            
-           
-            <br>
-        </div>
-        {% endfor %}
-    </div>
-
-
-    <div class="row mb-5">
-    
-        <h1>
-            Projects
-        </h1>
-    
-        {% for i in projects %}
-        <div class="col-lg-3 mb-5 d-flex flex-column align-items-center ">
-    
-            <p>
-                {{i.title}}
-            </p>
-    
-            <div class="row">
-    
-                <form action="deletepr/{{i.id}}" method="POST" class="col-4">
-                    <button type="submit" class="btn btn-danger">
-                        Delete
-                    </button>
-                </form>
             </div>
-    
-    
-    
-    
-            <br>
+            <div class="card-body">
+                <p>
+                    {{i.slogan}}
+                </p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="/blog/post/{{i.id}}" type="button" class="btn btn-secondary">View</a>
+                    <a href="edit/{{i.id}}" type="button" class="btn btn-secondary">Edit</a>
+                    <form action="./deletepost/{{i.id}}" method="POST">
+                        <button 
+                        type="button" 
+                        class="btn btn-danger delete">
+                        Delete</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 
-{% endblock %}
+
+<h1>
+    Projects
+</h1>
+<div class="row ">
+
+
+    {% for i in projects %}
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <img src="../static/images/project{{i.id}}.jpg" class="img-fluid" alt="{{i.title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{i.title}}</h5>
+                <p class="card-text">{{i.data}}</p>
+            </div>
+           
+                <ul class="list-group list-group-flush">
+                    <li class="btn list-group-item">
+                        <a href="./updatepr/{{i.id}}">
+                            Update
+                        </a>
+                    </li>
+                    <li class="btn btn-danger list-group-item">
+                        <form action="./deletepr/{{i.id}}" method="POST">
+                            <div class="delete">
+                                Delete
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    {% endfor %}
+</div>
+
+
 
 {% block js %}
-
+<script>
+    $('.delete').each((i, e)=>{
+        
+        $(e).on('click', (el)=>{
+            tar = $(e)
+            el.preventDefault()
+            let form = tar.parent()
+            let r=confirm('Delete ?')
+            if (r){
+                form.submit()
+            }
+        })
+        
+    })
+    
+</script>
+{% endblock %}
 {% endblock %}

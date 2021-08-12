@@ -1,5 +1,5 @@
 from flask import render_template , request, Markup
-from . import app, bcrypt, ext
+from . import app, bcrypt
 from personal_.models import Posts, Projects
 import os
 @app.route('/')
@@ -12,10 +12,6 @@ def index():
     posts=posts,
     projects=projects)
 
-@ext.register_generator
-def index():
-    # Not needed if you set SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS=True
-    yield 'index', {}
 
 @app.route('/blog')
 def blog():

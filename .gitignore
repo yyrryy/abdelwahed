@@ -1,5 +1,5 @@
 portolioenv
 personal_/ign
-personal_/__pycache__
+__pycache__
 site.db
 get.py

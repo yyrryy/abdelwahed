@@ -334,19 +334,27 @@
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
                 {% for i in projects %}
-                <div class="col-lg-4 col-md-6 portfolio-item filter-{{i.cat}} ">
-                    <div class="portfolio-wrap">
-                        <img src="../static/images/projects/{{i.id}}.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4> {{i.title}} </h4>
-                            <div class="portfolio-links">
-
-                                <a href=" {{i.link}}" target="_blank">
-                                    <i class="bi bi-link"></i></a>
-                            </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-{{i.cat}}">
+                    <div class="card">
+                        <img src="../static/images/project{{i.id}}.jpg" class="img-fluid" alt="{{i.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.title}}</h5>
+                            <p class="card-text">{{i.data}}</p>
                         </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="btn btn-primary list-group-item">
+                                    <a href="{{i.link}}" target="_blank">
+                                        Visit
+                                    </a>
+                                </li>
+                            </ul>
+                            
                     </div>
                 </div>
+
+
+
+                
                 {% endfor %}
 
 
@@ -698,7 +706,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{i.title}}</h5>
                                 <p class="card-text">
-                                    {{i.Slogan}}.
+                                    {{i.slogan}}.
                                 </p>
                                 {% if i.lang == 'ar' %}
                                 <a href="post/{{i.id}}" class="btn btn-primary">اقرأ</a>
@@ -712,15 +720,19 @@
                             </div>
                         </div>
                     </div>
+                    
                     {% endfor %}
                     {% else %}
                     <p>
                         No posts yet
                     </p>
                     {% endif %}
-
+                    <a href="/blog" class="btn btn-primary">
+                        View all
+                    </a>
 
                 </div>
+
 
 
             </div>
