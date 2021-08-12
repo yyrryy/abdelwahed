@@ -52,12 +52,14 @@
 
 
     {% for i in projects %}
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-3 col-md-6 mb-2">
         <div class="card">
             <img src="../static/images/project{{i.id}}.jpg" class="img-fluid" alt="{{i.title}}">
             <div class="card-body">
                 <h5 class="card-title">{{i.title}}</h5>
-                <p class="card-text">{{i.data}}</p>
+                <small>
+                    {{i.cat}}
+                </small>
             </div>
            
                 <ul class="list-group list-group-flush">

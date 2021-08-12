@@ -1,35 +1,58 @@
 {% extends 'blog/bloglyt.html' %}
 
 {% block main %}
+{% if projects %}
+<div class="row">
+{% for i in projects %}
+<div class="col-lg-3 mb-5 ">
+    <div class="card">
+        <img src="../static/images/project{{i.id}}.jpg" class="img-fluid" alt="{{i.title}}">
+        <div class="card-body">
+            <h5 class="card-title">{{i.title}}</h5>
+            <p class="card-text">{{i.data}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="btn btn-primary list-group-item">
+                <a href="{{i.link}}" target="_blank">
+                    Visit
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+{% endfor %}
+</div>
+{% else %}
 <div class="row">
     {% for i in posts %}
-    <div class="col-lg-4 mb-5 ">
+    <div class="col-lg-3 mb-5 ">
         {% if i.lang == 'ar' %}
         <div class="card text-center" style="direction:rtl">
-            {% else %}
-            <div class="card text-center">
+        {% else %}
+        <div class="card text-center">
+            {% endif %}
+            <div class="card-header">
+                #0{{i.id}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{i.title}}</h5>
+                <p class="card-text">
+                    {{i.slogan}}.
+                </p>
+                {% if i.lang == 'ar' %}
+                <a href="post/{{i.id}}" class="btn btn-primary">اقرأ</a>
+                {% else %}
+                <a href="post/{{i.id}}" class="btn btn-primary">Lire</a>
                 {% endif %}
-                <div class="card-header">
-                    #0{{i.id}}
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{i.title}}</h5>
-                    <p class="card-text">
-                        {{i.slogan}}.
-                    </p>
-                    {% if i.lang == 'ar' %}
-                    <a href="post/{{i.id}}" class="btn btn-primary">اقرأ</a>
-                    {% else %}
-                    <a href="post/{{i.id}}" class="btn btn-primary">Lire</a>
-                    {% endif %}
 
-                </div>
-                <div class="card-footer text-muted">
-                    {{i.date.strftime('%d/%m/%Y')}}
-                </div>
+            </div>
+            <div class="card-footer text-muted">
+                {{i.date.strftime('%d/%m/%Y')}}
             </div>
         </div>
-
-        {% endfor %}
+    </div>
+    {% endfor %}
 </div>
+{% endif %}
 {% endblock %}

@@ -20,7 +20,13 @@ def index():
     posts = Posts.query.order_by(Posts.id.desc()).limit(4)
     projects = Projects.query.order_by(Projects.id.desc()).limit(4)
 
-    return render_template('main/home.html', 
+    return render_template('home.html', 
     posts=posts,
     projects=projects)
 
+@main.route('/projects')
+def projects():
+    projects = Projects.query.all()
+    return render_template('blog/blog.html', 
+    title='Projects',
+    projects=projects)
