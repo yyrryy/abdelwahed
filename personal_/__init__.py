@@ -7,9 +7,7 @@ from urllib.parse import urlparse
 
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://hwxqgwisgorxov:ef788a743b9b4c0cd306bc335287f0d3f7c84c8d26b1fef2e6c842635911b735@ec2-54-145-224-156.compute-1.amazonaws.com:5432/d1kuss1n29ut3c'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('abdelouaheddb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
 
