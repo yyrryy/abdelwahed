@@ -7,6 +7,7 @@ from flask import (
     Markup
 )
 from personal_.models import Posts
+from urllib.parse import urlparse
 
 
 
@@ -22,10 +23,13 @@ def blog():
 @log.route('/post/<int:id>/<name>')
 def post(id, name):
     p=Posts.query.get(id)
-    
+    next=Posts.query.get(p.id+1)
+    previous=Posts.query.get(p.id-1)
     return render_template('blog/post.html', 
     content=Markup(p.content),
     title=p.title, 
     post=p,
-    next=Posts.query.get(p.id+1),
-    previous=Posts.query.get(p.id-1))
+    next=next,
+    previous=previous,
+    root = urlparse(request.host_url)
+    )

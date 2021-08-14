@@ -12,14 +12,9 @@
 
 
 
-
-<h1>
-    Posts
-</h1>
-
 <div class="row ">
     {% for i in posts %}
-    <div class="mb-2 col-md-3">
+    <div class="mb-2 col-md-4">
         <div class="card">
             <div class="card-header">
                 {{i.title}}
@@ -29,7 +24,7 @@
                     {{i.slogan}}
                 </p>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="/blog/post/{{i.id}}" type="button" class="btn btn-secondary">View</a>
+                    <a href="/blog/post/{{i.id}}/{{i.title}}" type="button" class="btn btn-secondary" target="_blank">View</a>
                     <a href="edit/{{i.id}}" type="button" class="btn btn-secondary">Edit</a>
                     <form action="./deletepost/{{i.id}}" method="POST">
                         <button 
@@ -43,7 +38,6 @@
     </div>
     {% endfor %}
 </div>
-
 
 <h1>
     Projects

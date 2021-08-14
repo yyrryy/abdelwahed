@@ -4,11 +4,12 @@ from datetime import datetime
 
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), nullable=False)
+    title = db.Column(db.String(250), nullable=False)
     slogan = db.Column(db.String, nullable=False)
     content = db.Column(db.Text, nullable=False)
     lang = db.Column(db.String(2), nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
+    votes= db.Column(db.Integer)
 
 
 class Projects(db.Model):

@@ -7,14 +7,15 @@ from flask import (
     Markup,
     Blueprint,
     abort,
-    session
+    session,
+    jsonify
 )
 import functools
 from personal_ import bcrypt, db
 from personal_.models import Admin, Posts, Projects
 import os
 from PIL import Image
-
+from random import randint
 
 
 admin = Blueprint('admin', __name__, url_prefix='/admin')
@@ -157,7 +158,7 @@ def create():
         slogan = request.form["slogan"]
         content = request.form["content"]
         
-        data = Posts(title=title, slogan=slogan, content=content, lang=lang)
+        data = Posts(title=title, slogan=slogan, votes=randint(0, 20), content=content, lang=lang)
         db.session.add(data)
         db.session.commit()
         flash("Success, your post is live.", 'success')
@@ -172,6 +173,14 @@ def create():
 
 
 
+@admin.route('/upvote/<int:id>', methods=['POST'])
+def upvote(id):
+    p=Posts.query.get(id)
+    p.votes+=1
+    db.session.commit()
+    return jsonify({
+        'st': 'OK'
+    })
 
 
 
