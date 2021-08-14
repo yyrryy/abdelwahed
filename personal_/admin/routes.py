@@ -118,7 +118,6 @@ def updatepr(id):
         p.link = request.form['link']
         p.cat = request.form['cat']
         img = request.files["img"]
-        print(request.form['cat'])
         if img:
             i = Image.open(img)
             size = (500, 500)
