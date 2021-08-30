@@ -7,9 +7,12 @@ from flask import (
     Markup,
     Blueprint,
     abort,
-    session
+    session,
+    send_file
 )
 from personal_.models import Posts, Projects
+import os
+
 
 main = Blueprint('main', __name__)
 
@@ -30,3 +33,9 @@ def projects():
     return render_template('blog/blog.html', 
     title='Projects',
     projects=projects)
+
+
+@main.route('/resume')
+def resume():
+    path='static/thiscv.pdf'
+    return send_file(path, as_attachment=True)
