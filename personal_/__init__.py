@@ -19,10 +19,12 @@ bcrypt  = Bcrypt(app)
 from personal_.admin.routes import admin
 from personal_.main.routes import main
 from personal_.blog.routes import log
+from personal_.cvbuilder.routes import cvbuilder
 
 app.register_blueprint(admin)
 app.register_blueprint(main)
 app.register_blueprint(log)
+app.register_blueprint(cvbuilder)
 
 from personal_.models import Posts
 
