@@ -1,0 +1,122 @@
+{% extends 'cvbuilder/base.html' %}
+{% block style %}
+<style>
+        .selected{
+                border: 1px solid;
+                transform: translate(0px, -2px);
+                background: white;
+                box-shadow: -4px 7px black;
+                transition: all .5s ease
+        }
+</style>
+{% endblock %}
+{% block content %}
+<section
+    class="d-flex align-items-center position-relative bg-dark bg-size-cover bg-position-center min-vh-100 overflow-hidden pt-6 pb-lg-5"
+    >
+    <div class="container-fluid pt-4 pb-5 py-lg-5">
+                <div class="text-center">
+                            <h1>
+                                CV builder
+                            </h1>
+                            <a class="d-inline-flex align-items-center text-decoration-none pt-2 mt-4 mb-5"
+                                href="#templates">
+                                <span
+                                    class="btn btn-icon rounded-circle border-light flex-shrink-0 px-3"><i
+                                        class="bi bi-arrow-down h4 text-light my-1"></i></span><span
+                                    class="ms-3 text-light fw-medium">View templates</span>
+                            </a>
+                            <hr class="hr-light mt-0 mb-5">
+                            <div class="row">
+                                <div class="col-sm-4 mb-4 mb-sm-0">
+                                    <div class="h1 text-light mb-1">14</div>
+                                    <div class="h5 text-light fw-normal opacity-70 mb-2">Demo Homepages</div>
+                                </div>
+                                <div class="col-sm-4 mb-4 mb-sm-0">
+                                    <div class="h1 text-light mb-1">50+</div>
+                                    <div class="h5 text-light fw-normal opacity-70 mb-1">Flexible Components</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="h1 text-light mb-1">47</div>
+                                    <div class="h5 text-light fw-normal opacity-70 mb-1">Inner Page Templates</div>
+                                </div>
+                            </div>
+                </div>
+            
+    </div>
+</section>
+
+<section class="bg-secondary" id="templates">
+    <div class="container pt-5 pb-4 py-md-6 py-lg-7">
+        <div class="text-center mb-5 pt-3 pt-lg-4">
+            <h2 class="h1 mb-4">Homepage <span class='bg-faded-primary rounded text-primary px-3 py-2'>Demos</span></h2>
+            <p class="text-muted">Choose from pre-built layouts of our unique homepage demos</p>
+        </div>
+        <form action="./template" method="post">
+                <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-grid-gutter pb-3 temp btn"
+                        data="temp1">                        
+                        <div class="card card-hover border-0 shadow-lg mb-4">
+                                <img class="card-img"
+                                src="img/demo/presentation/demos/business-consulting.jpg" 
+                                alt="Business Consulting">
+                        </div>
+                        <h3 class="h5 nav-heading-title mb-0">
+                                Business Consulting
+                        </h3>
+                        <span class="fs-sm fw-normal text-muted">
+                                Corporate, Business, Agency
+                        </span>
+                        </div>
+                <div class="col-lg-4 col-sm-6 mb-grid-gutter pb-3 temp btn"
+                        data="temp2">                        
+                        <div class="card card-hover border-0 shadow mb-4"><img class="card-img"
+                                src="img/demo/presentation/demos/shop-homepage.jpg" alt="Shop Homepage"></div>
+                        <h3 class="h5 nav-heading-title mb-0">Shop Homepage</h3><span
+                                class="fs-sm fw-normal text-muted">E-Commerce, Retail, Electronics, Fashion</span>
+                        </div>
+                <div class="col-lg-4 col-sm-6 mb-grid-gutter pb-3 temp btn"
+                        data="temp3">                        
+                        <div class="card card-hover border-0 shadow-lg mb-4"><img class="card-img"
+                                src="img/demo/presentation/demos/booking.jpg" alt="Booking &amp;amp; Directory"></div>
+                        <h3 class="h5 nav-heading-title mb-0">Booking / Directory</h3><span
+                                class="fs-sm fw-normal text-muted">Listings, Flights, Destinations</span>
+                        </div>
+                <div class="col-lg-4 col-sm-6 mb-grid-gutter pb-3 temp btn" data="temp4">
+                        <div class="card card-hover border-0 shadow-lg mb-4"><img class="card-img"
+                                        src="img/demo/presentation/demos/creative-agency.jpg" alt="Creative Agency"></div>
+                        <h3 class="h5 nav-heading-title mb-0">Creative Agency</h3><span class="fs-sm fw-normal text-muted">Creative
+                                Business, Portfolio, Agency</span>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-grid-gutter pb-3">
+                       <button disabled class="btn" type="submit">Next <i class="bi bi-arrow-right"></i></button>
+                </div>
+                </div>
+                
+                
+                <input type="hidden" name=template>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+{% block script %}
+<script>
+        inp= document.querySelector('input')
+        temps= document.querySelectorAll('.temp')
+        next=document.querySelector('button')
+        temps.forEach(element => {
+                element.onclick=()=>{
+                        element.classList.add('selected')
+                        inp.value=element.getAttribute('data')
+                        next.classList.add('btn-primary')
+                        next.removeAttribute('disabled')
+                        for (let i of temps){
+                                if (i!=element){
+                                        i.classList.remove('selected')
+                                }
+                        }
+                }
+        });
+</script>
+{% endblock %}
