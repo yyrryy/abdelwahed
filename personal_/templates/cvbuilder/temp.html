@@ -1,0 +1,65 @@
+{% extends 'cvbuilder/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <br>
+
+        <form method="POST" action="{{url_for('cvbuilder.result', id=id)}}">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <input type="file" class="form-control" name="img" placeholder="img">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <input type="text" 
+                    class="form-control" 
+                    id="validationTooltip01" 
+                    placeholder="First name"
+                    required>
+                    
+                </div>
+                <div class="col-md-3 mb-3">
+                    <input type="text" 
+                    class="form-control" 
+                    id="validationTooltip02" 
+                    placeholder="Last name" 
+                        required>
+                    
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username"
+                            aria-describedby="validationTooltipUsernamePrepend" required>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
+                    
+                </div>
+                <div class="col-md-3 mb-3">
+                    <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
+                    
+                </div>
+                <div class="col-md-3 mb-3">
+                    <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
+                    
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <input type="file" class="form-control" id="exampleFormControlFile1">
+            </div>
+
+            <button class="btn btn-success" type="submit">Build <i class="bi bi-tools"></i> </button>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}

@@ -706,42 +706,41 @@
         
         
                     <div class="row">
-                        {% if posts %}
                         {% for i in posts %}
-                        <div class="col-lg-4 mb-5 ">
-                            {% if i.lang == 'ar' %}
-                            <div class="card text-center" style="direction:rtl">
-                                {% else %}
-                                <div class="card text-center">
-                                    {% endif %}
-                                    <div class="card-header">
-                                        {{i.votes}} Votes
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{i.title}}</h5>
-                                        <p class="card-text">
-                                            {{i.slogan}}.
-                                        </p>
-                                        {% if i.lang == 'ar' %}
-                                        <a href="/blog/post/{{i.id}}/{{i.title}}" class="btn btn-primary">اقرأ</a>
-                                        {% else %}
-                                        <a href="/blog/post/{{i.id}}/{{i.title}}" class="btn btn-primary">Lire</a>
-                                        {% endif %}
-                                    </div>
-                                    <div class="card-footer text-muted">
-                                        {{i.date.strftime('%d/%m/%Y')}}
+                        <div class="col-lg-3 col-md-6 portfolio-item filter-{{i.cat}}">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{i.title}}</h5>
+                                    <p class="card-text">{{i.slogan}}</p>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <small>
+                                            {{i.date.strftime('%d/%m/%Y')}}
+                                        </small>
+                                        
+                                        <small>
+                                            {{i.votes}} Votes
+                                        </small>
                                     </div>
                                 </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="btn btn-primary list-group-item">
+                                        {% if i.lang == 'ar' %}
+                                        <a href="/blog/post/{{i.id}}/{{i.title}}">اقرأ</a>
+                                        {% else %}
+                                        <a href="/blog/post/{{i.id}}/{{i.title}}">Read</a>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                        
                             </div>
-                            {% endfor %}
-                            {% else %}
-                            <p>
-                                No posts yet
-                            </p>
-                            {% endif %}
+                        </div>
+                        
+                        {% endfor %}
+                            
                             
         
                         </div>
+                        <br>
                         <a href="/blog" class="btn btn-primary">
                             View all
                         </a>

@@ -2,8 +2,7 @@ from flask import (
     render_template,
     request,
     Blueprint)
-
-
+from PIL import Image
 cvbuilder = Blueprint('cvbuilder', __name__, url_prefix='/cvbuilder')
 
 
@@ -14,10 +13,14 @@ def home():
 
 @cvbuilder.route('/template', methods=['Post', 'Get'])
 def template():
-    template= request.form['template']
-    return render_template('cvbuilder/template.html', title='Information')
+    id= request.form['template']
+    return render_template('cvbuilder/temp.html', 
+    title='Information',
+    id=id)
 
 
-@cvbuilder.route('/finalresul/<int:template>')
-def finalresult(template):
-    return 'final result'
+@cvbuilder.route('/result/<int:id>')
+def result(id):
+    img= Image.open(request.form['img'])
+    return render_template('cvbuilder/res'+str(id)+'.html',
+    title="result")
