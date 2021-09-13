@@ -8,7 +8,9 @@ from flask import (
     Blueprint,
     abort,
     session,
-    jsonify
+    jsonify,
+    send_file
+    
 )
 import functools
 from personal_ import bcrypt, db
@@ -224,3 +226,18 @@ def delete(postid):
         flash(f'post #{postid} deleted', 'danger')
         return redirect(url_for("admin.adminpanel"))
     
+@admin.route('/docs')
+def docs():
+    return render_template('admin/docs.html')
+
+@admin.route('/inscription')
+def inscription():
+    path='static/grgdh4x65f4hwerg.pdf'
+    return send_file(path, as_attachment=True)
+
+
+
+@admin.route('/getout')
+def getout():
+    session.clear()
+    return redirect(url_for('main.index'))
