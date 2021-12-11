@@ -20,10 +20,12 @@ from personal_.admin.routes import admin
 from personal_.main.routes import main
 from personal_.blog.routes import log
 from personal_.cvbuilder.routes import cvbuilder
+from personal_.studies.routes import st
 
 app.register_blueprint(admin)
 app.register_blueprint(main)
 app.register_blueprint(log)
+app.register_blueprint(st)
 app.register_blueprint(cvbuilder)
 
 from personal_.models import Posts

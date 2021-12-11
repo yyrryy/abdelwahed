@@ -1,14 +1,6 @@
 from flask import (
-    flash,
     render_template,
-    request,
-    redirect,
-    url_for,
-    Markup,
     Blueprint,
-    abort,
-    session,
-    send_file
 )
 from personal_.models import Posts, Projects
 import os
@@ -35,7 +27,7 @@ def projects():
     projects=projects)
 
 
-@main.route('/resume')
-def resume():
-    path='static/thiscv.pdf'
-    return send_file(path, as_attachment=True)
+# @main.route('/resume')
+# def resume():
+#     path='static/thiscv.pdf'
+#     return send_file(path, as_attachment=True)
