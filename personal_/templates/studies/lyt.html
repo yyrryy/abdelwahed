@@ -9,17 +9,83 @@
     
     <link rel="stylesheet" href="/static/css/bootstrap-icons.css">
     <!-- Favicons -->
-    <link href="../static/images/fav.jpg" rel="icon">
+    <link href="/static/images/fav.jpg" rel="icon">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;900&display=swap" rel="stylesheet">
     <style>
-        body{
-            background: aliceblue;
+        .tabs {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    
+        .tab {
+            margin-top: 2px;
+            width: 100%;
+            color: white;
+            overflow: hidden;
+        }
+    
+        .tab-label {
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            background: #2c3e50;
+            font-weight: bold;
+            cursor: pointer;
+            /* Icon */
+        }
+    
+        .tab-label:hover {
+            background: #1a252f;
+        }
+    
+        .tab-label::after {
+            content: "❯";
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transition: all 0.35s;
+        }
+    
+        .tab-content {
+            max-height: 0;
+            padding: 0 1em;
+            color: #2c3e50;
+            background: white;
+            transition: all 0.35s;
+        }
+    
+        .tab-close {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1em;
+            font-size: 0.75em;
+            background: #2c3e50;
+            cursor: pointer;
+        }
+    
+        .tab-close:hover {
+            background: #1a252f;
+        }
+    
+        input:checked+.tab-label {
+            background: #1a252f;
+        }
+    
+        input:checked+.tab-label::after {
+            transform: rotate(90deg);
+        }
+    
+        input:checked~.tab-content {
+            max-height: 100vh;
+            padding: 1em;
         }
     </style>
+    {% block css %}
+    {% endblock %}
     <script src="/static/js/jquery.min.js"></script>
 
 </head>
