@@ -54,10 +54,10 @@ def grammar():
 
 @st.route('/guided')
 def guided():
-    return render_template('studies/guided.html')
+    return render_template('studies/guided.html', title='Terms')
 
 
 
 @st.route('/guided/shorts')
 def shorts():
-    return render_template('studies/shorts.html')
+    return render_template('studies/shorts.html', title='Short stories')
