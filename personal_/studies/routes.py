@@ -33,18 +33,6 @@ def transcribe():
             'mp':mp
         })
 
-<<<<<<< HEAD
-@st.route('/stree', methods=['POST'])
-def stress():
-    if request.method == "POST":
-        word=request.form['word']
-        print(word)
-        mp, tran= tr(word)
-        return jsonify({
-            'tran':tran,
-            'mp':mp
-        })
-=======
 
 @st.route('/stress', methods=['POST'])
 def stress():
@@ -82,4 +70,3 @@ def guided():
 @st.route('/guided/shorts')
 def shorts():
     return render_template('studies/shorts.html', title='Short stories')
->>>>>>> 308cdd0e1483947b66119f7617d4ee310b8d979a

@@ -3,10 +3,10 @@
 {% block css %}
 <style>
     .Ans_st {
-    text-decoration: underline;
-    font-style: italic;
-    color: #a80404;
-}
+        text-decoration: underline;
+        font-style: italic;
+        color: #a80404;
+    }
 </style>
 {% endblock %}
 
@@ -28,13 +28,13 @@
 
             </div>
             <div class="res">
-                
+
             </div>
             <hr>
 
             <div class="mt-5">
                 Words stress
-                
+
 
                 <div class="d-flex">
                     <input type="text" class="form-control" name="stress">
@@ -44,7 +44,7 @@
 
                 </div>
                 <div class="res2">
-                    
+
                 </div>
                 <hr>
 
@@ -59,11 +59,11 @@
                 <button class="btn btn-primary stress position-absolute top-0 end-0">
                     get
                 </button>
-            
+
             </div>
             <hr>
             <div class="res2">
-            
+
             </div>
         </div>
     </div>
@@ -80,11 +80,7 @@
 
     trbtn.click(() => {
         $('.res').text('Waiting...')
-<<<<<<< HEAD
-        w = trinp.val()
-=======
         w=trinp.val()
->>>>>>> 308cdd0e1483947b66119f7617d4ee310b8d979a
         $.ajax({
             type: "POST",
             url: "{{url_for('studies.transcribe')}}",
@@ -92,93 +88,31 @@
             success: (res) => {
                 trinp.val('')
                 $('.res').html(`
-<<<<<<< HEAD
-                Transcription:
-                <div class="tr"></div>
-                    ${res.tran}
-                <div class="mt-3">
-                    Audio:
-                    <div class="audio">
-                        
-                        <audio id="audio_uk" preload="auto">
-                            <source src="${res.mp}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
-                    
-                </div>`)
-            },
-            error: (err) => {
-                $('.res').html(`
-                <p>Error, pls try again or check the word</p>`)
-            },
-
-        });
-    })
-
-
-    strinp = $('input[name=transcribe]')
-    strbtn = $('.transcribe')
-    strbtn.click(() => {
-        $('.res').text('Waiting...')
-        w = strinp.val()
-        $.ajax({
-            type: "POST",
-            url: "{{url_for('studies.stress')}}",
-            data: { 'word': w },
-            success: (res) => {
-                strinp.val('')
-                $('.res').html(`
-            Transcription:
-            <div class="tr"></div>
-                ${res.tran}
-            <div class="mt-3">
-                Audio:
-                <div class="audio">
-                    
-                    <audio id="audio_uk" preload="auto">
-                        <source src="${res.mp}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
-                
-            </div>`)
-            },
-            error: (err) => {
-                $('.res').html(`
-            <p>Error, pls try again or check the word</p>`)
-            },
-=======
                     ${w}:
                     <div class="tr"></div>
                         ${res.tran}
                     <div class="mt-3">
                         Audio:
                         <div class="audio">
-                            
+
                             <audio id="audio_uk" preload="auto">
                                 <source src="${res.mp}" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
-                        
+
                     </div>`)
             },
             error:()=>{
                 $('.res').html('Somting went wrong')
             }
-            
->>>>>>> 308cdd0e1483947b66119f7617d4ee310b8d979a
+
 
         });
     })
 
 
-<<<<<<< HEAD
-=======
     strinp = $('input[name=stress]')
     strbtn = $('.stress')
     strbtn.click(() => {
@@ -195,7 +129,7 @@
                     <div>
                         <p>N. syllables: ${res.n}</p>
                         <p>${res.s}</p>
-                        <p>Stress: ${res.press}</p> 
+                        <p>Stress: ${res.press}</p>
                     </div>
                     `)
                 },
@@ -204,6 +138,5 @@
                 }
             });
         })
->>>>>>> 308cdd0e1483947b66119f7617d4ee310b8d979a
 </script>
 {% endblock %}

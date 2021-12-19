@@ -443,7 +443,7 @@ display(terms)
 searchinp.on('input', (e)=>{
     tar=searchinp.val()
     let filtered= tar?terms.filter(term=>{
-        return term.t.toLowerCase().includes(tar)
+        return term.t.toLowerCase().includes(tar.toLowerCase());
     }):terms
     display(filtered)
 })

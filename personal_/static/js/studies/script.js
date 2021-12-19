@@ -173,7 +173,7 @@ searchinp.focus()
 searchinp.on('input', (e)=>{
     tar=searchinp.val().toLowerCase()
     let filtered= tar?stories.filter(story=>{
-        return story.title.toLowerCase().includes(tar)
+        return story.title.toLowerCase().includes(tar.toLowerCase());
     }):stories
     display(filtered)
 })
