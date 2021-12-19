@@ -42,9 +42,6 @@ def strss(w):
     'user-agent': choice(uag)
     }
 
-    h={
-    'user-agent': choice(uag)
-    }
     data=req.get('https://www.howmanysyllables.com/words/'+w, headers=h).content.decode('utf-8')
     sp=bs(data, 'html.parser')
     root=sp.find('div', {'id':'Syllables'})
@@ -55,5 +52,16 @@ def strss(w):
     
 
     
+def verb(v):
+    url="https://pasttenses.com/{}-past-tense"
+    uag=['Mozilla/5.0 (X11; CrOS x86_64 13982.88.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.162 Safari/537.36', 'Mozilla/5.0 (X11; CrOS x86_64 13597.94.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.186 Safari/537.36', 'Mozilla/5.0 (X11; CrOS x86_64 13597.105.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.208 Safari/537.36', 'Mozilla/5.0 (X11; CrOS x86_64 13904.97.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.167 Safari/537.36', 'Mozilla/5.0 (X11; CrOS x86_64 14092.66.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.95 Safari/537.36', 'Mozilla/5.0 (X11; CrOS x86_64 13729.56.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.95 Safari/537.36']
+    h={
+    'user-agent': choice(uag)
+    }
 
+    data=req.get(url.format(v), headers=h).content.decode('utf-8')
+    sp=bs(data, 'html.parser')
+    root=sp.find_all('table')
+    data=[str(i) for i in root]
+    return data
 

@@ -5,7 +5,7 @@ from flask import (
 )
 from flask.json import jsonify
 
-from personal_.studies.funcs import strss, tr
+from personal_.studies.funcs import strss, tr, verb
 
 
 
@@ -46,10 +46,19 @@ def stress():
             'press':str(press)
         })
 
+@st.route('/getverb', methods=['POST'])
+def getverb():
+    if request.method == "POST":
+        word=request.form['word']
+        data= verb(word)
+        return jsonify({
+            "data":data
+        })
+
 
 @st.route('/grammar')
 def grammar():
-    return render_template('studies/grammar.html')
+    return render_template('studies/grammar.html', title='Grammar tenses')
 
 
 @st.route('/guided')

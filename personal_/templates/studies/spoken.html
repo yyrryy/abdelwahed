@@ -11,19 +11,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-7  me-2 mb-2">
+<div class="row justify-content-between">
+    <div class="col-md-8 mb-2">
         <div class="card p-2">
-            sdd
+            lorem*500
         </div>
     </div>
     <div class="col-md-4 ">
         <div class="card p-2">
             Words transcription:
-            <div class="d-flex">
+            <div class="position-relative">
                 <input type="text" class="form-control" name="transcribe">
-                <button class="btn btn-primary tr">
-                    Transcribe
+                <button class="btn btn-primary tr position-absolute top-0 end-0">
+                    get
                 </button>
             
             </div>
@@ -34,10 +34,10 @@
         </div>
         <div class="card p-2 mt-3">
             Words stress
-            <div class="d-flex">
+            <div class="position-relative">
                 <input type="text" class="form-control" name="stress">
-                <button class="btn btn-primary stress">
-                    Stress
+                <button class="btn btn-primary stress position-absolute top-0 end-0">
+                    get
                 </button>
             
             </div>
@@ -60,14 +60,12 @@
     trbtn.click(()=>{
         $('.res').text('Waiting...')
         w=trinp.val()
-        console.log(w)
         $.ajax({
             type: "POST",
             url: "{{url_for('studies.transcribe')}}",
             data: {'word': w},
             success: (res)=>{
                 trinp.val('')
-                console.log(res)
                 $('.res').html(`
                     ${w}:
                     <div class="tr"></div>
@@ -84,7 +82,12 @@
                         <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
                         
                     </div>`)
+            },
+            error:()=>{
+                $('.res').html('Somting went wrong')
             }
+            
+
         });
     })
 
@@ -94,14 +97,12 @@
     strbtn.click(() => {
             $('.res2').text('Waiting...')
             w = strinp.val()
-            console.log(w)
             $.ajax({
                 type: "POST",
                 url: "{{url_for('studies.stress')}}",
                 data: { 'word': w },
                 success: (res) => {
                     strinp.val('')
-                    console.log(res)
                     $('.res2').html(`
                     ${w}:
                     <div>
@@ -110,6 +111,9 @@
                         <p>Stress: ${res.press}</p> 
                     </div>
                     `)
+                },
+                error:()=>{
+                    $('.res2').html('Somting went wrong')
                 }
             });
         })

@@ -2,164 +2,220 @@
 
 {% block css %}
 <style>
-
+    .answer{
+        font-size: 18px;
+        color:rgb(187, 70, 27);
+        font-weight: bold;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
+
 <div class="row">
-    <div class="mb-2">
+    <div class="col-md-8 mb-3">
         <div class="card p-2">
-            <p><u><b>- Simple tenses:</b></u></p>
-            <ul>
-                <li>Simple prensent:
-                    <p>
-                        Used to express events/situation that are exist always, usually abitually <br>
-                        Ex: 
-                        - it Snows in alaska
-                        - I watch television everyday (Abitually)
-
-                    </p>
-                </li>
-                <li>Simple past:
-                    <p>
-                        Expresses events that bigen and end in the past <br>
-                        Ex: it snowed yesterday
-                    </p>
-                </li>
-                <li>Simple future
-                    <p>
-                        Expresses events that bigen and end in the future <br>
-                        Ex: it will snow next week
-                    </p>
-                </li>
-
-            </ul>
-
-            <p><u><b>- Progressive tenses</b></u></p>
-            <ul>
-                <li>Present continiuos:
-                    <p>
-                        For action that began in the past, in progress now and probably will continue
-                        <br>
-                        Ex: 
-                        <u>
-                            Tom is sleeping right now
-                        </u> 
-                            
-                        (the action started in the past, happening right now, and my continued in the future)
-                    </p>
-                </li>
-                <li>Past continiuos:
-                    <p>
-                        For action that began in the past, in progress in a particullar moment in the past and probably continued after that particullar moment
-                        <br>
-                        Ex: 
-                        <u>
-                            Tom was sleeping when I arrived.
-                        </u> 
-                            
-                        (the sleep started before I arrived, happening when I arrived, and probably continiued after I arrived)
-                    </p>
-                </li>
-                <li>Future continiuos:
-                    <p>
-                        For action that will begin in the future, in progress in a particullar moment in the future and will probably after that particullar moment
-                        <br>
-                        Ex: 
-                        <u>
-                            Tom well be sleeping when we arrive
-                        </u> 
-                            
-                        (the action will start in the fututre, happening when I will arrive, and probably will continue after I arrived)
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="mt-3">
-        <div class="card p-2">
-            <h1>
-                <u>Exercices</u>
-            </h1>
-
+            <div>
+                <h1 class="title text-center">
+                    Present
+                </h1>
+                <div class="tabs">
+                    <div class="tab">
+                        <input hidden type="checkbox" id="simple">
+                        <label class="tab-label" for="simple">Simple</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input hidden type="checkbox" id="perfect">
+                        <label class="tab-label" for="perfect">Perfect</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input hidden type="checkbox" id="continiuos">
+                        <label class="tab-label" for="continiuos">Continious</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+                <h1 class="title text-center">
+                    Past
+                </h1>
+                <div class="tabs">
+                    <div class="tab">
+                        <input hidden type="checkbox" id="pssimple">
+                        <label class="tab-label" for="pssimple">Simple</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input hidden type="checkbox" id="psperfect">
+                        <label class="tab-label" for="psperfect">Perfect</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input hidden type="checkbox" id="pscontiniuos">
+                        <label class="tab-label" for="pscontiniuos">Continious</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+                <h1 class="title text-center">
+                    Future
+                </h1>
+                <div class="tabs">
+                    <div class="tab">
+                        <input hidden type="checkbox" id="fts">
+                        <label class="tab-label" for="fts">Simple</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input hidden type="checkbox" id="ftp">
+                        <label class="tab-label" for="ftp">Perfect</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input hidden type="checkbox" id="ftc">
+                        <label class="tab-label" for="ftc">Continious</label>
+                        <div class="tab-content">
+                            <li>
+                                Use:
+                            </li>
+                            <li>
+                                Example:
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <hr class="mt-5">
+            
+            <div class="exholder">
+            
+            
+            
+            </div>
             <div class="d-flex justify-content-between">
-                <a disables>
-                    Pre.
-                </a>
-                <a href="grammar/present-past-simple-progressive">
-                    Next
-                </a>
+                <button class="btn btn-secondary" disabled>
+                    <<
+                </button>
+                        <a href="./grammar/test" class="btn btn-secondary">Modals >></a>
             </div>
         </div>
     </div>
-    
+
+
+
+    <div class="col-md-4 position-relative">
+        <div class="card position-sticky top-0">
+            <div class="position-relative">
+                <input type="text" name='verb' class="form-control" placeholder="Write a verbe">
+                <button class="btn get position-absolute top-0 end-0 btn-primary">Get</button>
+            </div>
+            <div class="res p-2" style="height: 30vh; overflow-y: scroll;">
+            
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
+
+
+
 
 {% endblock %}
 
 
 
 {% block js %}
+<script src="/static/js/studies/grammar.js"></script>
 <script>
-    trinp=$('input[name=transcribe]')
-    trbtn=$('.tr')
-    trbtn.click(()=>{
+    verbinp=$('input[name=verb]')
+    verbbtn=$('.get')
+    verbbtn.click(()=>{
         $('.res').text('Waiting...')
-        w=trinp.val()
-        console.log(w)
+        w=verbinp.val()
         $.ajax({
             type: "POST",
-            url: "{{url_for('studies.transcribe')}}",
+            url: "{{url_for('studies.getverb')}}",
             data: {'word': w},
             success: (res)=>{
-                trinp.val('')
-                console.log(res)
+                verbinp.val('')
+                
                 $('.res').html(`
-                    ${w}:
-                    <div class="tr"></div>
-                        ${res.tran}
-                    <div class="mt-3">
-                        Audio:
-                        <div class="audio">
-                            
-                            <audio id="audio_uk" preload="auto">
-                                <source src="${res.mp}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
-                        
-                    </div>`)
+                    ${res.data.join('<br><br>')}
+                    `)
+            },
+            error: (err)=>{
+                
+                $('.res').html('No results')
             }
         });
     })
 
 
-    strinp = $('input[name=stress]')
-    strbtn = $('.stress')
-    strbtn.click(() => {
-            $('.res2').text('Waiting...')
-            w = strinp.val()
-            console.log(w)
-            $.ajax({
-                type: "POST",
-                url: "{{url_for('studies.stress')}}",
-                data: { 'word': w },
-                success: (res) => {
-                    strinp.val('')
-                    console.log(res)
-                    $('.res2').html(`
-                    ${w}:
-                    <div>
-                        <p>N. syllables: ${res.n}</p>
-                        <p>${res.s}</p>
-                        <p>Stress: ${res.press}</p> 
-                    </div>
-                    `)
-                }
-            });
-        })
 </script>
 {% endblock %}
