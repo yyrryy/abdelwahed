@@ -9,18 +9,39 @@
     </div>
     <div class="col-md-4 ">
         <div class="card p-2">
-
+            Words Transcription
+            
             <div class="d-flex">
                 <input type="text" class="form-control" name="transcribe">
-                <button class="btn btn-primary tr">
+                <button class="btn btn-primary transcribe">
                     Transcribe
                 </button>
-            
+
+            </div>
+            <div class="res">
+                
             </div>
             <hr>
-            <div class="res">
-        
+
+            <div class="mt-5">
+                Words stress
+                
+
+                <div class="d-flex">
+                    <input type="text" class="form-control" name="stress">
+                    <button class="btn btn-primary stress">
+                        Stress
+                    </button>
+
+                </div>
+                <div class="res2">
+                    
+                </div>
+                <hr>
+
             </div>
+
+
         </div>
     </div>
 </div>
@@ -31,37 +52,80 @@
 
 {% block js %}
 <script>
-    trinp=$('input[name=transcribe]')
-    trbtn=$('.tr')
-    trbtn.click(()=>{
+    trinp = $('input[name=transcribe]')
+    trbtn = $('.transcribe')
+
+    trbtn.click(() => {
         $('.res').text('Waiting...')
-        w=trinp.val()
-        console.log(w)
+        w = trinp.val()
         $.ajax({
             type: "POST",
             url: "{{url_for('studies.transcribe')}}",
-            data: {'word': w},
-            success: (res)=>{
+            data: { 'word': w },
+            success: (res) => {
                 trinp.val('')
-                console.log(res)
                 $('.res').html(`
-                    Transcription:
-                    <div class="tr"></div>
-                        ${res.tran}
-                    <div class="mt-3">
-                        Audio:
-                        <div class="audio">
-                            
-                            <audio id="audio_uk" preload="auto">
-                                <source src="${res.mp}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
+                Transcription:
+                <div class="tr"></div>
+                    ${res.tran}
+                <div class="mt-3">
+                    Audio:
+                    <div class="audio">
                         
-                    </div>`)
-            }
+                        <audio id="audio_uk" preload="auto">
+                            <source src="${res.mp}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
+                    
+                </div>`)
+            },
+            error: (err) => {
+                $('.res').html(`
+                <p>Error, pls try again or check the word</p>`)
+            },
+
         });
     })
+
+
+    strinp = $('input[name=transcribe]')
+    strbtn = $('.transcribe')
+    strbtn.click(() => {
+        $('.res').text('Waiting...')
+        w = strinp.val()
+        $.ajax({
+            type: "POST",
+            url: "{{url_for('studies.stress')}}",
+            data: { 'word': w },
+            success: (res) => {
+                strinp.val('')
+                $('.res').html(`
+            Transcription:
+            <div class="tr"></div>
+                ${res.tran}
+            <div class="mt-3">
+                Audio:
+                <div class="audio">
+                    
+                    <audio id="audio_uk" preload="auto">
+                        <source src="${res.mp}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <span class='h1' onclick="document.getElementById('audio_uk').play()">▷</span>
+                
+            </div>`)
+            },
+            error: (err) => {
+                $('.res').html(`
+            <p>Error, pls try again or check the word</p>`)
+            },
+
+        });
+    })
+
+
 </script>
 {% endblock %}

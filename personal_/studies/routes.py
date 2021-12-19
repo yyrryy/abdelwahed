@@ -33,3 +33,14 @@ def transcribe():
             'tran':tran,
             'mp':mp
         })
+
+@st.route('/stree', methods=['POST'])
+def stress():
+    if request.method == "POST":
+        word=request.form['word']
+        print(word)
+        mp, tran= tr(word)
+        return jsonify({
+            'tran':tran,
+            'mp':mp
+        })
