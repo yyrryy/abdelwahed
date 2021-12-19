@@ -1,0 +1,105 @@
+{% extends "studies/lyt.html" %}
+
+{% block css %}
+<style>
+    .index{
+        position: sticky;
+    }
+    @media (max-width:768px){
+        .index{
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    <div class="mb-2 col-md-3 position-relative">
+        <div class="card p-2 position-sticky top-0">
+            <p><a href="/studies/guided">Terms</a></p>
+            <p>
+                <a href="/studies/guided/shorts">Short stories</a>
+            
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-2 col-md-9">
+        <!-- <div class="col-md-2 d-flex flex-md-column index ">
+            <a href='#A'>A</a>
+            <a href='#B'>B</a>
+            <a href='#C'>C</a>
+            <a href='#D'>D</a>
+            <a href='#E'>E</a>
+            <a href='#F'>F</a>
+            <a href='#G'>G</a>
+            <a href='#H'>H</a>
+            <a href='#I'>I</a>
+            <a href='#J'>J</a>
+            <a href='#K'>K</a>
+            <a href='#L'>L</a>
+            <a href='#M'>M</a>
+            <a href='#N'>N</a>
+            <a href='#O'>O</a>
+            <a href='#P'>P</a>
+            <a href='#Q'>Q</a>
+            <a href='#R'>R</a>
+            <a href='#S'>S</a>
+            <a href='#T'>T</a>
+            <a href='#U'>U</a>
+            <a href='#V'>V</a>
+            <a href='#W'>W</a>
+            <a href='#X'>X</a>
+            <a href='#Y'>Y</a>
+            <a href='#Z'>Z</a>
+        </div> -->
+
+
+        
+        <div class="card p-2">
+            <div class="searchholder">
+                <input type="text" class="form-control search" placeholder="Search for a term">
+            </div>
+            
+
+            <div class="row mt-5 terms">
+                
+                
+            </div>
+
+            <div class=" p-2">
+                <div class="layout-wrapper-2018 " role="main" aria-label="main">
+            
+                    <div class="layout-wrapper-2018__column layout-wrapper-2018__column--main   ">
+            
+            
+                        <div class="orders">
+            
+                        </div>
+            
+                        
+            
+            
+                    </div>
+            
+            
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</div>
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="/static/js/studies/guided.js"></script>
+
+{% endblock %}

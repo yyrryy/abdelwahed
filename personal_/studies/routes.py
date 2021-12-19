@@ -5,7 +5,7 @@ from flask import (
 )
 from flask.json import jsonify
 
-from personal_.studies.funcs import tr
+from personal_.studies.funcs import strss, tr, verb
 
 
 
@@ -27,13 +27,13 @@ def spoken():
 def transcribe():
     if request.method == "POST":
         word=request.form['word']
-        print(word)
         mp, tran= tr(word)
         return jsonify({
             'tran':tran,
             'mp':mp
         })
 
+<<<<<<< HEAD
 @st.route('/stree', methods=['POST'])
 def stress():
     if request.method == "POST":
@@ -44,3 +44,42 @@ def stress():
             'tran':tran,
             'mp':mp
         })
+=======
+
+@st.route('/stress', methods=['POST'])
+def stress():
+    if request.method == "POST":
+        word=request.form['word']
+        ns, s, press= strss(word)
+        print(ns)
+        return jsonify({
+            'n':str(ns),
+            's':str(s),
+            'press':str(press)
+        })
+
+@st.route('/getverb', methods=['POST'])
+def getverb():
+    if request.method == "POST":
+        word=request.form['word']
+        data= verb(word)
+        return jsonify({
+            "data":data
+        })
+
+
+@st.route('/grammar')
+def grammar():
+    return render_template('studies/grammar.html', title='Grammar tenses')
+
+
+@st.route('/guided')
+def guided():
+    return render_template('studies/guided.html', title='Terms')
+
+
+
+@st.route('/guided/shorts')
+def shorts():
+    return render_template('studies/shorts.html', title='Short stories')
+>>>>>>> 308cdd0e1483947b66119f7617d4ee310b8d979a
