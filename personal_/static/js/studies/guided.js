@@ -4,30 +4,36 @@ let termsimp = $(".termsimp");
 searchinp.focus()
 
 let important = [
+   {
+    t: "Allegory",
+    d: "<p>Aliterary work in which nearly all of the characters, events, settings, and other literalelements ofthe story have a second, symbolic meaning. In most cases, allegories advance a very clear morallesson.",
+  },
   {
     t: "Characterization",
     d: "<p>Any oft he various techniques used by an author to reveal the traits of a character to the reader.</p><p><em>Although Satan is the antagonist in John Milton�s</em>Paradise Lost<em>, many readers feelthat Milton�s <strong>characterization</strong> of Satan portrays him in a heroiclight.</em></p><p><strong></strong></p>",
   },
   {
-    t: "Point of view",
+  t: "Climax",
+  d: "<p>Thepoint of highest tension in a story, in which the main conflict is faced and ultimatelyresolved.</p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;line-height:150%;text-align:justify;><em>In William Golding�s</em>Lord of the Flies, <em>the climax occurs after Ralph and Piggydemand that Jack return Piggy�s stolen glasses. When Jack�s tribe kills Piggy and forcesRalphto flee into the jungle, it becomes clear that Jack has triumphed over Ralph in theirstrugglefor supremacy on the island.</em></p><p><strong></strong></p>",
+  },
+  {
+    t: "Falling Action",
+   d: "the section of the plot following the climax, in which the tension stemming from the story's central conflict decreases and the story moves toward its conclusion.",
+   },
+   {
+      t:"Plot",
+      d:"the sequence of interconnected events within the story of a play, novel, film, epic, or other narrative literary work. More than simply an account of what happened, plot reveals the cause-and-effect relationships between the events that occur."
+   },
+  {
+     t: "Point of view",
     d: "The perspective from which the events of a story are reported to the reader or audience. there are three basic types of <strong>point of view</strong>: first-person, <span style=text-decoration-style:double; text-decoration-line:underline; text-decoration-color:blue;>third-person</span>,and less commonly, second-person. In first-person, the narrator is a witness, participant,andchronicler of the action. In <span style=text-decoration-style:double; text-decoration-line:underline; text-decoration-color:blue;>third-person</span>,the narrator observes and reports on the actions of the characters, but is not herself acharacter. This narrator can be omniscient, where they have full knowledge of all charactersandsituations, or limited, where they only have knowledge of one character�s perspective. In<span style=text-decoration-style:double; text-decoration-line:underline; text-decoration-color:blue;>second-person</span>,the narrator addresses the reader as �you,� effectively drawing the reader into the action of the story.",
   },
   {
     t: "Symbolism",
     d: "a literary device in which a writer uses one thing—usually a physical object or phenomenon—to represent something more abstract. A strong symbol usually shares a set of key characteristics with whatever it is meant to symbolize, or is related to it in some other way. Characters and events can also be symbolic. A famous example of a symbol in literature occurs inTo Kill a Mockingbird, when Atticus tells his children Jem and Scout that it's a sin to kill a mockingbird because mockingbirds cause no harm to anyone; they just sing. Because of these traits, mockingbirds in the novel symbolize innocence and beauty, while killing a mockingbird symbolizes an act of senseless cruelty.",
   },
-  {
-    t: "Allegory",
-    d: "<p>Aliterary work in which nearly all of the characters, events, settings, and other literalelements ofthe story have a second, symbolic meaning. In most cases, allegories advance a very clear morallesson.",
-  },
-  {
-    t: "Climax",
-    d: "<p>Thepoint of highest tension in a story, in which the main conflict is faced and ultimatelyresolved.</p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;line-height:150%;text-align:justify;><em>In William Golding�s</em>Lord of the Flies, <em>the climax occurs after Ralph and Piggydemand that Jack return Piggy�s stolen glasses. When Jack�s tribe kills Piggy and forcesRalphto flee into the jungle, it becomes clear that Jack has triumphed over Ralph in theirstrugglefor supremacy on the island.</em></p><p><strong></strong></p>",
-  },
-  {
-    t: "Falling Action",
-    d: "the section of the plot following the climax, in which the tension stemming from the story's central conflict decreases and the story moves toward its conclusion.",
-  },
+  
+  
 ];
 let terms=[
    
