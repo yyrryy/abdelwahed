@@ -18,6 +18,9 @@
         body{
             background:#f0f1f5;
         }
+        .footer{
+            border-top-left-radius: 8.25rem !important;
+        }
         .title{
             background: #bbbbbc4a;
             padding: 5px;
@@ -87,7 +90,7 @@
         }
     
         input:checked~.tab-content {
-            max-height: 100vh;
+            max-height: 100%;
             padding: 1em;
             font-size: 17px;
             border: 1px solid;
@@ -99,7 +102,7 @@
     <script src="/static/js/jquery.min.js"></script>
 
 </head>
-<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0" class="d-flex flex-column min-vh-100">
     <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
     <header id="header" class="d-flex flex-column justify-content-center">
 
@@ -111,19 +114,19 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li><a href="/studies/spoken" class="nav-link"><i class="bi bi-person-badge"></i> <span>Spoken english</span></a>
+                <li><a href="/studies/spoken" class="nav-link"><i class="bi bi-bookmark-dash"></i> <span>Spoken english</span></a>
                 </li>
                 <!--
     
                     <li><a href="#resume" class="nav-link"><i class="bi bi-card-text"></i> <span>Resume</span></a>
                     </li>-->
-                <li><a href="/studies/grammar" class="nav-link"><i class="bi bi-archive"></i>
+                <li><a href="/studies/grammar" class="nav-link"><i class="bi bi-bookmark-dash"></i>
                     <span>Grammar</span></a></li>
-                <li><a href="/studies/study" class="nav-link"><i class="bi bi-archive"></i>
+                <li><a href="/studies/study" class="nav-link"><i class="bi bi-bookmark-dash"></i>
                     <span>Study Skills</span></a></li>
-                <li><a href="/studies/guided" class="nav-link"><i class="bi bi-server"></i> <span>Guided reading</span></a>
+                <li><a href="/studies/guided" class="nav-link"><i class="bi bi-bookmark-dash"></i> <span>Guided reading</span></a>
                 </li>
-                <li><a href="/studies/writing" class="nav-link"><i class="bi bi-envelope"></i> <span>Writing</span></a>
+                <li><a href="/studies/writing" class="nav-link"><i class="bi bi-bookmark-dash"></i> <span>Writing</span></a>
 
                 <li><a href="/studies/reading" class="nav-link"><i class="bi bi-bookmark-dash"></i> <span>Reading comp.</span></a>
                 
@@ -138,10 +141,7 @@
                 
                 
                 </li>
-                <li><a class="nav-link"><i>©</i> <span>Handcrafted with ♫ in TIGMMI</span></a>
                 
-                
-                </li>
             </ul>
 
             <small>
@@ -150,13 +150,18 @@
         </nav><!-- .nav-menu -->
 
     </header>
-    <div class="ps-md-5 container pt-5 mt-5 mt-md-0">
+    <div class="ps-md-5 container pt-5 mt-5 mt-md-0 mb-3">
         
         {% block content %}
         {% endblock %}
         
         
+
+        
     </div>
+    <footer class="container p-3 footer bg-white text-center mt-auto">
+        © Handcrafted with ♫ in TIGMMI
+    </footer>
     <footer class="container">
     </footer>
     <script src="/static/js/main.min.js"></script>

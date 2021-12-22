@@ -4026,6 +4026,7 @@ fieldset:disabled .btn {
   color: #fff;
 }
 .card {
+  box-shadow: 1px 1px 11px 0px #9b9b9b;
   position: relative;
   display: flex;
   flex-direction: column;
