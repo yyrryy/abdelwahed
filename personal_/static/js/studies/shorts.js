@@ -1,11 +1,15 @@
 let stories=[
   {
       title: 'The lottery',
-      year:1948,
+      det:[
+        "Year: 1948",
+        "Author: Shirley Jackson",
+        "Genre: Realistic Fiction",
+      ],
       bio:'Jackson was born on December 14, 1916, in San Francisco, California, and grew up nearby in Burlingame, died on August 8, 1965',
       mood:"The story started with a peaceful, clam mood. Shortly after the lottery commences, the peaceful setting seems menacing and ominous. As the lottery gets underway, the mood of the story also becomes anxious and unsettling. When Tessie Hutchinson's name is called, the mood shifts to dreadful and violent as the community members prepare to stone her to death.",
-      setting:"",
-      conflict:"",
+      setting:"A rural small town, mid-twentieth century",
+      conflict:"There is conflict between Bill Hutchinson and Tessie about him not being able to choose a random slip of paper at his own pace. You also see conflict when Tessie is arguing with everyone towards the end of the story about “The Lottery” not being fair its cruelty.",
       themes: ['The Juxtaposition of Peace and Violence: ', 'Human Nature', 'Family Structure and Gender Roles', 'The Power of Tradition', 'Dystopian Society and Conformity'],
       summary: "It is June 27th, and a beautiful summer morning, and villagers begin to gather in their town square (the town is unnamed) for the annual lottery.<br><br> This village has only three hundred people, and so the lottery can be completed easily in a single day, and leave time for noon dinner.The children are enjoying their summer vacation. Bobby Martin, Harry Jones, and Dickie Delacroix gather a large pile of stones and defend them from the other boys.<br><br> Adults arrive and stand around talking: the men speak of farming and the weather, and the women greeting each other and gossiping. Eventually the women join their husbands and call to their children, so families are standing together as units.<br><br> Mr. Joe Summers arrives. Mr. Summers conducts the lottery, as well as the square dances, the teen club, and the Halloween Program. This civic engagement stems from his free time: his wife is a scold and he is childless, so the other villagers pity him.<br><br> He arrives in the square carrying the black box, followed by the postmaster, Mr. Graves, who is carrying a stool. Mr. Summers appeals to the crowd for help, and Mr. Martin and his oldest son Baxter come forward to hold the black box on the stool at the center of the square.<br><br> The original black box for the lottery has long since been lost, and the current box is well worn, but the villagers don’t like to upset tradition by replacing the box. Other aspects of the ritual of the lottery have also been lost or forgotten. Slips of paper, which were made up by Mr. Summers and Mr. Graves, have replaced the chips of wood in the box.<br><br> Lists are made of the households and the heads of each household, and Mr. Summers is sworn in as officiator of the lottery.Just as the drawing is about to begin, Mrs. Tessie Hutchinson arrives. She tells Mrs. Delacroix that she forgot what day it was. Tessie joins her husband Bill and Mr. Summers greets her cheerfully. Tessie makes a joke, and the villagers chuckle. <br><br> Mr. Summers points out that Clyde Dunbar is absent due to a broken leg, and his wife, Janey Dunbar, speaks up, saying, “wife draws for her husband.” Mr. Summers asks if she doesn’t have a grown son who could draw for their family, but Janey replies that Horace is only sixteen. Jack Watson, on the other hand, is old enough this year to draw on behalf of himself and his mother.<br><br> Mr. Summers reads the names and the men come forward when their names are called to draw a slip of paper from the box. Everyone holds his paper without looking at it. As the drawing progresses, Mrs. Delacroix and Mrs. Graves comment to each other that it seems as if no time has passed since the previous year’s lottery. The women watch as their husbands draw from the black box, and when Janey Dunbar steps forward for her turn, they encourage her.<br><br> Mr. Adams strikes up a conversation with Old Man Warner about the north village, which is talking of giving up the lottery. Old Man Warner proclaims this to be “foolishness.” He says that giving up the lottery is akin to going back to living in caves, or to nobody working any more. He says that “there’s always been a lottery” and that it’s “bad enough” to see the light-hearted tone Joe Summers takes as he runs the ritual.<br><br>  As Old Man Warner’s name is called, he reminds the crowd that it’s the seventy-seventh year he has been in the lottery.Once every man has drawn, the slips of paper are unfolded simultaneously and every one begins to ask, “who is it?” The word spreads through the crowd that Bill Hutchinson has the marked slip of paper.Tessie Hutchinson suddenly shouts at Mr. Summers, “you didn’t give him time enough to take any paper he wanted,” and, “it wasn’t fair!” Mrs. Delacroix and Mrs. Graves remind her to “be a good sport” and that they “all took the same chance.”<br><br>  Bill Hutchinson says, “shut up, Tessie.” Mr. Summers asks if there are any other households included with the Hutchinsons, and Tessie points out her daughter Eva and Eva’s husband Don, saying they ought to take their chance with everyone else. But Mr. Summers reminds Tessie that daughters draw with their husband’s family.<br><br> The Hutchinsons have three children: Bill Jr., Nancy, and little Davy. The children, Bill, and Tessie each draw another slip of paper from the black box. Mr. Graves helps little Davy draw and holds his paper for him. Nancy’s school friends watch as she goes forward to draw from the box. Tessie appeals to the people around her and looks around defiantly, but draws a slip of paper.<br><br> When Mr. Graves opens Davy’s paper and reveals that it is blank, the crowd sighs in relief. Bill Jr. and Nancy open theirs and, laughing, happily hold them up to the crowd. Bill’s slip of paper is blank as well. He goes over to his wife and forces the paper from her hand.<br><br>  It’s the marked slip, with a dot in pencil Mr. Summer drew the night before.Mr. Summers says, “let’s finish quickly.” The villagers have forgotten much of the original ritual, but they remember to use stones, which they gather up as they run at Tessie.<br><br>  Someone gives little Davy a few pebbles. Old Man Warner urges the crowd onward. Tessie cries, “it isn’t fair, it isn’t right,” before she is overwhelmed by the villagers and stoned to death.",
       chracters: ['Tessie Hutchinson (protagonist) ', 'Davy Hutchinson', 'Mr. Joe Summers', 'Old Man Warner', 'Mrs. Janey Dunbar', 'Jack Watson', 'Bill Hutchinson', 'Nancy Hutchinson', 'Bill Jr. Hutchinson', ''],
@@ -22,11 +26,22 @@ let stories=[
       ],
       point : 'The point of view of "The Lottery" is third-person omniscient, because the narrator reports the thoughts and feelings of multiple characters. Furthermore, the narrator is not a participant in the events that take place.',
 
-      symbols:['Stones', 'The Black Box', 'The marked slip of paper'],
+      symbols:[
+        "the lottery: represents any action, behavior, or idea that is passed down from one generation to the next that’s accepted and followed unquestioningly, no matter how illogical, bizarre, or cruel.",
+        'Stones: symbol of the violence that humans are seemingly always prepared to commit.', 
+        "The Black Box: represent the tradition and the ritual villagers won't give up", 
+        'The marked slip of paper'],
   },
   {
       title: 'The lady with the pet dog',
-      year:"",
+      det:[
+        "Year: 1899",
+        "Author: Anton Chekhov",
+        "Genre: Drama/Romance",
+        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
+        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
+        "Antagonist: The contradictions of the human heart, Russian society",
+      ],
       bio:'bio',
       mood:"",
       setting:"",
@@ -41,7 +56,14 @@ let stories=[
   },
   {
       title: 'The tale tale heart',
-      year:"",
+      det:[
+        "Year: 1899",
+        "Author: Anton Chekhov",
+        "Genre: Drama/Romance",
+        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
+        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
+        "Antagonist: The contradictions of the human heart, Russian society",
+      ],
       bio:'bio',
       mood:"",
       setting:"",
@@ -56,7 +78,14 @@ let stories=[
   },
   {
       title: 'The bliss',
-      year:"",
+      det:[
+        "Year: 1899",
+        "Author: Anton Chekhov",
+        "Genre: Drama/Romance",
+        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
+        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
+        "Antagonist: The contradictions of the human heart, Russian society",
+      ],
       bio:'Katherine Mansfield was born in 1888 in newZealan. In 1893 the family moved to the countryside. Mansfield was extremely happy in rural New Zealand and drew upon her childhood memories in later stories such as “Prelude.” Mansfield wrote fiction from a young.',
       mood:"",
       setting:"",
@@ -90,7 +119,14 @@ let stories=[
   },
   {
       title: 'The necklace',
-      year:"",
+      det:[
+        "Year: 1899",
+        "Author: Anton Chekhov",
+        "Genre: Drama/Romance",
+        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
+        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
+        "Antagonist: The contradictions of the human heart, Russian society",
+      ],
       bio:'bio',
       mood:"",
       setting:"",
@@ -105,7 +141,14 @@ let stories=[
   },
   {
       title: 'The Blue stones',
-      year:"",
+      det:[
+        "Year: 1899",
+        "Author: Anton Chekhov",
+        "Genre: Drama/Romance",
+        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
+        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
+        "Antagonist: The contradictions of the human heart, Russian society",
+      ],
       bio:'bio',
       mood:"",
       setting:"",
@@ -142,10 +185,17 @@ const display= (ls)=>{
         return `
         <div class="story mb-5 border border-top rounded">
         <div class="rounded p-2 text-center title">
-          <h1>${l.title}</h1
-          <small>-${l.year}-</samll>
+          <h1>${l.title}</h1>
+
         </div>
         <div class="tabs">
+          <div class="tab">
+            <input hidden type="checkbox" id="chck${i+12}${id}">
+            <label class="tab-label" for="chck${i+12}${id}">About</label>
+            <div class="tab-content">
+              ${l.det.join('<br><br>')}
+            </div>
+          </div>
           <div class="tab">
             <input hidden type="checkbox" id="chck${i}${id}">
             <label class="tab-label" for="chck${i}${id}">Biography</label>
@@ -221,7 +271,7 @@ const display= (ls)=>{
         </div>
     
       </div>
-      <hr>
+      
         `
     }).join('')
     shortsholder.html(el)

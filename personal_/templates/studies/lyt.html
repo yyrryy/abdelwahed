@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1200592303129169"
+        crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +36,6 @@
         .tab {
             margin-top: 2px;
             width: 100%;
-            color: white;
             overflow: hidden;
         }
     
@@ -42,14 +43,16 @@
             display: flex;
             justify-content: space-between;
             padding: 1em;
-            background: #2c3e50;
             font-weight: bold;
             cursor: pointer;
+            color: #777777;
+            border-bottom: 1px solid #e2E2E2
+            ;
             /* Icon */
         }
     
         .tab-label:hover {
-            background: #1a252f;
+            color: rgb(10, 9, 9);
         }
     
         .tab-label::after {
@@ -82,7 +85,10 @@
         }
     
         input:checked+.tab-label {
-            background: #1a252f;
+            color: #000000;
+            border: 1px solid;
+            border-bottom: 0;
+            border-radius: 5px 5px 0px 0px;
         }
     
         input:checked+.tab-label::after {
@@ -91,6 +97,7 @@
     
         input:checked~.tab-content {
             max-height: 100%;
+            color: black;
             padding: 1em;
             font-size: 17px;
             border: 1px solid;
