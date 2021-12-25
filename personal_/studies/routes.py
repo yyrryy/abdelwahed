@@ -58,15 +58,23 @@ def getverb():
 
 @st.route('/grammar')
 def grammar():
-    return render_template('studies/grammar.html', title='Grammar tenses')
+    return render_template('studies/grammar/grhome.html', title='Grammar')
+@st.route('/grammar/tenses')
+def tenses():
+    return render_template('studies/grammar/tenses.html', title='tenses')
+
+
+
+
+
 
 
 @st.route('/guided')
 def guided():
-    return render_template('studies/guided.html', title='Terms')
+    return render_template('studies/guided/guided.html', title='Terms')
 
 
 
 @st.route('/guided/shorts')
 def shorts():
-    return render_template('studies/shorts.html', title='Short stories')
+    return render_template('studies/guided/shorts.html', title='Short stories')

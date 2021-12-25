@@ -1,0 +1,76 @@
+{% extends "studies/lyt.html" %}
+
+{% block css %}
+<style>
+    .index{
+        position: sticky;
+    }
+    @media (max-width:768px){
+        .index{
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    <div class="mb-2 col-md-3 position-relative">
+        <div class="card p-2 position-sticky top-0">
+            <p><a href="/studies/guided">Terms</a></p>
+            <p>
+                <a href="/studies/guided/shorts">Short stories</a>
+            
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-2 col-md-9">
+        
+        
+
+        
+        <div>
+            <div class="mb-3 card p-2">
+                <h3>
+                    Important terms
+                </h3>
+                <div class="row termsimp">
+                
+                
+                </div>
+
+            </div>
+            <div class="card p-2">
+                <p>
+                    Other terms
+                </p>
+                <div class="searchholder">
+                    <input type="text" class="form-control search" placeholder="Search for a term">
+                </div>
+                <div class="row mt-5 terms">
+                
+                
+                </div>
+
+            </div>
+            
+
+            
+            
+        </div>
+    </div>
+
+    
+
+</div>
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="/static/js/studies/terms.js"></script>
+
+{% endblock %}

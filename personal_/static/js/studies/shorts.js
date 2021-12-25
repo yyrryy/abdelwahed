@@ -6,6 +6,12 @@ let stories=[
         "Author: Shirley Jackson",
         "Genre: Realistic Fiction",
       ],
+      irony: [
+        "Dramatical: everyone is trying to lose the lottery instead of winning because if you win you will be stoned.",
+        "Verbal: 'Be a good sport, Tessie' Mrs delacroix called, 'All of us took the same shot' Mrs, Graves said.",
+        "Situational: when Tessie/ Mrs. Hutchinson Tessie gets picked for the person who gets stoned/killed. She didn't know that she was going to be picked for who to kill/"
+
+    ],
       bio:'Jackson was born on December 14, 1916, in San Francisco, California, and grew up nearby in Burlingame, died on August 8, 1965',
       mood:"The story started with a peaceful, clam mood. Shortly after the lottery commences, the peaceful setting seems menacing and ominous. As the lottery gets underway, the mood of the story also becomes anxious and unsettling. When Tessie Hutchinson's name is called, the mood shifts to dreadful and violent as the community members prepare to stone her to death.",
       setting:"A rural small town, mid-twentieth century",
@@ -32,50 +38,81 @@ let stories=[
         "The Black Box: represent the tradition and the ritual villagers won't give up", 
         'The marked slip of paper'],
   },
+  // pet
   {
       title: 'The lady with the pet dog',
       det:[
         "Year: 1899",
         "Author: Anton Chekhov",
         "Genre: Drama/Romance",
-        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
-        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
-        "Antagonist: The contradictions of the human heart, Russian society",
       ],
-      bio:'bio',
-      mood:"",
-      setting:"",
+      irony:[
+        "Situational: Dmitri Dmitrich Gurov is a forty-year-old married man. He greatly dislikes his wife and often enters into “brisk transitory liaison[s]” with other women. Indeed, he is more comfortable than women than with men, and he greatly relies on them for company. Yet Gurov also considers women to be a 'lower race.' He dislikes and distrusts his wife, and he even exhibits condescending behavior towards Anna, the love of his life. This juxtaposition between Gurov's love and hatred of women seems absurd, but it is a classic illustration of misogyny.",
+        "Dramatic: Gurov is a practiced womanizer. For years, he has been unfaithful to his wife with many other women. In some ways, Anna is not a particularly special woman. Before he falls in love with her, Gurov perceives her as a 'good, simple woman.' Yet in this later season of his life, after a long history with women, it is Anna who uniquely kindles the spark of love for him, contrary to both Gurov and the reader's expectations.",
+
+      ],
+      bio:'Anton Chekhov 29 January 1860 – 15 July 1904 considered to be one of the greatest writers in the world.',
+      mood:"The tone of Chekhov’s narrator is objective and coolly observant. Chekhov succeeds in mapping out and developing the tumultuous inner lives of Gurov and Anna through external details. Even the most complex emotional states are conveyed through simple, but careful, description: “She was pale; she looked at him, and did not smile.” The straightforward tone is also important in that does not cast judgment on Gurov and Anna. Though their adulterous actions may be deemed immoral by some, the narrator is more interested in letting the two characters navigate the joys and sorrows of the small life they build together.",
+      setting:"The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
       conflict:"",
-      themes: ['theme1', 'theme2'],
-      summary: 'summ',
-      chracters: ['char1', 'char2'],
-      plot:['plot'],
-      point : 'point of views',
+      chracters: ["Dmitri Gurov is the protagonist of The Lady with the Dog. An unhappily  married banker on vacation by himself in Yalta when he meets Anna", 
+      "Anna is the titular character of the story, the Lady with the dog. She travels to Yalta ostensibly for a vacation her that husband will join later on. Instead, she begins an affair with Dmitri Gurov that persists after both have left Yalta.",
+      "Gurov’s Wife has been married to Gurov for over ten years at the start of the story and had three children with him, but she does not come with him to Yalta.",
+      "Anna’s husband is some sort of official in St. Petersburg who means to come down to vacation in Yalta with Anna, but grows ill and never makes it."
+    ],
+      summary: "Dmitri Gurov works in a Moscow bank. He is nearing 40, married, and has a daughter and two sons. Unhappy in his marriage and the monotony and meaninglessness of his life, he is frequently unfaithful and considers women to be of 'a lower race'. While vacationing in Yalta, he sees a young woman walking along the seafront with her little Pomeranian, and endeavors to make her acquaintance. The lady, Anna Sergeyevna, is also unhappily married and vacationing without her husband. Anna and Dmitri soon commence an affair, and spend most of their time together, often walking and taking drives to the nearby village of Oreanda. Though she is expecting her husband to come to Yalta, he eventually sends word for her to come home, saying that something is wrong with his eyes. Gurov sees her off at the station. As they part, both feel that they will never see each other again, and thus their affair is over.<br><br>Returning to Moscow, to his loveless marriage and his daily routine, working by day and socializing by night, Gurov expects to soon forget young Anna, but to his surprise, her memory haunts him. Unexpectedly, he fell deeply in love for the first time, after many affairs and just as he is approaching middle age. He feels that he must see Anna, despite the obvious complications. On the ruse of going to St. Petersburg to attend to personal business, he sets off to Anna's hometown to find her. Learning the location of the family's residence from a hotel porter, he finds the house, only to realize that it would be unwise to intrude. In despair, he rationalizes that Anna has probably forgotten him and found someone else, and heads back to his hotel.<br><br>In the evening, he remembers having seen a sign earlier in the day announcing the opening performance of The Geisha. Reasoning that Anna and her husband might attend, he goes to the theater. The couple enters and he watches intently. When the husband goes out for a smoke during the first interval, Gurov greets Anna, who is bewildered and runs from him. After following her through the theater, he confronts her and she confides that she has been thinking of him constantly. Frightened, she begs him to leave and promises to see him in Moscow.<br><br>Anna makes excuses to travel to Moscow, telling her husband that she is going there to see a doctor, which he 'believes and does not believe'. The pair are now fully aware that for the first time in their lives they have actually fallen in love, and they both wonder how they might overcome the many challenges that face them and achieve their fervent wish to spend their lives together. They desperately try to come up with a plan, but the story ends without offering a resolution:",
+      themes: [
+        'Society and Morality', 
+        'The Transformative Power of Love',
+        "Truth in Deception"
+      ],
+      plot:[
+        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
+      ],
+      point : 'Third Person (Omniscient)',
 
       symbols:'',
   },
+  // tell
   {
-      title: 'The tale tale heart',
+      title: 'The Tell-Tale Heart',
       det:[
-        "Year: 1899",
-        "Author: Anton Chekhov",
-        "Genre: Drama/Romance",
-        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
-        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
-        "Antagonist: The contradictions of the human heart, Russian society",
+        "Year: 1843",
+        "Author:  Edgar Allan Poe",
+        "Genre: 	Horror, Gothic Literature",
       ],
-      bio:'bio',
-      mood:"",
-      setting:"",
-      conflict:"",
-      themes: ['theme1', 'theme2'],
-      summary: 'summ',
+      irony:[
+        "Dramatic: the old man does not know that the madman has been waching him for 7 nights and he wants to kill him",
+        "Verbal: 'I heard all things in the heaven and in the earth, I heard lany things in hell, how, the I amm mad!' he is saying he is not mad even though he is hearing voices tha does not exist",
+        "Situational: The narrator is the old man's caregiver. Takes care of him and keeps him safe, and he is the one that ends up killing the old man."
+      ],
+      bio:'Edgar Allan Poe was born in Boston in 1809. He was orphaned by age three and taken in by a foster family. Poe did not get along with his foster father, John Allan, and eventually Allan cut all ties with him. Poe died at the age of forty—a poor man but well-known for his tales of horror and mystery.',
+      mood:"a creepy, scary mood through the narrator's denial of madness.",
+      setting:" the house the narrator shares with the old man where the murder takes place and the place from which the narrator tells his story, maybe a prison or an asylum for the criminally insane. The majority of the story takes place in the sitting room of a house at night",
+      conflict:"The type of conflict in The Tell-Tale Heart is the character versus Himself because the whole story was an internal conflict.",
+      themes: [
+        "Guilt: “The Tell-Tale Heart” is conventionally read as a moralizing story about guilt and innocence. Critics have interpreted the sound of the beating heart as the narrator’s guilty conscious reminding him of his deed. In this reading, the narrator finally confesses his crime because his guilt grows so great that he can no longer hold it in. However, this reading of his confession is incongruous with his character. At the beginning of the story, the narrator disassociates himself from the crime, claiming that an invisible force acted on him. The narrator’s insistence that he is sane and the old man’s eye is at fault suggests that the narrator does not regret his action; he blames the murder on external forces that he could not control.",
+        "Fear of Mortality: Another reading of the story claims that the narrator kills the old man and confesses because of his own fear of mortality. The way in which he describes the “vulture-eye” and the old man suggests his fixation on the man’s age and frailty. He hears “death-beetles” in the walls and appears obsessed with time. Once he murders the old man, time seems to stop for him as he loses track of it: he conflates hours and stops focusing on the ticking of clocks. Then, the narrator begins to feel physical symptoms of disease. He grows weak and infirm. At this point, the police come to the house, and the sound of the heartbeat fills his head. This heartbeat can be interpreted not as guilt, but as the narrator’s heightened awareness of his mortality and terror that he will eventually die just as the old man did.",
+        "Time: Time is a consistent theme and motif throughout the story. The narrator seems fixated on time. He catalogues exactly how much time he spends watching the old man before the murder. When he finally kills the old man, he claims that the old man’s “hour had come.” Sound also contributes to this theme. He hears “death beetles,” a type of beetle that sounds like a clock ticking, in the walls; he hears a watch ticking; he hears the old man’s heart beat"
+      ],
+      summary: "The Tell-Tale Heart is a first-person narrative told by an unnamed narrator. Despite insisting that they are sane, the narrator suffers from a disease (nervousness) which causes 'over-acuteness of the senses'.<br><br>The old man, with whom the narrator lives, has a clouded, pale, blue 'vulture-like' eye, which distresses and manipulates the narrator so much that the narrator plots to murder the old man, despite also insisting that the narrator loves the old man. The narrator is insistent that this careful precision in committing the murder proves that they cannot possibly be insane. For seven nights, the narrator opens the door of the old man's room to shine a sliver of light onto the 'evil eye. However, the old man's vulture-eye is always closed, making it impossible to 'do the work,' thus making the narrator go further into distress.<br><br>On the eighth night, the old man awakens after the narrator's hand slips and makes a noise, interrupting the narrator's nightly ritual. The narrator does not draw back and after some time, decides to open the lantern. A single thin ray of light shines out and lands precisely on the 'evil eye,' revealing that it is wide open. The narrator hears the old man's heart beating, which only gets louder and louder. This increases the narrator's anxiety to the point where the narrator decides to strike. He jumps into the room and the old man shrieks once before he is killed. The narrator then dismembers the body and conceals the pieces under the floorboards, ensuring the concealment of all signs of the crime. Even so, the old man's scream during the night causes a neighbor to report to the police, who the narrator invites in to look around. The narrator claims that the scream heard was the narrator's own in a nightmare and that the old man is absent in the country. Confident that they will not find any evidence of the murder, the narrator brings chairs for them and they sit in the old man's room. The chairs are placed on the very spot where the body is concealed; the police suspect nothing, and the narrator has a pleasant and easy manner.<br><br>The narrator begins to feel uncomfortable and notices a ringing in the narrator's ears. As the ringing grows louder, the narrator concludes that it is the heartbeat of the old man coming from under the floorboards. The sound increases steadily to the narrator, though the officers do not seem to hear it. Terrified by the violent beating of the heart and convinced that the officers are aware of not only the heartbeat but also the narrator's guilt, the narrator breaks down and confesses. The narrator tells them to tear up the floorboards to reveal the remains of the old man's body.",
       chracters: ['char1', 'char2'],
-      plot:['plot'],
-      point : 'point of views',
+      plot:[
+        "Exposition: introducing the main characters, the old man and the mad man , tells the setting and basic conflict",
+        "Rising: the narrator aims to kill the old man",
+        "Climax: the madman murders the old man",
+        "Falling: the police comes to investigate",
+        "Resolution: the madman hears the heartbeat of the old man and gives up his secret."
+      ],
+      point : 'First person',
 
-      symbols:'',
+      symbols:[
+        "The Heart - Traditionally the heart symbolizes the emotional center of the individual. In “The Tell-Tale Heart,” it symbolizes the narrator’s guilt",
+        "The Eye - There are many symbolic interpretations of the old man’s eye: (1) The eye represents the “I”; that is, it represents the essence of the old man; (2) The eye holds mysterious powers, according to the narrator, and may symbolize the inability of the narrator to hide his secret sins; (3) The old man’s eye is “pale blue, with a film over it,” indicating a lack of visual clarity and reliability."
+      ],
   },
+
+  // bliss
   {
       title: 'The bliss',
       det:[
@@ -86,6 +123,7 @@ let stories=[
         "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
         "Antagonist: The contradictions of the human heart, Russian society",
       ],
+      irony:[""],
       bio:'Katherine Mansfield was born in 1888 in newZealan. In 1893 the family moved to the countryside. Mansfield was extremely happy in rural New Zealand and drew upon her childhood memories in later stories such as “Prelude.” Mansfield wrote fiction from a young.',
       mood:"",
       setting:"",
@@ -117,28 +155,50 @@ let stories=[
         "Cats: The appearance of cats in the story imbue Bertha’s joy with a sense of foreboding and symbolize the harmful nature of dishonesty—both to others, and to oneself."
       ],
   },
+
+  // neck
   {
       title: 'The necklace',
+      
       det:[
-        "Year: 1899",
-        "Author: Anton Chekhov",
-        "Genre: Drama/Romance",
-        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
-        "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
-        "Antagonist: The contradictions of the human heart, Russian society",
+        "Year: 1884",
+        "Author: Guy de Maupassant",
+        "Genre: Realism",
       ],
-      bio:'bio',
-      mood:"",
-      setting:"",
-      conflict:"",
-      themes: ['theme1', 'theme2'],
-      summary: 'summ',
-      chracters: ['char1', 'char2'],
-      plot:['plot'],
-      point : 'point of views',
+      irony:[
+        "Situational irony: Loisels spent years paying off a replacement for what was actually a worthless necklace",
+        "Dramatical irony: she thinks she belongs to a higher class, and actually she is in the right class",
+        "Verbal irony: 'looking poor in middle of a lot of rich women' She already had a dress, and the lack of a necklace will show her as 'poor'."
+      ],
+      bio:'Guy de Maupassant was born to a wealthy family in Tourville-sur-Arques, France, in 1850. he was committed to an asylum in Paris where he died in 1893.',
+      mood:"The mood of the story is grim and tense. A dark mood prevails throughout the narrative. The narrator begins the story with the unhappiness of Mathilde.",
+      setting:"Paris, France, at the close of the 19th century",
+      conflict:"Mathilde Loisel is not wealthy, yet she dreams to be. Her husband gives her money to buy a dress, but she is not satisfied until she asks a wealthy friend for a necklace to borrow.",
+      themes: [
+        "The Deceptiveness of Appearances", 
+        "The Danger of Martyrdom",
+        "The Perceived Power of Objects"
+      ],
+      summary: 'The Necklace" is a short story about Mathilde Loisel, a middle-class woman who longs for a wealthy lifestyle.<br>Mathilde borrows a diamond necklace from her wealthy friend, Madame Forestier, to wear to a ball.<br>After the ball, Mathilde realizes that the necklace is gone. Unable to find it, the Loisels borrow a great deal of money to buy a replacement.<br>Mathilde and her husband spend the next ten years paying off their debts, and Mathilde ages prematurely as a result of the hard work. When Mathilde finally tells Madame Forestier about replacing the necklace, Madame Forestier tells her that the diamonds were fake.',
+      chracters: [
+        "Mathilde Loisel: The protagonist of the story, she wasn't satisfied with her lifestyle", 
+        'Monsieur Loisel: Mathilde’s husband. Monsieur Loisel is content with the small pleasures of his life but does his best to appease Mathilde’s demands and assuage her complaints.',
+        "Madame Forestier: Mathilde’s wealthy friend. Madame Forestier treats Mathilde kindly, but Mathilde is bitterly jealous of Madame Forestier’s wealth,"
+      ],
+      plot:[
+        "Exposition: Set in Paris, France in 1880. A young middle-class woman dreams of a lifestyle far beyond her reach. One day, her husband comes home with tickets to attend a very affluent party, and she is excited to attend, but upset that she will look dowdy.",
+        "Rising action: At the ball, Mme. Loisel is a hit, everyone loves her. Upon leaving she reaches for the necklace, and finds it missing. After days of searching, she and her husband decide to replace it with a one that looks identical. The replacement cost more money than they make, and it takes them ten years to pay it off.",
+        'Climax: The lost necklace that Mathilde Loisel spends ten years trying to pay for is revealed to be a fake.',
+        "Falling action: One day Mathilde is walking to the market and sees the friend that she borrowed the necklace from. She decides to tell her what happened."
+      ],
+      point : 'third person limited',
 
-      symbols:'',
+      symbols:[
+        "The Necklace: beautiful but worthless, represents the power of perception and the split between appearances and reality. "
+      ],
   },
+
+  // blue
   {
       title: 'The Blue stones',
       det:[
@@ -149,6 +209,7 @@ let stories=[
         "Climax: Gurov looks into a mirror and realizes both that he has grown old and is in love for the first time in his life.",
         "Antagonist: The contradictions of the human heart, Russian society",
       ],
+      irony:[""],
       bio:'bio',
       mood:"",
       setting:"",
@@ -158,7 +219,6 @@ let stories=[
       chracters: ['char1', 'char2'],
       plot:['plot'],
       point : 'point of views',
-
       symbols:'',
   },
     
@@ -183,11 +243,11 @@ const display= (ls)=>{
         
         console.log(l.plot)
         return `
-        <div class="story mb-5 border border-top rounded">
-        <div class="rounded p-2 text-center title">
-          <h1>${l.title}</h1>
-
-        </div>
+        
+        <div class="tab">
+            <input hidden type="checkbox" id="chck${l.title}">
+            <label class="tab-label" for="chck${l.title}">${l.title}</label>
+            <div class="tab-content">
         <div class="tabs">
           <div class="tab">
             <input hidden type="checkbox" id="chck${i+12}${id}">
@@ -218,10 +278,17 @@ const display= (ls)=>{
             </div>
           </div>
           <div class="tab">
+            <input hidden type="checkbox" id="chck${i+20}${id}">
+            <label class="tab-label" for="chck${i+20}${id}">Irony</label>
+            <div class="tab-content">
+              ${l.irony.join('<br><br>')}
+            </div>
+          </div>
+          <div class="tab">
             <input hidden type="checkbox" id="chck${i+4}${id}">
             <label class="tab-label" for="chck${i+4}${id}">Plot</label>
             <div class="tab-content">
-              ${l.plot.join('<br>')}
+              ${l.plot.join('<br><br>')}
             </div>
           </div>
           <div class="tab">
@@ -269,9 +336,9 @@ const display= (ls)=>{
           
           
         </div>
-    
-      </div>
-      
+        </div>
+        </div>
+          
         `
     }).join('')
     shortsholder.html(el)

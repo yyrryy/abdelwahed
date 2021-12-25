@@ -1,0 +1,229 @@
+{% extends "studies/grammarlyt.html" %}
+
+
+{% block grc %}
+
+    <div class="col-md-8 mb-3">
+        <div class="card p-2">
+            <div>
+                <div class="border rounded">
+                    <h1 class="title text-center">
+                        Present
+                    </h1>
+                    <div class="tabs">
+                        <div class="tab">
+                            <input hidden type="checkbox" id="simple">
+                            <label class="tab-label" for="simple">Simple</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input hidden type="checkbox" id="perfect">
+                            <label class="tab-label" for="perfect">Perfect</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input hidden type="checkbox" id="continiuos">
+                            <label class="tab-label" for="continiuos">Continious</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+                <div class="border rounded">
+                    <h1 class="title text-center">
+                        Past
+                    </h1>
+                    <div class="tabs">
+                        <div class="tab">
+                            <input hidden type="checkbox" id="pssimple">
+                            <label class="tab-label" for="pssimple">Simple</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input hidden type="checkbox" id="psperfect">
+                            <label class="tab-label" for="psperfect">Perfect</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input hidden type="checkbox" id="pscontiniuos">
+                            <label class="tab-label" for="pscontiniuos">Continious</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+                <div class="border rounded">
+                    <h1 class="title text-center">
+                        Future
+                    </h1>
+                    <div class="tabs">
+                        <div class="tab">
+                            <input hidden type="checkbox" id="fts">
+                            <label class="tab-label" for="fts">Simple</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input hidden type="checkbox" id="ftp">
+                            <label class="tab-label" for="ftp">Perfect</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input hidden type="checkbox" id="ftc">
+                            <label class="tab-label" for="ftc">Continious</label>
+                            <div class="tab-content">
+                                <li>
+                                    Use:
+                                </li>
+                                <li>
+                                    Example:
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered mt-5">
+                    <thead>
+                        <tr>
+                            <th>Will</th>
+                            <th>Going to</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Otto</td>
+                            <td>
+                                Planing
+                                <br>
+                                test
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            
+            
+            <hr class="mt-5">
+            <h2 class="mb-3">
+                <u>
+                    <b>
+                        Exercices
+                    </b>
+                </u>
+            </h2>
+            <div class="exholder"> 
+            
+            
+            
+            </div>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-secondary" disabled>
+                    <<
+                </button>
+                        <a href="./grammar/test" class="btn btn-secondary">Modals >></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="/static/js/studies/grammar.js"></script>
+<script>
+    verbinp=$('input[name=verb]')
+    verbbtn=$('.get')
+    verbbtn.click(()=>{
+        $('.res').text('Waiting...')
+        w=verbinp.val()
+        $.ajax({
+            type: "POST",
+            url: "{{url_for('studies.getverb')}}",
+            data: {'word': w},
+            success: (res)=>{
+                verbinp.val('')
+                
+                $('.res').html(`
+                    ${res.data}
+                    `)
+            },
+            error: (err)=>{
+                
+                $('.res').html('No results')
+            }
+        });
+    })
+
+
+</script>
+{% endblock %}

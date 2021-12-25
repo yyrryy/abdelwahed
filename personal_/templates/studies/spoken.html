@@ -32,23 +32,7 @@
             </div>
             <hr>
 
-            <div class="mt-5">
-                Words stress
-
-
-                <div class="d-flex">
-                    <input type="text" class="form-control" name="stress">
-                    <button class="btn btn-primary stress">
-                        Stress
-                    </button>
-
-                </div>
-                <div class="res2">
-
-                </div>
-                <hr>
-
-            </div>
+           
 
 
         </div>
@@ -76,9 +60,10 @@
 {% block js %}
 <script>
     trinp = $('input[name=transcribe]')
-    trbtn = $('.transcribe')
+    trbtn = $('.tr')
 
     trbtn.click(() => {
+        
         $('.res').text('Waiting...')
         w=trinp.val()
         $.ajax({

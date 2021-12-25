@@ -118,7 +118,7 @@ exercices.map((ex, i)=>{
         <div>
             <p>${i+1}. ${ex.q}  <span class="text-primary">(${ex.ch.join(', ')})</span></p>
             
-           <div class="tabs">
+           <div class="tabs mb-5">
                 <div class="tab ">
                     <input hidden type="checkbox" id="tt${i}">
                     <label class="tab-label" for="tt${i}">check</label>
@@ -137,7 +137,7 @@ exercices.map((ex, i)=>{
                 </div>
            </div>
         </div>
-        <hr class='mb-5'>
+        
     `)
     highlight(ex.h, `.answer${i}`)
 })

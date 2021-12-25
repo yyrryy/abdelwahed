@@ -4,9 +4,26 @@ let termsimp = $(".termsimp");
 searchinp.focus()
 
 let important = [
-    {
-      t:"Rising Action",
-      d:"<p>The section of a story between the exposition and the climax, generally characterized by a series of events that build tension and develop the main conflict.</p>"
+   
+   {
+      t:"Irony",
+      d:'A literary device or event in which how things seem to be is in fact very different from how they actually are, with 3 types (verbal, dramatical, situational)'
+   },
+   {
+      t:"Verbal Irony",
+      d:"<p>The use of a statement to express an idea other than (or opposite to) the literal meaning of thestatement. (We say just the opposite of what we mean.)</p>"
+   },
+   {
+      t:"Situational Irony",
+      d:"<p>The humorous or surprising effect of a situation in which the outcomes diverge widely fromexpectations. (What happens is different from what we expect.)</p>"
+   },
+   {
+      t:"Dramatic Irony",
+      d:"<p>A literary device in which one or more characters in a story remain unaware of plot developments that have already been revealed to the audience, giving rise to humor, suspense, or double meanings. (We know something a character doesn't know.)</p>"
+   },
+   {
+   t:"Rising Action",
+   d:"<p>The section of a story between the exposition and the climax, generally characterized by a series of events that build tension and develop the main conflict.</p>"
    },
    {
       t:"Setting",
@@ -26,7 +43,7 @@ let important = [
    },
    {
       t: "Characterization",
-      d: "<p>Any oft he various techniques used by an author to reveal the traits of a character to the reader.</p><p><em>Although Satan is the antagonist in John Milton�s</em>Paradise Lost<em>, many readers feelthat Milton�s <strong>characterization</strong> of Satan portrays him in a heroiclight.</em></p><p><strong></strong></p>",
+      d: "<p>Any of the various techniques used by an author to reveal the traits of a character to the reader.</p>",
    },
    {
    t: "Climax",
@@ -143,10 +160,7 @@ let terms=[
       t:"Double Entendre",
       d:"<p>Afigure of speech with two possible interpretations, one of which is usually ironic or lewd.</p><p><em>In</em>Romeo and Juliet, <em>Mercutio uses a <strong>double entendre</strong> to tell theNurse that it is noon:</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:.5in;line-height:150%;><em>��Tis no less, I tell you, for the bawdy hand of the dial is now upon the prick of noon.�(</em>Romeo and Juliet <em>2.4.56)</em></p><p><em>The line literally means that the hand of the clock is pointing toward the prick (mark) ofnoon,but it can also be read as a reference to one�s hand being placed on a prick (penis).</em></p><p><strong></strong></p>"
    },
-   {
-      t:"Dramatic Irony",
-      d:"<p>Aliterary device in which one or more characters in a story remain unaware of plot developmentsthathave already been revealed to the audience, giving rise to humor, suspense, or double meanings.</p><p><em>Shakespeare uses <strong>dramatic irony</strong> to create tension and humorthroughout</em>Othello. <em>Iago, the play�s villain, frequently reveals his diabolicalschemes to the audience in monologues and asides, out of the hearing of Othello and hisotherunwitting victims, who for some reason seem to trust him absolutely. </em></p>"
-   },
+   
    {
       t:"Elegy",
       d:"<p>A poemor song of lamentation written in honor of a deceased person.</p><p><em>The poem</em>�In Memoriam A.H.H.� <em>is an <strong>elegy</strong> written by Alfred, LordTennyson, in honor of his late friend Arthur Henry Hallam.</em></p><p><strong></strong></p>"
@@ -183,10 +197,7 @@ let terms=[
       t:"Foot",
       d:"<p>Inpoetry, the basic unit of meter consisting of some combination of two or more stressed andunstressed syllables. Different types of poetic feet include the iamb (unstressed, stressed),trochee (stressed, unstressed), dactyl (stressed, unstressed, unstressed), anapest (unstressed,unstressed, stressed), spondee (stressed, stressed), and pyrrhic (unstressed, unstressed).</p><p><em>Each of the lines below contains five <strong>feet</strong>, each of which can be classifiedasan iamb because it consists of an unstressed syllable followed by a stressedsyllable.</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:.5in;line-height:150%;><em>How <strong>do</strong> / I <strong>love</strong> / thee? <strong>Let</strong> / me<strong>count</strong>/ the <strong>ways</strong>.<br/> I <strong>love</strong> / thee<strong>to</strong> / the <strong>depth</strong> / and <strong>breadth</strong>/ and<strong>height</strong><br/> My <strong>soul</strong> / can <strong>reach</strong>, / when<strong>feel</strong>/<strong>-</strong>ing <strong>out</strong> / of<strong>sight</strong>.</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:.5in;line-height:150%;>(from�Sonnet 43� by Elizabeth Barrett Browning)</p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:.5in;line-height:150%;></p><p>Acharacter whose traits contrast with those of the protagonist or another main character,thereby<strong></strong>highlighting some aspect of that character.</p><p><em>In</em></p><p><em></em></p>"
    },
-   {
-      t:"Irony",
-      d:'A literary device or event in which how things seem to be is in fact very different from how they actually are'
-   },
+   
    
    {
       t:"Foil",
@@ -352,10 +363,7 @@ let terms=[
       d:"<p>Aliterary style that ridicules human vice or folly, often through humor, irony, and sarcasm.</p><p><em>Inher short story �A Telephone Call,� Dorothy Parker uses biting <strong>satire</strong> tomockthe folly of romantic love, amplifying the pathetic desperation of her poor heroine as shewaitsfor a phone call from a potential suitor:</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:.5in;line-height:150%;background:white;><em><span style=color:black;>I must stop this. I mustn\\'t be this way. Look. Suppose a youngmansays he\\'ll call a girl up, and then something happens, and he doesn\\'t. That isn\\'t soterrible, is it? Why, it\\'s going on all over the world, right this <span style=text-decoration-style:double; text-decoration-line:underline; text-decoration-color:blue;>minute</span>.Oh, what do I care what\\'s going on all over the world? Why can\\'t that telephone ring?Whycan\\'t it, why can\\'t it? Couldn\\'t you ring? Ah, please, couldn\\'t you? You damned, ugly,shinything. It would hurt you to ring, wouldn\\'t it? Oh, that would hurt you. Damn you, I\\'llpullyour filthy roots out of the wall, I\\'ll smash your smug black face in little bits. Damnyouto hell.</span></em></p><p><em></em></p>"
    },
    
-   {
-      t:"Situational Irony",
-      d:"<p>Thehumorous or surprising effect of a situation in which the outcomes diverge widely fromexpectations.</p><p><em>O.Henry was the master of <strong>situational irony</strong>, expertly captured in his shortstory, �</em>The Gift of the Magi<em>.� A husband and wife each secretly sell their mostprizedpossession in order to buy each other gifts that complement the very possessions they�vesold.</em></p><p><em></em></p>"
-   },
+   
    {
       t:"Soliloquy",
       d:"<p>Amonologue given by a character in a play at a time when the character is alone or believes noothercharacters are present.</p><p><em>Like many playwrights, Shakespeare typically uses <strong>soliloquy</strong> to reveal acharacter�s internal dilemmas. Hamlet�s speech that begins �To be or not to be? That is thequestion� is perhaps the most famous soliloquy in English literature. </em></p><p><em></em></p>"
@@ -412,10 +420,7 @@ let terms=[
       t:"Understatement",
       d:"<p>When awriter downplays an event or idea to make it seem less important or serious than it is, usuallyforrhetorical effect.</p><p><em>Holden Caulfield�s description of an upcoming procedure in</em>The Catcher in theRye<em>is an <strong>understatement</strong>: �I have to have this operation. It isn�t veryserious. I have this tiny little tumor on the brain.�</em></p>"
    },
-   {
-      t:"Verbal Irony",
-      d:"<p>Theuse of a statement to express an idea other than (or opposite to) the literal meaning of thestatement.</p><p><em>InJane Austen�s</em>Pride and Prejudice, <em>the novel�s genteel characters often employ<strong>verbal irony</strong> with a politeness that borders on passive aggression. WhenMaryBennet attempts to entertain a dinner party by singing, her father intercedes on behalf oftheother guests, who can scarcely endure her painfully bad performance:</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:.5in;line-height:150%;><em><span style=color:black;>�. . . when Mary had finished her second song, he said aloud,�Thatwill do extremely well, child. You have delighted us long enough. Let the other youngladieshave time to exhibit.�� (Chapter 18)</span></em></p><p><em></em></p>"
-   },
+   
    {
       t:"Vignette",
       d:"<p>Ashort, descriptive passage or scene within a larger story or work; <span style=text-decoration-style:double; text-decoration-line:underline; text-decoration-color:blue;>generally</span>serves to establish mood, setting, or character rather than advance the plot.</p><p><em>The first several sections of</em>The House on Mango Street <em>consist of a series ofloosely related <strong>vignettes</strong>.</em><em>These fragmented scenes give thereader short glimpses into the world of the young narrator, Esperanza.</em></p><p></p><p>Aformal poem consisting of nineteen lines arranged into five tercets followed by a concludingquatrain that ends with a rhyming couplet; it also has a complex rhyme and repetition scheme, inwhich the entire first and third lines of the first tercet are alternately repeated as the thirdlines of each subsequent tercet, until they appear as the final rhyming couplet.</p><p><em>The <strong>villanelle</strong> form originated in French poetry. One of the most well-knownEnglish <strong>villanelles</strong> is �</em>Do not go gentle into that good night<em>,� byDylan Thomas.</em></p><p><em></em></p><p>Thedistinctive style of expression of an author, narrator, speaker, or character, which isestablishedby diction, point of view, tone, and other literary devices.</p><p><em>Each writer makes countless choices, both conscious and unconscious, that contribute totheirunique <strong>voice</strong>. Consider just a few of the many ways to say �goodbye,� andhoweach option shapes the voice of the speaker:</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Goodbye!</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Byebye!</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Until we meet again.</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>May God go with you!</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>See you on the flip side.</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Parting is such sweet sorrow.</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Smell ya later.</em></p>"
@@ -438,7 +443,7 @@ const displayimp = (ls) => {
     .map((l, i) => {
       return `
         <div class="col-md-6 tabs mb-3">
-            <div class="tab">
+            <div class="tab shadow-lg">
                 <input hidden type="checkbox" id="chck${i}">
                 <label class="tab-label" for="chck${i}">${l.t}</label>
                 <div class="tab-content">

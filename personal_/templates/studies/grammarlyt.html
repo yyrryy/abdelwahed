@@ -1,0 +1,43 @@
+{% extends "studies/lyt.html" %}
+
+{% block title %}
+<title>
+    {% if title %}{{title}} - Grammar {% else %} Grammar{% endif %}
+</title>
+{% endblock %}
+
+
+<style>
+    .answer {
+        font-size: 18px;
+        color: rgb(187, 70, 27);
+        font-weight: bold;
+    }
+</style>
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 mb-2">
+            <div class="card p-2">
+                {% block grc %}
+                {% endblock %}
+            </div>
+
+        </div>    
+
+
+        <div class="col-md-4 position-relative">
+            <div class="card position-sticky top-2 p-2">
+                <div class="position-relative">
+                    <input type="text" name='verb' class="form-control" placeholder="Write a verbe">
+                    <button class="btn get position-absolute top-0 end-0 btn-primary">Get</button>
+                </div>
+                <div class="res p-2" style="height: 30vh; overflow-y: scroll;">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
