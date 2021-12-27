@@ -3,8 +3,12 @@
 
 {% block grc %}
 
-    <div class="col-md-8 mb-3">
-        <div class="card p-2">
+            <div class="d-flex justify-content-between bg-primary p-2 rounded mb-5">
+                <a href="" class="btn text-white" disabled>
+                    << 
+                </a>
+                <a href="./time" class="btn text-white">Adv. clauses >></a>
+            </div>
             <div>
                 <div class="border rounded">
                     <h1 class="title text-center">
@@ -141,7 +145,15 @@
                         </div>
                     </div>
                 </div>
+                <hr>
+                <h1>
+                    Will vs Going to
+                </h1>
                 <table class="table table-bordered mt-5">
+                    Both Will and Going to can be used for making future predictions without having a real difference in meaning.
+                    <p>
+                        I think it will be foggy tomorrow. = I think it is going to be foggy tomorrow.
+                    </p>
                     <thead>
                         <tr>
                             <th>Will</th>
@@ -150,11 +162,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Otto</td>
                             <td>
-                                Planing
-                                <br>
-                                test
+                                actions decided at the moment of speaking
+                                <hr>
+                                Will is used to indicate a prediction based on personal opinions or experiences
+                                <hr>
+                                expresses a future fact;
+                                <hr>
+                                make a promise, an offer, a threat or refusal.
+
+                            </td>
+                            <td>
+                                describes future plans decided before the moment of speaking.
+                                <hr>
+                                express a prediction based on present evidence.
+                                <hr>
+                                describe something is about to happen
                             </td>
                         </tr>
                     </tbody>
@@ -176,15 +199,8 @@
             
             
             </div>
-            <div class="d-flex justify-content-between">
-                <button class="btn btn-secondary" disabled>
-                    <<
-                </button>
-                        <a href="./grammar/test" class="btn btn-secondary">Modals >></a>
-            </div>
-        </div>
-    </div>
 
+       
 
 
 
@@ -200,30 +216,5 @@
 
 {% block js %}
 <script src="/static/js/studies/grammar.js"></script>
-<script>
-    verbinp=$('input[name=verb]')
-    verbbtn=$('.get')
-    verbbtn.click(()=>{
-        $('.res').text('Waiting...')
-        w=verbinp.val()
-        $.ajax({
-            type: "POST",
-            url: "{{url_for('studies.getverb')}}",
-            data: {'word': w},
-            success: (res)=>{
-                verbinp.val('')
-                
-                $('.res').html(`
-                    ${res.data}
-                    `)
-            },
-            error: (err)=>{
-                
-                $('.res').html('No results')
-            }
-        });
-    })
 
-
-</script>
 {% endblock %}

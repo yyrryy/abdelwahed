@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;900&display=swap" rel="stylesheet">
     <style>
+        
         body{
             background:#f0f1f5;
         }
@@ -102,7 +103,11 @@
             font-size: 17px;
             border: 1px solid;
         }
-        
+        .answer {
+        font-size: 18px;
+        color: rgb(187, 70, 27);
+        font-weight: bold;
+    }
     </style>
     {% block css %}
     {% endblock %}
@@ -166,7 +171,10 @@
 
         
     </div>
-    <footer class="container p-3 footer bg-white text-center mt-auto">
+    <footer class="container border p-3 footer bg-white text-center mt-auto">
+        <p class="answer">
+            {{days}} Days befor the EXAM
+        </p>
         © Handcrafted with ♫ in TIGMMI
     </footer>
     <footer class="container">

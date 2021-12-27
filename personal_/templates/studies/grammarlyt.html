@@ -2,18 +2,11 @@
 
 {% block title %}
 <title>
-    {% if title %}{{title}} - Grammar {% else %} Grammar{% endif %}
+    {% if title %}{{title}} - Grammar S1 - English studies {% else %} Grammar S1 - English studies{% endif %}
 </title>
 {% endblock %}
 
 
-<style>
-    .answer {
-        font-size: 18px;
-        color: rgb(187, 70, 27);
-        font-weight: bold;
-    }
-</style>
 
 {% block content %}
     <div class="row">
@@ -39,5 +32,31 @@
         </div>
 
     </div>
+    <script>
+        verbinp = $('input[name=verb]')
+        verbbtn = $('.get')
+        verbbtn.click(() => {
+            $('.res').text('Waiting...')
+            w = verbinp.val()
+            $.ajax({
+                type: "POST",
+                url: "{{url_for('studies.getverb')}}",
+                data: { 'word': w },
+                success: (res) => {
+                    verbinp.val('')
+
+                    $('.res').html(`
+                        ${res.data}
+                        `)
+                },
+                error: (err) => {
+
+                    $('.res').html('No results')
+                }
+            });
+        })
+
+
+    </script>
 {% endblock %}
 

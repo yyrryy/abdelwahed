@@ -1,0 +1,38 @@
+{% extends "studies/lyt.html" %}
+
+{% block title %}
+<title>
+    {% if title %}{{title}} - Guided reading S1 - English studies {% else %} Guided reading S1 - English studies{% endif %}
+</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="row">
+    
+        <div class="mb-2 col-md-3 position-relative">
+            <div class="card p-2 position-sticky top-0">
+                <p><a href="./terms">Terms</a></p>
+                <p>
+                    <a href="./shorts">Short stories</a>
+    
+                </p>
+            </div>
+        </div>
+    
+        <div class="mb-2 col-md-9">
+            {% block gc %}
+            {% endblock %}
+        </div>
+    
+    
+    
+    </div>
+
+
+
+ 
+{% endblock %}
+

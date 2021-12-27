@@ -27,7 +27,7 @@ let important = [
    },
    {
       t:"Setting",
-      d:"<p>The time and place in which a story unfolds.</p>"
+      d:"the time and place (or when and where) of the story. It's a literary element of literature used in novels, short stories, plays, films, etc., and usually introduced during the exposition (beginning) of the story, along with the characters. ... The setting of a story can change throughout the plot"
    },
    {
       t:"Simile",
@@ -69,7 +69,22 @@ let important = [
   
 ];
 let terms=[
-   
+   {
+      t:"Flat character",
+      d:"A character which we know very limited information about"
+   },
+   {
+      t:"Round character",
+      d:"A character which we know a lot information about"
+   },
+   {
+      t:"Static character",
+      d:"A character that stays the same throughout the story"
+   },
+   {
+      t:"Dynamic character",
+      d:"A character that changes due the events of the story"
+   },
    {
       t:"Alliteration",
       d:"<p>The repetition of an initial consonant sound in words that are close together, such as within asinglesentence or line of poetry.</p><p><em>The third stanza of Emily Dickinson�s</em>�A narrow Fellow in the Grass� <em>uses<strong>alliteration</strong> in both the second and third lines:</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Helikes a Boggy Acre - </em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>AFloor too <u>c</u>ool for <u>C</u>orn -</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em><u>B</u>ut when a <u>B</u>oy and <u>B</u>arefoot</em></p><p style=margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;line-height:normal;><em>Imore than once at Noon</em></p><p><strong></strong></p>"

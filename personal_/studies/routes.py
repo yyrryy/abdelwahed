@@ -19,9 +19,7 @@ def studies():
     return render_template('studies/home.html')
 
 
-@st.route('/spoken')
-def spoken():
-    return render_template('studies/spoken.html')
+
 
 @st.route('/transcribe', methods=['POST'])
 def transcribe():
@@ -58,10 +56,13 @@ def getverb():
 
 @st.route('/grammar')
 def grammar():
-    return render_template('studies/grammar/grhome.html', title='Grammar')
+    return render_template('studies/grammar/grhome.html')
 @st.route('/grammar/tenses')
 def tenses():
-    return render_template('studies/grammar/tenses.html', title='tenses')
+    return render_template('studies/grammar/tenses.html', title='Tenses')
+@st.route('/grammar/time')
+def time():
+    return render_template('studies/grammar/time.html', title='Time clauses')
 
 
 
@@ -71,10 +72,36 @@ def tenses():
 
 @st.route('/guided')
 def guided():
-    return render_template('studies/guided/guided.html', title='Terms')
-
-
-
+    return render_template('studies/guided/home.html')
 @st.route('/guided/shorts')
 def shorts():
     return render_template('studies/guided/shorts.html', title='Short stories')
+@st.route('/guided/terms')
+def terms():
+    return render_template('studies/guided/terms.html', title='Literature terms')
+
+
+@st.route('/reading')
+def reading():
+    return render_template('studies/reading/home.html')
+
+
+@st.route('/spoken')
+def spoken():
+    return render_template('studies/spoken/home.html')
+
+@st.route('/writing')
+def writing():
+    return render_template('studies/writing/home.html')
+
+
+@st.route('/language')
+def language():
+    return render_template('studies/language/home.html')
+
+
+@st.route('/study')
+def study():
+    return render_template('studies/study/home.html')
+
+

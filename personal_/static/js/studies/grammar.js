@@ -99,6 +99,7 @@ const exercices=[
 ]
 
 function highlight(ll, tar) {
+    console.log('high')
   let holder= document.querySelector(tar)
   var innerHTML = holder.innerHTML;
   for (let text of ll){

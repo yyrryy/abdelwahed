@@ -1,0 +1,60 @@
+{% extends "studies/lyt.html" %}
+
+{% block title %}
+<title>
+    {% if title %}{{title}} - Spoken english S1 - English studies {% else %} Spoken english S1 - English
+    studies{% endif
+    %}
+</title>
+{% endblock %}
+<style>
+    .Ans_st {
+        text-decoration: underline;
+        font-style: italic;
+        color: #a80404;
+    }
+</style>
+{% block content %}
+<div class="row justify-content-between">
+    <div class="col-md-8 mb-2">
+        <div class="card p-2">
+            {% block spokenc%}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="col-md-4 ">
+        <div class="card p-2">
+            Words transcription:
+            <div class="position-relative">
+                <input type="text" class="form-control" name="transcribe">
+                <button class="btn btn-primary tr position-absolute top-0 end-0">
+                    get
+                </button>
+
+            </div>
+            <div class="res">
+
+            </div>
+            <hr>
+
+
+
+
+        </div>
+        <div class="card p-2 mt-3">
+            Words stress
+            <div class="position-relative">
+                <input type="text" class="form-control" name="stress">
+                <button class="btn btn-primary stress position-absolute top-0 end-0">
+                    get
+                </button>
+
+            </div>
+            <hr>
+            <div class="res2">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

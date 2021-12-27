@@ -1,24 +1,11 @@
-{% extends 'studies/lyt.html' %}
+{% extends "studies/guidedlyt.html" %}
 
 {% block css %}
-<style>
-  
-</style>
+
 {% endblock %}
 
+{% block gc %}
 
-{% block content %}
-<div class="row">
-  <div class="mb-2 col-md-3 position-relative">
-    <div class="card p-2 position-sticky top-0">
-      <p><a href="/studies/guided">Terms</a></p>
-      <p>
-        <a href="/studies/guided/shorts">Short stories</a>
-  
-      </p>
-    </div>
-  </div>
-  <div class="col-md-9">
     <div class="card p-2">
       <div class="searchholder">
         <input type="text" class="form-control search" placeholder="Search for a story">
@@ -31,9 +18,6 @@
       </div>
       <hr>
     </div>
-    
-  </div>
-</div>
 
 
 {% endblock %}
