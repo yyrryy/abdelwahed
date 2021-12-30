@@ -48,7 +48,7 @@ def strss(w):
     syll=root.find_all('span', {'class':'Answer_Red'})[1].text
     press=root.find('span', {'class':'no_b'})
     nsyll=len(syll.split('-'))
-    return nsyll, syll, press
+    return nsyll, press
     
 
     
@@ -63,3 +63,19 @@ def verb(v):
     sp=bs(data, 'html.parser')
     root=sp.find('div', {'class':'verbe'}).find('p').text
     return root
+
+def paraphrase(ph):
+    url = "https://api.promptapi.com/paraphraser"
+
+    
+    headers= {
+    "apikey": "Tkn1WrbppoVq0OsG6zEfA7RG6i80nyQQ"
+    }
+
+    response = req.request("POST", url, headers=headers, data = ph)
+
+    status_code = response.status_code
+    result = response.text
+    print(status_code)
+    print(result)
+

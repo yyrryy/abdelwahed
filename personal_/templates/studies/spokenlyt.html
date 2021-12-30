@@ -8,11 +8,7 @@
 </title>
 {% endblock %}
 <style>
-    .Ans_st {
-        text-decoration: underline;
-        font-style: italic;
-        color: #a80404;
-    }
+    
 </style>
 {% block content %}
 <div class="row justify-content-between">
@@ -57,4 +53,58 @@
         </div>
     </div>
 </div>
+<script>
+    verbinp = $('input[name=transcribe]')
+    verbbtn = $('.tr')
+    verbbtn.click(() => {
+        $('.res').text('Waiting...')
+        w = verbinp.val()
+        $.ajax({
+            type: "POST",
+            url: "{{url_for('studies.transcribe')}}",
+            data: { 'word': w },
+            success: (res) => {
+                verbinp.val('')
+
+                $('.res').html(`
+                    <audio id="audio" preload="auto">
+                        <source src="${res.mp}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p>${w}: ${res.tran} <i class='bi bi-play btn' onclick="document.getElementById('audio').play();"></i></p>
+                `)
+            },
+            error: (err) => {
+
+                $('.res').html('No results')
+            }
+        });
+    })
+    strinp = $('input[name=stress]')
+    strbtn = $('.stress')
+    strbtn.click(() => {
+        $('.res2').text('Waiting...')
+        w = strinp.val()
+        $.ajax({
+            type: "POST",
+            url: "{{url_for('studies.stress')}}",
+            data: { 'word': w },
+            success: (res) => {
+                strinp.val('')
+
+                $('.res2').html(`
+                <p>Number of syllables: ${res.n}</p>
+                <p>Stressed syllable: ${res.press}</p>
+            `)
+            },
+            error: (err) => {
+
+                $('.res2').html('No results')
+            }
+        });
+    })
+
+
+</script>
 {% endblock %}
+

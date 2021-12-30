@@ -4,21 +4,54 @@
 
 {% endblock %}
 
-{% block gc %}
-<div class="card p-2">
+{% block guidedc %}
+<div id="terms">
+
+    <h3>
+        I. Important terms
+    </h3>
+    <div class="row termsimp">
+
+
+    </div>
+
+</div>
+<div>
     <p>
-        This section is for the module of guided reading
+        Other terms
     </p>
-    
-    <ul>
-        <li>
-            <a href="./guided/terms">Literature terms</a>
-        </li>
-        <li>
-            <a href="./guided/shorts">Short stories</a>
-        </li>
-    </ul>
+    <div class="searchholder">
+        <input type="text" class="form-control search" placeholder="Search for a term">
+    </div>
+    <div class="row mt-5 terms">
+
+
+    </div>
+
+
+
+
+
+
+</div>
+<hr>
+
+<div class="mt-5" id="shorts">
+    <h3>
+        II. Short stories
+    </h3>
+    <div class="searchholder">
+        <input type="text" class="form-control searchst" placeholder="Search for a story">
+    </div>
+    <div class="shorts tabs mt-5">
+
+
+
+
+    </div>
+    <hr>
 </div>
 
 <script src="/static/js/studies/terms.js"></script>
+<script src="/static/js/studies/shorts.js"></script>
 {% endblock %}

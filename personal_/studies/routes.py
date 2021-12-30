@@ -36,11 +36,10 @@ def transcribe():
 def stress():
     if request.method == "POST":
         word=request.form['word']
-        ns, s, press= strss(word)
+        ns, press= strss(word)
         print(ns)
         return jsonify({
             'n':str(ns),
-            's':str(s),
             'press':str(press)
         })
 
@@ -63,6 +62,9 @@ def tenses():
 @st.route('/grammar/time')
 def time():
     return render_template('studies/grammar/time.html', title='Time clauses')
+@st.route('/grammar/modals')
+def modals():
+    return render_template('studies/grammar/modals.html', title='Time clauses')
 
 
 
@@ -92,16 +94,16 @@ def spoken():
 
 @st.route('/writing')
 def writing():
-    return render_template('studies/writing/home.html')
+    return render_template('studies/writing/home.html', m='Writing')
 
 
 @st.route('/language')
 def language():
-    return render_template('studies/language/home.html')
+    return render_template('studies/language/home.html', m='Language et comm.')
 
 
 @st.route('/study')
 def study():
-    return render_template('studies/study/home.html')
+    return render_template('studies/study/home.html', m='Study skills')
 
 

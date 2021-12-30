@@ -1,7 +1,6 @@
 let termsholder=$('.terms')
 let searchinp = $('.search')
 let termsimp = $(".termsimp");
-searchinp.focus()
 
 let important = [
    

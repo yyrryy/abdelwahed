@@ -11,7 +11,45 @@
 
 
 {% block content %}
-{% block readingc%}
-{% endblock %}
+<div class="row">
+    <div class="col-md-4 position-relative">
+        <div class="card p-2 position-sticky top-2">
+            <p>
+                This section is for the module of guided reading
+            </p>
+
+            <ul>
+                <li>
+                    <a href="#idea">Main idea</a>
+                </li>
+                <li>
+                    <a href="#ext">Extensive, intensive reading</a>
+                </li>
+                <li>
+                    <a href="#sk">Skimming and scanning</a>
+                </li>
+                <li>
+                    <a href="#vk">Vocabulary in context</a>
+                </li>
+                <li>
+                    <a href="#mk">Making inferences</a>
+                </li>
+                <li>
+                    <a href="#paraphrase">Paraphrasing</a>
+                </li>
+                <li>
+                    <a href="#pr">Precis writing</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8 mt-3 mt-md-0">
+        <div class="card p-2">
+            {% block readingc%}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

@@ -12,7 +12,24 @@
 
 
 {% block content %}
-{% block studyc%}
-{% endblock %}
+<div class="row">
+    <div class="col-md-4 position-relative">
+        <div class="card p-2 position-sticky top-2">
+            <p>
+                This section is for the module of {{m}}
+            </p>
+    
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8 mt-3 mt-md-0">
+        <div class="card p-2">
+            {% block studyc%}
+            {% endblock %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

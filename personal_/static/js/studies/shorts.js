@@ -257,12 +257,12 @@ let stories=[
 
 
 let shortsholder=$('.shorts')
-let searchinp=$('.search')
+let searchst=$('.searchst')
 
 
 
 
-const display= (ls)=>{
+const displayst= (ls)=>{
     let el=ls.map((l, i)=>{
         id=l.title.split(' ')[1]
         themes=[]
@@ -272,7 +272,7 @@ const display= (ls)=>{
         chars=[]
         for (let b of l.chracters){chars.push(`<li>${b}</li>`)}
         
-        console.log(l.plot)
+        
         return `
         
         <div class="tab border">
@@ -376,14 +376,12 @@ const display= (ls)=>{
 }
 
 
-display(stories)
+displayst(stories)
 
-
-searchinp.focus()
-searchinp.on('input', (e)=>{
-    tar=searchinp.val().toLowerCase()
+searchst.on('input', (e)=>{
+    tar=searchst.val().toLowerCase()
     let filtered= tar?stories.filter(story=>{
         return story.title.toLowerCase().includes(tar.toLowerCase());
     }):stories
-    display(filtered)
+    displayst(filtered)
 })
