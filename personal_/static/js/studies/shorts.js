@@ -7,9 +7,9 @@ let stories=[
         "Genre: Realistic Fiction",
       ],
       irony: [
-        "Dramatical: everyone is trying to lose the lottery instead of winning because if you win you will be stoned.",
+        "Situational: everyone is trying to lose the lottery instead of winning because if you win you will be stoned.",
         "Verbal: 'Be a good sport, Tessie' Mrs delacroix called, 'All of us took the same shot' Mrs, Graves said.",
-        "Situational: when Tessie/ Mrs. Hutchinson Tessie gets picked for the person who gets stoned/killed. She didn't know that she was going to be picked for who to kill/"
+        "Dramatic: when Tessie/ Mrs. Hutchinson Tessie gets picked for the person who gets stoned/killed. She didn't know that she was going to be picked for who to kill/"
 
     ],
       bio:'Jackson was born on December 14, 1916, in San Francisco, California, and grew up nearby in Burlingame, died on August 8, 1965',

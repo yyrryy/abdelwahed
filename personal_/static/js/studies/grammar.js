@@ -1,3 +1,112 @@
+let exholder=$('.exholder')
+let presentholder=$('.presentholder')
+let pastholder=$('.pastholder')
+let futurholder=$('.futurholder')
+
+const present=[
+    {
+        
+        s:'Simple',
+
+        u:[
+            ['For habits', 'I drink tea at breakfast.'],
+            ['For repeated actions or events', "I catch the bus every morning"],
+            ['For general truths', "Water freezes at zero degrees."],
+            ["For instructions or directions", "You walk for two hundred meters, then you turn left."],
+            ["For fixed arrangements", "His mother arrives tomorrow."]
+        ]
+    },
+
+    {   
+        s:'Perfect',
+        u:[
+            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
+            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
+            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+        ]
+    },
+    
+    {
+        
+        s:'Progressive',
+        u:[
+            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
+            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
+            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+        ]
+    },
+    
+]  
+
+const past=[
+    {
+        
+        s:'Simple',
+
+        u:[
+            ["Finished actions in the past.", "I went to the cinema yesterday."]
+        ]
+    },
+
+    {   
+        s:'Perfect',
+        u:[
+            ["refer to something that happened more in the past than something else.", "My brother sold his car on Saturday. He’d had it for 20 years!"],
+            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
+            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+        ]
+    },
+    
+    {
+        
+        s:'Progressive',
+        u:[
+            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
+            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
+            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+        ]
+    },
+    
+]  
+
+const futur=[
+    {
+        
+        s:'Simple',
+
+        u:[
+            ['For habits', 'I drink tea at breakfast.'],
+            ['For repeated actions or events', "I catch the bus every morning"],
+            ['For general truths', "Water freezes at zero degrees."],
+            ["For instructions or directions", "You walk for two hundred meters, then you turn left."],
+            ["For fixed arrangements", "His mother arrives tomorrow."]
+        ]
+    },
+
+    {   
+        s:'Perfect',
+        u:[
+            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
+            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
+            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+        ]
+    },
+    
+    {
+        
+        s:'Progressive',
+        u:[
+            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
+            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
+            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+        ]
+    },
+    
+]  
+
+
+
+
 const exercices=[
     {
         q:"_______________________ the latest news? <br>– The president ______________________ that he _____________________ to resign next summer. <br>– That's not new. I _____________________  that for ages!",
@@ -99,7 +208,6 @@ const exercices=[
 ]
 
 function highlight(ll, tar) {
-    console.log('high')
   let holder= document.querySelector(tar)
   var innerHTML = holder.innerHTML;
   for (let text of ll){
@@ -110,7 +218,6 @@ function highlight(ll, tar) {
   }
   }
 }
-let exholder=$('.exholder')
 
 exercices.map((ex, i)=>{
     expl=[]
@@ -141,4 +248,23 @@ exercices.map((ex, i)=>{
         
     `)
     highlight(ex.h, `.answer${i}`)
+})
+
+present.map((v, i)=>{
+    usage=[]
+    ll=[]
+    for (let i of v.u) {
+        ll.push(i.join(': '))
+    }
+    for (let i of ll){usage.push(`<li>${i}</li>`)}
+    presentholder.append(`
+    <div class="tab">
+        <input hidden type="checkbox" id="${v.s}">
+        <label class="tab-label" for="${v.s}">${v.s}</label>
+        <div class="tab-content">
+            ${usage.join('<br>')}
+        </div>
+    </div>
+    `)
+    
 })
