@@ -216,8 +216,6 @@ let stories=[
         "Year: 1899",
         "Author: Isak Dineson (Karen Blixen)",
         "Genre: Drama/Romance",
-        "Setting: The seaside resort town of Yalta, the capital of the Russian Empire Moscow, the Russian city of St. Petersburg",
-        ,
       ],
       irony:[""],
       bio:"Karen Blixen (AKA Isak Dinseson) was born in Denmark and spent most of her life in British East Africa, now Kenya. Dinesen is best known for her autobiographical narration published in 1937 'Out of Africa'. Another famous book, 'Seven Gothic Tales' includes the stories set in Europe hundreds of years ago. died on september 7, 1962",
