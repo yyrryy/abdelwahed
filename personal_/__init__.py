@@ -81,3 +81,8 @@ def sitemap():
 
     return response
  
+@app.route("/ads.txt")
+def asd():
+    file=render_template('ads.txt')
+    response=make_response(file)
+    return response
