@@ -20,6 +20,7 @@ from PIL import Image
 from random import randint
 
 
+
 admin = Blueprint('admin', __name__, url_prefix='/admin')
 
 
@@ -79,6 +80,7 @@ def login():
 @admin.route("/createproject", methods=["GET", "POST"])
 @login_required
 def createproject():
+    
     project_id = Projects.query.order_by(Projects.id.desc()).first()
     if project_id:
         project_id = str(int(project_id.id) + 1)
@@ -90,16 +92,7 @@ def createproject():
         data = request.form['data']
         link = request.form['link']
         project = Projects(title=title, cat=cat, data=data, link=link)
-        
-        img = request.files["img"]
-        
-        i = Image.open(img)
-        size = (500, 500)
-        i.thumbnail(size)
-        
-        
-        with open(f'personal_/static/images/project{project_id}.jpg', 'w', encoding='utf-8') as file:
-            i.save(file)
+ 
         db.session.add(project)
         db.session.commit()
         flash(f'project #{project_id} added', 'success')
@@ -112,7 +105,6 @@ def createproject():
 @admin.route('/updatepr/<id>', methods=['GET', 'POST'])
 @login_required
 def updatepr(id):
-    update=True
     p= Projects.query.get(id)
     if request.method=='POST':
         p.title = request.form['title']
@@ -144,7 +136,7 @@ def deletepr(id):
 
 
 #create a post
-@admin.route("/create", methods=["GET", "POST"])
+@admin.route("/createpost", methods=["GET", "POST"])
 @login_required
 def create():
     
@@ -156,10 +148,9 @@ def create():
     if request.method == "POST":
         title = request.form["title"]
         lang = request.form["lang"]
-        slogan = request.form["slogan"]
         content = request.form["content"]
         
-        data = Posts(title=title, slogan=slogan, votes=randint(0, 20), content=content, lang=lang)
+        data = Posts(title=title, votes=randint(0, 20), content=content, lang=lang)
         db.session.add(data)
         db.session.commit()
         flash("Success, your post is live.", 'success')

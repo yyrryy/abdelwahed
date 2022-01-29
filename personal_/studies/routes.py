@@ -107,3 +107,8 @@ def study():
     return render_template('studies/study/home.html', m='Study skills')
 
 
+@st.route('/t')
+def t():
+    return render_template('studies/t.html')
+
+

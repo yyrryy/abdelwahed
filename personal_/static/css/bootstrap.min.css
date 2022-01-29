@@ -10,7 +10,7 @@
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
+  --bs-orange: #ff9301;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
   --bs-teal: #20c997;
@@ -6777,6 +6777,15 @@ fieldset:disabled .btn {
 .text-info {
   color: #0dcaf0 !important;
 }
+
+.text-orange{
+  color:var(--bs-orange)
+}
+
+.bg-orange{
+  background: var(--bs-orange);
+}
+
 .text-warning {
   color: #ffc107 !important;
 }
@@ -9433,4 +9442,3 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.min.css.map */

@@ -13,9 +13,9 @@ main = Blueprint('main', __name__)
 def index():
     # get 4 posts
     posts = Posts.query.order_by(Posts.votes.desc()).limit(4)
-    projects = Projects.query.order_by(Projects.id.desc()).limit(4)
+    projects = Projects.query.order_by(Projects.id.desc())
 
-    return render_template('home.html', 
+    return render_template('h2.html', 
     posts=posts,
     projects=projects)
 
@@ -31,3 +31,8 @@ def projects():
 # def resume():
 #     path='static/thiscv.pdf'
 #     return send_file(path, as_attachment=True)
+
+
+@main.route('/h')
+def h():
+    return render_template('h2.html')
