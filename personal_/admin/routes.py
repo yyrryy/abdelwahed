@@ -111,13 +111,6 @@ def updatepr(id):
         p.data = request.form['data']
         p.link = request.form['link']
         p.cat = request.form['cat']
-        img = request.files["img"]
-        if img:
-            i = Image.open(img)
-            size = (500, 500)
-            i.thumbnail(size)
-            with open(f'personal_/static/images/project{p.id}.jpg', 'w', encoding='utf-8') as file:
-                i.save(file)
         db.session.commit()
         flash(f'project #{id} updated', 'success')
         return redirect(url_for('admin.adminpanel'))
@@ -189,7 +182,6 @@ def edit(postid):
     post = Posts.query.get(postid)
     if request.method == 'POST':
         post.title = request.form['title']
-        post.slogan = request.form['slogan']
         post.content = request.form['content']
         db.session.commit()
         flash(f'post #{postid} updated')

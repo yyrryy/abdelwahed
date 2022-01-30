@@ -15,7 +15,7 @@ class Posts(db.Model):
 class Projects(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
-    data = db.Column(db.String(50), nullable=False)
+    data = db.Column(db.Text, nullable=False)
     cat = db.Column(db.String(50), nullable=False)
     link = db.Column(db.String(50), nullable=False)
     
@@ -34,5 +34,7 @@ class Students(db.Model):
     
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username=db.Column(db.String(20), nullable=False)
-    score=db.Column(db.Integer, default=0)
+    title=db.Column(db.String(20), nullable=False)
+    questions=db.Column(db.Text)
+    answers=db.Column(db.Text)
+    explanations=db.Column(db.Text)

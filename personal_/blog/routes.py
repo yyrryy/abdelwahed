@@ -1,4 +1,5 @@
 from flask import (
+    jsonify,
     render_template,
     request,
     redirect,
@@ -8,7 +9,7 @@ from flask import (
 )
 from personal_.models import Posts
 from urllib.parse import urlparse
-
+from personal_ import db
 
 
 log = Blueprint('blog', __name__, url_prefix='/blog')
@@ -20,8 +21,8 @@ def blog():
     posts=Posts.query.all())
 
 
-@log.route('/post/<int:id>/<name>')
-def post(id, name):
+@log.route('/post/<int:id>')
+def post(id):
     p=Posts.query.get(id)
     next=Posts.query.get(p.id+1)
     previous=Posts.query.get(p.id-1)
@@ -33,3 +34,13 @@ def post(id, name):
     previous=previous,
     root = urlparse(request.host_url)
     )
+
+@log.route('/upvote/<int:id>', methods=['POST'])
+def upvote(id):
+    p=Posts.query.get(id)
+    v=p.votes
+    p.votes+=1
+    db.session.commit()
+    return jsonify({
+        'votes':v+1
+    })

@@ -1,118 +1,52 @@
-{% extends 'blog/bloglyt.html' %}
+{% extends 'lyt.html' %}
 
-{% block meta%}
-<meta content="{{post.slogan}}" name="description">
-<meta content="{{post.title}}" name="keywords">
-
-<meta property="og:url"
-    content="https://{{root.netloc}}/blog/post/{{post.id}}/{{post.title}}" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="{{post.title}}" />
-<meta property="og:description" content="{{post.slogan}}" />
-
-{% endblock %}
-
-
-
-
-
-
-
-
-{% block main %}
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0"
-    nonce="sgn9HE2N"></script>
-{% if post.lang == 'ar' %}
-<div class="container" style="direction: rtl;">
-    {% else %}
-    <div class="container mt-5">
-        {% endif %}
-        <div class="row">
-            <div class="col-lg-8">
-                <!-- Post content-->
-                <article>
-                    <!-- Post header-->
-                    <header class="mb-4">
-                        <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">{{post.title}}</h1>
-                        <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Posted on {{post.date.strftime('%d/%m/%Y')}} </div>
-                        <!-- Post categories-->
-
-                    </header>
-                    <br>
-                    <!-- Post content-->
-                    <section class="mb-2">
-                        {{content}}
-                    </section>
-                </article>
-                <div class=" bg-light   mb-5">
-                    <div>
-                        Votes:
-                        <button class="btn p-2bi bi-caret-up vote" onclick="up()">{{post.votes}}</button>
-                    </div>
-<!--                     
-                        <div class="p-2 fb-share-button" data-href="https://{{root.netloc}}/blog/post/{{post.id}}/{{post.title}}" data-layout="button_count"
-                            data-size="large">
-                            <a target="_blank"
-                                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                                class="fb-xfbml-parse-ignore"></a>
-                        </div> -->
-                    <!-- <button type='button' class="d-none btn btn-success text-white p-2 col-4 bg-green bi bi-whatsapp sharewp"></button> -->
+{% block content %}
+<div class="container mt-5">   
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-8">
+            <article class="article" dir='{% if post.lang==fr %} ltr {%else%}rtl{% endif %}'>
+                <div class="article-title">
+                    <h2>{{post.title}} {{post.lang}}</h2>
+                    
                 </div>
-            </div>
-            <!-- Side widgets-->
-            <div class="col-lg-4">
-
-                <!-- Categories widget-->
-                {% if next or previous %}
-                <div class="card mb-4">
-                    <div class="card-header">Read more</div>
-                    <div class="card-body">
-                        <div class="row">
-                            {% if next %}
-                            Next
-                            <a href="../{{next.id}}/{{next.title}} ">
-                                 {{next.title}}
-                            </a>
-                            {% endif %}
-                            {% if previous %}
-                            Previous
-                            <a href="../{{previous.id}}/{{previous.title}} ">
-                                 {{previous.title}}
-                            </a>
-                            {% endif %}
-
-                        </div>
-                    </div>
+                <div class="article-content">
+                    <p>
+                        {{post.content}}
+                    </p>
                 </div>
-                {% endif %}
-                <!-- Side widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Menu</div>
-                    <div class="card-body row">
-                        <a href="/blog">Blog</a>
-                        <a href="/">Home</a>
-                    </div>
+                
+            </article>
+            
+            <div class="mt-5 d-flex justify-content-between">
+                <div class="bg-orange text-white p-2 rounded">
+                    Votes: <span class="votes">{{post.votes}}</span>
                 </div>
+                <button class="btn btn-dark upvote">
+                    Upvote <span class="bi bi-arrow-up"></span>
+                </button>
             </div>
         </div>
     </div>
-    
-    {% endblock %}
-{% block js %}
-    <script>
-        let votes=parseInt($('.vote').text())
-        votebtn=$('.vote')
-        function up(){
-            votes++
-            votebtn.text(votes)
-            $.ajax({
-                method: 'post',
-                url: "{{url_for('admin.upvote', id=post.id)}}"
-            })
-        }
-    </script>
+</div>
 {% endblock %}
+{% block js %}
+<script>
 
+    let votes=$('.votes')
+    $('.upvote').on('click', ()=>{
+        votes.html('<div class="spinner-border">')
+        $.ajax({
+            type:'post',
+            url: "/blog/upvote/{{post.id}} ",
+            success: (res)=>{
+                $('.upvote').removeClass('upvote')
+                $('.upvote').text('Upvoted')
+                votes.text(res.votes)
+            },
+            error: (err)=>{
+                console.log('err')
+            }
+        })
+    })
+</script>
+{% endblock %}

@@ -78,7 +78,7 @@ mark {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ff9301;
+  background: #000000;
   z-index: 99999;
 }
 
@@ -411,7 +411,7 @@ mark {
 .blog-grid .blog-info h6 {
   font-size: 24px;
   font-weight: 500;
-  padding-top: 10px;
+
 }
 @media (max-width: 767px) {
   .blog-grid .blog-info h6 {
