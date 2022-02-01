@@ -16,7 +16,7 @@
     </div>
     <div class="container">
         <div class="row full-screen align-items-center">
-            <div class="col-lg-7">
+            <div class="text-center">
                 <div class="type-box">
                     <h6>Hello, My name is</h6>
                     <h1 class="font-alt">Abdelouahed ait ali</h1>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="hb-me"></div>
+    
 </section>
 <!-- End Home -->
 <!-- Portfolio -->
@@ -40,8 +40,8 @@
         <div class="portfolio-filter-01">
             <ul class="filter nav">
                 <li class="active" data-filter="*">All</li>
-                <li data-filter=".static">Static web</li>
-                <li data-filter=".dynamic">Dynamic web</li>
+                <li data-filter=".static">Site vetrine</li>
+                <li data-filter=".dynamic">Site dynamic</li>
                 <li data-filter=".mobile">Mobile apps</li>
                 <li data-filter=".api">APIs</li>
             </ul>
@@ -50,8 +50,8 @@
         <div class="portfolio-content grid-gutter-lg grid-col-3 lightbox-gallery">
             {% for i in projects %}
             <div class="grid-item {{i.cat}}">
-                <div class="bg-white rounded-3 mb-2 text-dark">
-                    <div class="">
+                <div class="mb-2">
+                    <div class="bg-white rounded-1 shadow">
                         <div class="p-2">
                             <h3>
                                 {{i.title}}
@@ -89,7 +89,7 @@
         <div class="row">
 
             <div class="col-lg-4 m-15px-tb">
-                <div class="feature-box-01">
+                <div class="feature-box-01 card">
                     <i class="icon bi bi-display"></i>
                     <div class="feature-content">
                         <h5>Web Development</h5>
@@ -107,7 +107,7 @@
             </div>
 
             <div class="col-lg-4 m-15px-tb">
-                <div class="feature-box-01">
+                <div class="feature-box-01 card">
                     <i class="icon bi bi-facebook"></i>
                     <div class="feature-content">
                         <h5>Facebook ads</h5>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="col-lg-4 m-15px-tb">
-                <div class="feature-box-01">
+                <div class="feature-box-01 card">
                     <i class="icon bi bi-google"></i>
                     <div class="feature-content">
                         <h5>Google indexation</h5>
@@ -265,8 +265,8 @@
             <div class="col-md-6 m-15px-tb">
                 <div class="blog-grid">
                     <div class="blog-info">
-                        <div class="meta bg-orange rounded-top">{{i.date.strftime('%Y/%m/%d')}} - Upvotes: {{i.votes}}</div>
-                        <h6 class="bg-white p-3">
+                        <div class="meta">{{i.date.strftime('%Y/%m/%d')}} - Upvotes: {{i.votes}}</div>
+                        <h6 class="">
                             <a href="/blog/post/{{i.id}}" class="text-dark">
                                 {{i.title}}
                             </a>

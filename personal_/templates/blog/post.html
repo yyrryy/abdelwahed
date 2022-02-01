@@ -17,7 +17,7 @@
                 
             </article>
             
-            <div class="mt-5 d-flex justify-content-between">
+            <div class="mt-5 d-flex justify-content-between mb-2">
                 <div class="bg-orange text-white p-2 rounded">
                     Votes: <span class="votes">{{post.votes}}</span>
                 </div>
@@ -39,7 +39,7 @@
             type:'post',
             url: "/blog/upvote/{{post.id}} ",
             success: (res)=>{
-                $('.upvote').removeClass('upvote')
+                $('.upvote').remove()
                 $('.upvote').text('Upvoted')
                 votes.text(res.votes)
             },
