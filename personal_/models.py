@@ -36,5 +36,6 @@ class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(20), nullable=False)
     questions=db.Column(db.Text)
+    options=db.Column(db.Text)
     answers=db.Column(db.Text)
     explanations=db.Column(db.Text)

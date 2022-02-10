@@ -13,8 +13,9 @@ from flask import (
     
 )
 import functools
+import json
 from personal_ import bcrypt, db
-from personal_.models import Admin, Posts, Projects
+from personal_.models import Admin, Posts, Projects, Quiz
 import os
 from PIL import Image
 from random import randint
@@ -44,13 +45,16 @@ def login_required(view):
 @admin.route('/')
 @login_required
 def adminpanel():
+    print(session)
     """ admin panel """
     #get posts
     posts = Posts.query.order_by(Posts.id.desc())
     projects = Projects.query.order_by(Projects.id.desc())
+    quizes = Quiz.query.order_by(Quiz.id.desc())
     return render_template('admin/admin.html', 
     posts=posts,
     projects=projects,
+    quizes=quizes,
     title='Admin panel')
 
 
@@ -69,7 +73,8 @@ def login():
             session['user_id'] = user.username
             flash("What would you like to do today?")
             return redirect(url_for("admin.adminpanel"))
-        return render_template("admin/login.html", message="Username or password incorrect.")
+        
+        return render_template("admin/login.html")
     elif session.get('user_id') is not None:
         return redirect(url_for("admin.adminpanel"))
     else:
@@ -141,8 +146,8 @@ def create():
     if request.method == "POST":
         title = request.form["title"]
         lang = request.form["lang"]
-        content = request.form["content"]
-        
+        content = request.form["content"].strip()
+        print(content)
         data = Posts(title=title, votes=randint(0, 20), content=content, lang=lang)
         db.session.add(data)
         db.session.commit()
@@ -178,22 +183,17 @@ def upvote(id):
 @admin.route("/edit/<postid>", methods=["GET", "POST"])
 @login_required
 def edit(postid):
-    update = True
     post = Posts.query.get(postid)
     if request.method == 'POST':
         post.title = request.form['title']
         post.content = request.form['content']
         db.session.commit()
-        flash(f'post #{postid} updated')
+        flash(f'post #{postid} updated', 'success')
         return redirect(url_for("admin.adminpanel"))
     else:
         return render_template("admin/create.html", 
-        posttitle=post.title,
-        postid=postid,
-        postslogan = post.slogan,
-        postcontent = post.content,
-        post_id=postid,
-        update=update,
+        p=post,
+        update=True,
         title=f'Update post #{postid}')
     
 
@@ -203,11 +203,11 @@ def edit(postid):
 @login_required
 def delete(postid):
     post = Posts.query.get(postid)
-    if request.method=='POST':
-        db.session.delete(post)
-        db.session.commit()
-        flash(f'post #{postid} deleted', 'danger')
-        return redirect(url_for("admin.adminpanel"))
+    print('=====>', post)
+    db.session.delete(post)
+    db.session.commit()
+    flash(f'post #{postid} deleted', 'danger')
+    return redirect(url_for("admin.adminpanel"))
     
 @admin.route('/docs')
 def docs():
@@ -220,7 +220,49 @@ def inscription():
 
 
 
-@admin.route('/getout')
-def getout():
-    session.clear()
-    return redirect(url_for('main.index'))
+@admin.route('/createquiz', methods=['GET', 'POST'])
+def createquiz():
+    if request.method=='POST':
+        title=request.form['title']
+        questions=json.dumps(request.form.getlist('questions'))
+        options=request.form.getlist('options')
+        answers=json.dumps([int(i) for i in (request.form.getlist('answers'))])
+        o=[]
+        for i in options:
+            l=[a.strip() for a in i.split(',')]
+            o.append(l)
+        db.session.add(Quiz(title=title, questions=questions, answers=answers, options=json.dumps(o)))
+        db.session.commit()
+        flash(f'Quiz for {title} created', 'success')
+        return redirect(url_for('admin.createquiz'))
+    return render_template('admin/createquiz.html')
+    
+
+
+@admin.route('/editquiz/<id>', methods=['GET', 'POST'])
+def editquiz(id):
+    quiz=Quiz.query.get(id)
+
+    if request.method=='POST':
+        quiz.title=request.form['title']
+        quiz.questions=json.dumps(request.form.getlist('questions'))
+        quiz.answers=json.dumps([int(i) for i in (request.form.getlist('answers'))])
+        options=request.form.getlist('options')
+        o=[]
+        for i in options:
+            l=[a.strip() for a in i.split(',')]
+            o.append(l)
+        quiz.options=json.dumps(o)
+
+        db.session.commit()
+        # flash(f'quiz {quiz.title} edited', 'success')
+        return redirect(url_for('admin.editquiz', id=id))
+
+    questions=json.loads(quiz.questions)
+    options=json.loads(quiz.options)
+    answers=json.loads(quiz.answers)
+    t=quiz.title
+    return render_template('admin/createquiz.html', update=True, questions=questions, id=id,options=options, answers=answers, title=f'Edit {t} quiz', t=t)
+
+
+

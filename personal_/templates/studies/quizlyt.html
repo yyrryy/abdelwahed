@@ -1,0 +1,47 @@
+{% extends 'studies/base.html' %}
+
+{% block content %}
+
+    <!-- navigation -->
+    <nav class="navigation scroll-bar">
+        <div class="container pl-0 pr-0">
+            <div class="nav-content d-flex flex-column h-100">
+                {% block nav %}
+                {% endblock %}
+                <small class="mt-auto">
+                    You wanna help me with courses <br>
+                    contact me: aitaliabdelwahed@gmail.com
+                </small>
+            </div>
+        </div>
+    </nav>
+    <!-- navigation -->
+    <!-- main content -->
+    <div class="main-content p-xl-280">
+        <div class="middle-sidebar-header bg-white">
+            <button class="header-menu"></button>
+            
+            {% block header %}
+            {% endblock %}
+        </div>
+        <div class="middle-sidebar-bottom">
+            {% block contentq %}
+            {% endblock %}
+        </div>
+    </div>
+    <!-- main content -->
+
+
+    
+
+{% endblock %}
+
+    
+{% block js %}
+    <script>
+        console.log('reg')
+        $('.register').on('click', (e)=>{
+            console.log('zeze')
+        })
+    </script>
+{% endblock %}

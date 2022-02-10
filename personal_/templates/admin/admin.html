@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content%}
+
 <div class="row">
     {% for i in posts %}
     <div class="col-md-3">
@@ -39,12 +40,38 @@
                 {{i.title}}
             </p>
             <div class="d-flex btn-group" role="group" aria-label="Basic example">
-                <a type="button" class="col-6 btn bg-orange text-white" href="/admin/updatepr/{{i.id}}" class="text-white">Edit</a>
+                <a type="button" class="col-6 btn bg-orange text-white" href="/admin/updatepr/{{i.id}}"
+                    class="text-white">Edit</a>
                 </a>
                 <form action="/admin/deletepr/{{i.id}}" class="col-auto" method="post">
 
                     <button type="button" class="btn btn-secondary text-white delete">Delete</button>
                 </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="mt-5 d-flex justify-content-between">
+    <h1>
+        Quizes
+    </h1>
+    <a class="btn bg-orange bi bi-plus" href="/admin/createproject"></a>
+</div>
+<div class="row">
+    {% for i in quizes %}
+    <div class="col-md-3">
+        <div class="mt-5 bg-white rounded mb-2 text-dark">
+            <p class="p-2">
+                {{i.title}}
+            </p>
+            <div class="d-flex btn-group" role="group" aria-label="Basic example">
+                <a type="button" class="col-6 btn bg-orange text-white" href="/admin/editquiz/{{i.id}}"
+                    class="text-white">Edit</a>
+                </a>
+               
             </div>
         </div>
     </div>

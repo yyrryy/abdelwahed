@@ -1,4 +1,7 @@
-{% extends 'lyt.html' %}
+{% extends 'blog/bloglyt.html' %}
+
+
+
 
 {% block content %}
 <section class="blog-listing">
@@ -9,14 +12,14 @@
         <div class="row">
             {% for i in posts %}
             <div class="col-md-6 m-15px-tb">
-                <div class="blog-grid">
-                    <div class="blog-info">
-                        <div class="meta">{{i.date.strftime('%Y/%m/%d')}} - Upvotes: {{i.votes}}</div>
-                        <h6>
-                            <a href="./post/{{i.id}}" class="text-dark">
+                <div class="blog-grid ">
+                    <div class="blog-info bg-white  border rounded-1" dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
+                        <h6 class="px-2">
+                            <a href="/blog/post/{{i.id}}" class="text-dark">
                                 {{i.title}}
                             </a>
                         </h6>
+                        <div class="meta">{{i.date.strftime('%Y/%m/%d')}} - Upvotes: {{i.votes}}</div>
                     </div>
                 </div>
             </div>

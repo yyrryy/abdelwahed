@@ -1,0 +1,322 @@
+{% extends 'studies/quizlyt.html' %}
+
+<!-- navbar block -->
+{% block nav %}
+<div class="nav-top">
+    <a href="index.html"><i class="feather-slack text-success display1-size mr-3 ml-3"></i><span
+            class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xl logo-text mb-0">Quizes.
+        </span> </a>
+    <a href="#" class="close-nav d-inline-block d-lg-none">
+        <i class="bg-grey btn-round-sm text-dark ml-auto mr-2 bi bi-x-circle">
+    
+        </i>
+    </a>
+</div>
+<div class="fw-600 font-xssss text-grey-500"><span>Ranking</div>
+<div class="p-2 mt-2">
+    {% if user %}
+    {% for i, v in enumerate(rank) %}
+    <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+        <div>
+            <span class="me-2 bg-current btn-round-xs rounded-lg font-xssss text-white fw-600">
+                {{i+1}}
+            </span>
+            <span class="font-xssss fw-500 text-grey-500 ml-2">
+            <img src="http://avatars.dicebear.com/api/big-smile/{{v.username}}.svg"
+                alt="user" class="shadow rounded-circle  border w50 mt--1"> {{v.username}}
+            </span>
+        </div>
+        <span class="ml-auto font-xssss fw-500 text-grey-500">{{v.score}}</span>
+    </div>
+    {%endfor%}
+    {% else %}
+    <div class="alert-danger">
+        You need to login in order to see the ranking
+    </div>
+    {% endif %}
+</div>
+
+<div class="mt-5 fw-600 font-xssss text-grey-500"><span>Courses</div>
+
+<ul class="navbar-nav nav-menu float-none text-center">
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+            aria-expanded="false">S1 <i class="ti-angle-down"></i></a>
+        <div class="dropdown-menu">
+            <a href="/studies/s1/writing">Writings Paragraph</a>
+            <a href="/studies/s1/spoken">Spoken English</a>
+            <a href="/studies/s1/study">Study Skills</a>
+            <a href="/studies/s1/grammar1">Grammar 1</a>
+            <a href="/studies/s1/guided">Guided Reading</a>
+            <a href="/studies/s1/language">Langues I ANG</a>
+            <a href="/studies/s1/reading">Reading Compr Précis 1</a>
+    
+        </div>
+    
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+            aria-expanded="false">S2<i class="ti-angle-down"></i></a>
+        <div class="dropdown-menu">
+                <a href="/studies/s2/reading2">Reading Compr Précis 2</a>
+                <a href="/studies/s2/grammar2">Grammar 2</a>
+                <a href="/studies/s2/culture">Readings in Culture</a>
+                <a href="/studies/s2/lang2">Langues II</a>
+                <a href="/studies/s2/comp1">Composition 1</a>
+                <a href="/studies/s2/comunication">Oral communication</a>
+                <a href="/studies/s2/business">Business Communication</a>
+    
+        </div>
+    
+    </li>
+</ul>
+
+
+{% endblock %}
+
+{% block header %}
+<button class="btn ms-auto sidebar-right"><img src="http://avatars.dicebear.com/api/big-smile/{%if user %}{{user.username}}{% else %}account{% endif %}.svg" alt="user" class="shadow rounded-circle  border w50 mt--1"></button>
+{% endblock %}
+
+{% block contentq %}
+
+<div class="middle-sidebar-left">
+    <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for c, m in messages %}
+        <div class="col-12 alert alert-{{c}} alert-dismissible fade show d-flex justify-content-between" role="alert">
+            <div>
+                <strong>{{m}}</strong>
+            </div>
+            <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% for i in quizes %}
+        <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="card mb-4 d-block w-100 shadow-xss rounded-lg p-xxl-5 p-4 border-0 text-center">
+                <a href="#" class="position-absolute right-0 mr-4 top-0 mt-3"><i
+                        class="ti-more text-grey-500 font-xs"></i></a>
+                <span href="#" class="btn-round-xxxl rounded-lg bg-lightblue ml-auto mr-auto">
+                    {{i.title[0]}}{{i.title[-1]}}
+                </span>
+                <h4 class="fw-700 font-xs mt-4">{{i.title}}</h4>
+                <p class="fw-500 font-xssss text-grey-500 mt-3">
+                    {{i.title}} quiz, 
+                </p>
+                <p class="fw-500 font-xssss text-grey-500 mt-3">
+                   {{len(json.loads(i.questions))}} Questions
+                </p>
+                {% if user %}
+                <a href="./quiz/{{i.id}}"
+                    class="p-2 mt-4 d-inline-block text-white fw-700 lh-30 rounded-lg w200 text-center font-xsssss ls-3 bg-current">Take
+                </a>
+                {% else %}
+                <button disabled="disabled" class="btn btn-primary">
+                    Take
+                </button>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="middle-sidebar-right right-scroll-bar shadow">
+    <div class="middle-sidebar-right-content">
+
+        <div class="card overflow-hidden subscribe-widget p-3 mb-3 rounded-xxl border-0">
+            <div class="card-body p-2 d-block text-center bg-no-repeat bg-image-topcenter">
+                
+                <figure class="avatar ml-auto mr-auto mb-5 mt-2"><img src="http://avatars.dicebear.com/api/big-smile/{%if user %}{{user.username}}{% else %}account{% endif %}.svg" alt="image"
+                        class="shadow rounded-circle w-50 border"></figure>
+                <div class="clearfix"></div>
+                {% if user %}
+                <h2 class="text-black font-xss lh-3 fw-700 mt-3 mb-1">{{user.username}}</h2>
+                
+                <ul class="list-inline border-0 mt-4">
+                    <li class="list-inline-item text-center mr-4">
+                        <h4 class="fw-700 font-md">{{user.semister}}
+                        </h4>
+                    </li>
+                    <li class="list-inline-item text-center mr-4">
+                        <h4 class="fw-700 font-md">{{user.group}}
+                    
+                        </h4>
+                    </li>
+                    
+                </ul>
+                <h4 class="fw-700 font-md">
+                    {{user.score}} points
+                </h4>
+                {% else %}
+                <div class="forms" target="login">
+                <p>
+                    Looks like you are not logged in :)
+                </p>
+                    <form method="post" action="{{url_for('studies.login')}}">       
+                        <div class="form-group icon-input mb-3">
+                            <input required type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
+                        </div>
+                        <div class="form-group icon-input mb-1">
+                            <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
+                                placeholder="Your password" name="pswd">
+                        </div>
+                        <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Login</button>
+                    </form>
+                    
+                    <div class="col-sm-12 p-0 text-left">
+                        <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a 
+                                class="fw-700 ml-1 switcher btn">Create one</a></h6>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card theme-light-bg overflow-hidden rounded-xxl border-0 mb-3">
+            <div class="card-body d-flex justify-content-between align-items-end p-4">
+                <div>
+                    <h4 class="font-xsss text-grey-900 mb-2 d-flex align-items-center justify-content-between mt-2 fw-700">
+                        
+                    </h4>
+                </div>
+                
+        
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+    forms=$('.forms')
+    switcher = $('.switcher')
+    $(window).on('click', (e)=>{
+        if (e.target.classList.contains('switcher')){
+            if (forms.attr('target') == 'login') {
+                forms.attr('target', 'rr')
+                forms.html(`
+                <div class='errors'></div>
+                <div class= "form-group icon-input mb-3" >
+                    <input type="text" min=3 class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="choose a unique username" name="username">
+                </div>
+                <div class="form-group icon-input mb-1">
+                    <input type="Password" min=6 class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="pswd" placeholder="Password">
+                </div>
+                <p class="text-start mb-0">Semister</p>
+                <div class="form-group icon-input mb-2">
+                    <select class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="semister">
+                        <option value="0">Select a semister</option>
+                        <option value="s1">S1</option>
+                        <option value="s2">S2</option>
+                        <option value="s3">S3</option>
+                        <option value="s3">S3</option>
+                        <option value="s4">S4</option>
+                        <option value="s5">S5</option>
+                        <option value="s6">S6</option>
+                    </select>
+                </div>
+
+                <p class="text-start mb-0">Group</p>
+                <div class="form-group icon-input mb-2">
+                    <select class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="group">
+                        <option value="0">Select a group</option>
+                        <option value="g1">g1</option>
+                        <option value="g2">g2</option>
+                        <option value="g3">g3</option>
+                        <option value="g3">g3</option>
+                        <option value="g4">g4</option>
+                        <option value="g5">g5</option>
+                        <option value="g6">g6</option>
+                    </select>
+                </div>
+
+                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 register disabled">Register</button>
+            
+                <div class="col-sm-12 p-0 text-left">
+                    <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">You already have an account <a class="fw-700 ml-1 switcher btn">Login</a></h6>
+                </div>
+            `)
+                $('.register').on('click', () => {
+                    $('.register').text('checking...')
+                    $('.register').attr('disabled', 'true')
+                    $('.errors').html('')
+                
+                    if($('[name=semister]').val() != 0 && $('[name=group]').val() != 0 && [$('[name=username]'), $('[name=pswd]')].map((e) => e.val().length > 3).every(v=>v==true)){
+                        data={'user': $('[name=username]').val()}
+                        $.ajax({
+                            type: 'post',
+                            url: "/studies/checkuser",
+                            data: JSON.stringify(data),
+                            contentType: "application/json",
+
+                            success:(data)=>{
+                                if (data.taken){
+                                    $('.register').text('Register')
+                                    $('.register').removeAttr('disabled')
+                                    $('.errors').html('<div class="alert alert-danger">Username already taken, please choose another one</div>')
+                                }
+                                else{
+                                    data={
+                                        "username": $('[name=username]').val(),
+                                        "pswd": $('[name=pswd]').val(),
+                                        "semister": $('[name=semister]').val(),
+                                        "group": $('[name=group]').val(),
+                                    }
+                                    $.ajax({
+                                        type: 'post',
+                                        url: "/studies/signup",
+                                        data: JSON.stringify(data),
+                                        contentType: "application/json",
+
+                                    })
+                                    $('.errors').html('<div class="alert alert-success">Account created you can now login</div>')
+                                    $('.register').text('Created')
+
+                                }
+                            }
+                        })
+                    }else{
+                        $('.register').text('Register')
+                        $('.register').removeAttr('disabled')
+                        $('.errors').html('<div class="alert alert-danger">Somthis went wrong, please make sure you fill all inputs</div>')
+                    }
+                })
+            }
+            else {
+                forms.attr('target', 'login')
+                forms.html(`
+                 <form method="post" action="{{url_for('studies.login')}}">       
+                    <div class="form-group icon-input mb-3">
+                        <input required type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
+                    </div>
+                    <div class="form-group icon-input mb-1">
+                        <input required type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
+                            placeholder="Your password" name="pswd">
+                    </div>
+                    <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">Login</button>
+                </form>
+                    
+                <div class="col-sm-12 p-0 text-left">
+                    <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a 
+                            class="fw-700 ml-1 switcher btn">Create one</a></h6>
+                </div>
+                
+            `)
+            }
+            
+        }
+    })
+    
+</script>
+{% endblock %}
+

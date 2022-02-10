@@ -9,26 +9,21 @@
 {% block content %}
 
 {% if update %}
-<form action="/admin/edit/{{postid}}" method="POST">
+<form action="/admin/edit/{{postid}}" method="POST" dir="{% if p.lang=='fr' %}ltr{% else %}rtl{% endif %}">
 
-    <h1 class="mt-5">Update Post (#{{ post_id }})</h1>
+
     <br>
     <div class="form-outline mb-4">
         <label class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" value=" {{posttitle}} " />
+        <input type="text" name="title" class="form-control" value=" {{p.title}} " />
     </div>
 
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-        <label class="form-label">slogan</label>
-        <input type="text" name="slogan" class="form-control" maxlength="40" value=" {{postslogan}} " />
-    </div>
 
     <div class="form-outline mb-4">
         <label class="form-label">Content</label>
         <textarea name="content" class="form-control" rows="8">
-                    {{postcontent}}
-                </textarea>
+        {{p.content}}
+        </textarea>
     </div>
 
     <!-- Checkbox 
@@ -46,7 +41,9 @@
     <!-- Name input -->
 
 </form>
-<button class="btn btn-danger deletepost">Delete</button>
+<form action="/admin/deletepost/{{p.id}}", method="post">
+    <button class="btn btn-danger deletepost">Delete</button>
+</form>
 {% else %}
 
 

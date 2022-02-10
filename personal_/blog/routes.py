@@ -18,7 +18,8 @@ log = Blueprint('blog', __name__, url_prefix='/blog')
 @log.route('/')
 def blog():
     return render_template('blog/blog.html', 
-    posts=Posts.query.all())
+    posts=Posts.query.all(),
+    title='My blog')
 
 
 @log.route('/post/<int:id>')
