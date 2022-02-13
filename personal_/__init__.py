@@ -23,7 +23,6 @@ app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
 
 db = SQLAlchemy(app)
 bcrypt  = Bcrypt(app)
-migrate = Migrate(app, db)
 from personal_.admin.routes import admin
 from personal_.main.routes import main
 from personal_.blog.routes import log
