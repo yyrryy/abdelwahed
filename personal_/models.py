@@ -27,7 +27,7 @@ class Students(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username=db.Column(db.String(20), nullable=False)
     score=db.Column(db.Integer, default=0)
-    pswd = db.Column(db.String(200), nullable=False)
+    pswd = db.Column(db.String(500), nullable=False)
     group = db.Column(db.String(2))
     semister = db.Column(db.String(2))
     

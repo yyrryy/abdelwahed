@@ -28,7 +28,7 @@ links = [
   "./s2/culture",
   "./s2/lang2",
   "./s2/comp1",
-  "./s2/comunication",
+  "./s2/communication",
   "./s2/business",
 ];
 

@@ -64,8 +64,8 @@ def getverb():
             "data":data
         })
 
-
-@st.route('/s1/grammar')
+# s1
+@st.route('/s1/grammar1')
 def grammar():
     return render_template('studies/lesson.html', titel='Grammar')
 @st.route('/grammar/tenses')
@@ -80,7 +80,7 @@ def modals():
 
 
 
-# s1
+
 
 @st.route('/s1/guided')
 def guided():
@@ -134,7 +134,7 @@ def culture():
 def lang2():
     return render_template('studies/lesson.html', title='lang2')
 
-@st.route('/s2/somp1')
+@st.route('/s2/comp1')
 def somp1():
     return render_template('studies/lesson.html', title='somp1')
 
@@ -158,9 +158,9 @@ def quizes():
     if 'userid' in session:
         rank=Students.query.order_by(Students.score.desc()).limit(10).all()
         user=Students.query.get(int(session['userid']))
-        return render_template('studies/quizes.html', title='Quizes', user=user, quizes=quizes, len=len, json=json, rank=rank, enumerate=enumerate)
+        return render_template('studies/quizes.html', title='Quizzes', user=user, quizes=quizes, len=len, json=json, rank=rank, enumerate=enumerate)
     flash('Holy crap! you need to login to take quizes.', 'warning')
-    return render_template('studies/quizes.html', title='Quizes', user=False, quizes=quizes, json=json, len=len)
+    return render_template('studies/quizes.html', title='Quizzes', user=False, quizes=quizes, json=json, len=len)
 @st.route('/quiz/<id>')
 def quiz(id):
     if 'userid' in session:
