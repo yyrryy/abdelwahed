@@ -3,19 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import os
 from urllib.parse import urlparse
-import datetime
-from flask_migrate import Migrate
 
-
-today = datetime.date.today()
-future = datetime.date(2022, 1, 3)
-diff = (future - today).days
 
 
 app = Flask(__name__)
-@app.context_processor
-def inject_days():
-    return dict(days=diff)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('abdelouaheddb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
