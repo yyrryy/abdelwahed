@@ -13,24 +13,24 @@
 
 
     <br>
-    <div class="form-outline mb-4">
-        <label class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" value=" {{p.title}} " />
+    <div class="row">
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" value=" {{p.title}} " />
+        </div>
+        
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">About</label>
+            <textarea name="about" class="form-control" rows="8">{{p.content}}</textarea>
+        </div>
     </div>
-
 
     <div class="form-outline mb-4">
         <label class="form-label">Content</label>
-        <textarea name="content" class="form-control" rows="8">{{content}}</textarea>
+        <textarea name="content" class="form-control" rows="8">{{p.content}}</textarea>
     </div>
 
-    <!-- Checkbox 
-                    <div class="form-check d-flex justify-content-center mb-4">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
-                        <label class="form-check-label">
-                            I have read and agree to the terms
-                        </label>
-                    </div>-->
+
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
@@ -39,9 +39,9 @@
     <!-- Name input -->
 
 </form>
-<form action="/admin/deletepost/{{p.id}}", method="post">
+<!-- <form action="/admin/deletelesson/{{p.id}}", method="post">
     <button class="btn btn-danger deletepost">Delete</button>
-</form>
+</form> -->
 {% else %}
 
 
@@ -56,11 +56,8 @@
             <input type="text" name="title" class="form-control" />
         </div>
         <div class="form-outline mb-4 col-md-6">
-            <label class="form-label">language</label>
-            <select class="form-select lang" aria-label="Default select example" name="lang">
-                <option value="fr" selected>fr</option>
-                <option value="ar">ar</option>
-            </select>
+            <label class="form-label">About</label>
+            <textarea name="about" class="form-control" rows="8"></textarea>
         </div>
     </div>
 

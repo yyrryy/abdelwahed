@@ -107,7 +107,7 @@ def writing():
     return render_template('studies/lesson.html', title='Writing')
 
 
-@st.route('/s1/language')
+@st.route('/s1/lang1')
 def language():
     return render_template('studies/lesson.html', title='Language et comm.')
 
@@ -211,7 +211,6 @@ def login():
     """
 
     if request.method=='POST':
-        print('rfgdfd')
         username = request.form["username"]
         user = Students.query.filter_by(username=username).first()
         if user and bcrypt.check_password_hash(user.pswd, request.form["pswd"]):
@@ -229,7 +228,7 @@ def signup():
     username = data["username"]
     semister = data["semister"]
     group = data["group"]
-    pswd = bcrypt.generate_password_hash(data["pswd"])
+    pswd = bcrypt.generate_password_hash(data["pswd"]).decode('utf-8')
     db.session.add(Students(username=username, semister=semister, group=group, pswd=pswd))
     db.session.commit()
     flash('Account successfully created', 'success')

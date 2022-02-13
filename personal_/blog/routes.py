@@ -2,8 +2,6 @@ from flask import (
     jsonify,
     render_template,
     request,
-    redirect,
-    url_for,
     Blueprint,
     Markup
 )
@@ -18,7 +16,7 @@ log = Blueprint('blog', __name__, url_prefix='/blog')
 @log.route('/')
 def blog():
     return render_template('blog/blog.html', 
-    posts=Posts.query.all(),
+    posts=Posts.query.order_by(Posts.votes.desc()).all(),
     title='My blog')
 
 

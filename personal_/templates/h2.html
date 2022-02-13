@@ -3,37 +3,28 @@
 {% block content %}
 <!-- Home -->
 <section id="home" class="home-banner">
-    <div class="hb-top-fixed d-flex justify-content-between">
-        <div class="hb-info">
-            <label>+212 628 599 249</label>
-            <label>aitaliabdelouahed@gmail.com</label>
-        </div>
-        <div class="d-flex">
-            <a href="" class="bi bi-facebook me-2"></a>
-            <a href="" class="bi bi-linkedin me-2"></a>
-            <a href="" class="bi bi-twitter me-2"></a>
-        </div>
-    </div>
+
     <div class="container">
         <div class="row full-screen align-items-center">
-        <div class="d-flex flex-column align-items-center">
-            <div class="type-box text-center">
-                <h6>Hello, My name is</h6>
-                <h1 class="font-alt">Abdelouahed ait ali</h1>
-        
-                <p class="desc">I am a student (English studies) and a self-taught web developer.</p>
-        
+            <div class="d-flex flex-column align-items-center">
+                <div class="type-box text-center">
+                    <h6>Hello, My name is</h6>
+                    <h1 class="font-alt">Abdelouahed ait ali</h1>
+
+                    <p class="desc">I am a student (English studies) and a self-taught web developer.</p>
+
+                </div>
+                <div class="d-flex">
+                    <a href="https://web.facebook.com/abdelwahed.aitali.90" target='_blank'
+                        class="bi bi-facebook me-2 fs-2"></a>
+                    <a href="https://www.linkedin.com/in/yurey/" target='_blank' class="bi bi-linkedin me-2 fs-2"></a>
+                    <a href="https://twitter.com/abd_lwa" target='_blank' class="bi bi-twitter me-2 fs-2"></a>
+                </div>
+                <a href="#work" class="mt-5 h1 color-orange bi bi-arrow-down"></a>
             </div>
-            <div class="d-flex">
-                <a href="https://web.facebook.com/abdelwahed.aitali.90" target='_blank' class="bi bi-facebook me-2 fs-2"></a>
-                <a href="https://www.linkedin.com/in/yurey/" target='_blank' class="bi bi-linkedin me-2 fs-2"></a>
-                <a href="https://twitter.com/abd_lwa" target='_blank' class="bi bi-twitter me-2 fs-2"></a>
-            </div>
-            <a href="#work" class="mt-5 h1 color-orange bi bi-arrow-down"></a>
-        </div>
         </div>
     </div>
-    
+
 </section>
 <!-- End Home -->
 <!-- Portfolio -->
@@ -76,9 +67,44 @@
             {% endfor %}
 
         </div>
+
+        <br>
+        <div class="title mt-5">
+            <h3>Certifications.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 m-15px-tb">
+                <div class="feature-box-02 media align-items-center bg-dark">
+
+                    <div>
+                        <img src="/static/images/certs/javascript.jpg" alt="javascript certificate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 m-15px-tb">
+                <div class="feature-box-02 media align-items-center bg-dark">
+
+                    <div>
+                        <img src="/static/images/certs/html_css.jpg" alt="html_css certificate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 m-15px-tb">
+                <div class="feature-box-02 media align-items-center bg-dark">
+
+                    <div>
+                        <img src="/static/images/certs/sql.jpg" alt="sql certificate">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <!-- End Portfolio -->
+
+<!-- certs -->
+
+
 
 <!-- about us -->
 
@@ -100,7 +126,7 @@
                         <h5>Web Development</h5>
                         <p>
                         <ul>
-                            <li>Staticwebsite: Html/Css/Javascrpt -Bootstrap-</li>
+                            <li>Static website: Html/Css/Javascrpt -Bootstrap-</li>
                             <li>
                                 Dynamic website: Bootstrap in the front, Flask/django in the backend
                             </li>
@@ -125,7 +151,7 @@
                                 Analise data and retargeting
                             </li>
                             <li>
-                                Setup facebook puixel
+                                Setup facebook pixel
                             </li>
                         </ul>
                         </p>
@@ -137,14 +163,14 @@
                 <div class="feature-box-01 card">
                     <i class="icon bi bi-google"></i>
                     <div class="feature-content">
-                        <h5>Google indexation</h5>
+                        <h5>Google indexing</h5>
                         <p>
                         <ul>
                             <li>
-                                figurer le siteweb avec Google search console
+                                Register aebsite in google search console
                             </li>
                             <li>
-                                Utiliser les strategies SEO
+                                Use SEO firendly tags
                             </li>
                         </ul>
                         </p>
@@ -182,7 +208,7 @@
                             aria-valuemax="100"></div>
                     </div>
                 </div><!-- /skill -->
-                
+
                 <div class="skill-lt">
                     <h6>Python</h6>
                     <div class="skill-bar">
@@ -256,10 +282,11 @@
             {% for i in posts %}
             <div class="col-md-6 m-15px-tb">
                 <div class="blog-grid">
-                    <div class="blog-info p-2 bg-white  border rounded-1" dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
+                    <div class="blog-info p-2 bg-white  border rounded-1"
+                        dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
                         <h6 class="">
                             <a href="/blog/post/{{i.id}}" class="text-dark">
-                                {{i.title}} 
+                                {{i.title}}
                             </a>
                         </h6>
                         <div class="meta">{{i.date.strftime('%Y/%m/%d')}} - Upvotes: {{i.votes}}</div>

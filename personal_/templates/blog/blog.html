@@ -12,8 +12,8 @@
         <div class="row">
             {% for i in posts %}
             <div class="col-md-6 m-15px-tb">
-                <div class="blog-grid ">
-                    <div class="blog-info bg-white  border rounded-1" dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
+                <div class="blog-grid " dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
+                    <div class="blog-info bg-white  border rounded-1">
                         <h6 class="px-2">
                             <a href="/blog/post/{{i.id}}" class="text-dark">
                                 {{i.title}}

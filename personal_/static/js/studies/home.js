@@ -16,20 +16,20 @@ courses = [
 ];
 
 links = [
-  "./writing",
-  "./spoken",
-  "./study",
-  "./grammar1",
-  "./guided",
-  "./lang1",
-  "./reading1",
-  "./reading2",
-  "./grammar2",
-  "./culture",
-  "./lang2",
-  "./comp1",
-  "./comunication",
-  "./business",
+  "./s1/writing",
+  "./s1/spoken",
+  "./s1/study",
+  "./s1/grammar1",
+  "./s1/guided",
+  "./s1/lang1",
+  "./s1/reading1",
+  "./s2/reading2",
+  "./s2/grammar2",
+  "./s2/culture",
+  "./s2/lang2",
+  "./s2/comp1",
+  "./s2/comunication",
+  "./s2/business",
 ];
 
 

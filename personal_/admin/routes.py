@@ -4,9 +4,7 @@ from flask import (
     request,
     redirect,
     url_for,
-    Markup,
     Blueprint,
-    abort,
     session,
     jsonify,
     send_file
@@ -15,11 +13,9 @@ from flask import (
 import functools
 import json
 from personal_ import bcrypt, db
+from personal_.admin.funcs import convertor, refactor
 from personal_.models import Admin, Posts, Projects, Quiz
-import os
-from PIL import Image
-from random import randint
-
+from random import randint, choice
 
 
 admin = Blueprint('admin', __name__, url_prefix='/admin')
@@ -147,8 +143,8 @@ def create():
         title = request.form["title"]
         lang = request.form["lang"]
         content = request.form["content"].strip()
-        print(content)
-        data = Posts(title=title, votes=randint(0, 20), content=content, lang=lang)
+        c=convertor(content)
+        data = Posts(title=title, votes=randint(0, 20), content=c, lang=lang)
         db.session.add(data)
         db.session.commit()
         flash("Success, your post is live.", 'success')
@@ -186,13 +182,14 @@ def edit(postid):
     post = Posts.query.get(postid)
     if request.method == 'POST':
         post.title = request.form['title']
-        post.content = request.form['content']
+        post.content = convertor(request.form['content'].strip())
         db.session.commit()
         flash(f'post #{postid} updated', 'success')
         return redirect(url_for("admin.adminpanel"))
     else:
         return render_template("admin/create.html", 
         p=post,
+        content=refactor(post.content),
         update=True,
         title=f'Update post #{postid}')
     
@@ -219,7 +216,7 @@ def inscription():
     return send_file(path, as_attachment=True)
 
 
-
+#quizz
 @admin.route('/createquiz', methods=['GET', 'POST'])
 def createquiz():
     if request.method=='POST':
@@ -237,8 +234,6 @@ def createquiz():
         return redirect(url_for('admin.createquiz'))
     return render_template('admin/createquiz.html')
     
-
-
 @admin.route('/editquiz/<id>', methods=['GET', 'POST'])
 def editquiz(id):
     quiz=Quiz.query.get(id)
@@ -263,6 +258,8 @@ def editquiz(id):
     answers=json.loads(quiz.answers)
     t=quiz.title
     return render_template('admin/createquiz.html', update=True, questions=questions, id=id,options=options, answers=answers, title=f'Edit {t} quiz', t=t)
+
+
 
 
 
