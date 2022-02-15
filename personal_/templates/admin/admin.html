@@ -19,7 +19,9 @@
             <div class="d-flex btn-group" role="group" aria-label="Basic example">
                 <a type="button" class="col-6 btn bg-orange text-white" href="/admin/edit/{{i.id}}" class="text-white">Edit</a>
                 </a>
-                <a type="button" class="col-6 btn btn-secondary text-white" href="/admin/deletepr">Delete</a>
+                <form action="deletepost/{{i.id}}" method="post" class="col-6">
+                    <button type="button" class="w-100 btn btn-secondary text-white delete">Delete</button>
+                </form>
             </div>
         </div>
     </div>
