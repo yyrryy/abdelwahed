@@ -44,24 +44,38 @@
 {% endblock %}
 
 
-
-
-
-
-
+{% block header %}
+<button class="btn ms-auto sidebar-right"><img
+        src="https://avatars.dicebear.com/api/big-smile/{%if user %}{{user.username}}{% else %}account{% endif %}.svg"
+        alt="user" class="shadow rounded-circle  border w50 mt--1"></button>
+{% endblock %}
 
 
 
 {% block contentq %}
 <div class="middle-sidebar-left">
     <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for c, m in messages %}
+        <div class="col-12 mt-5 alert alert-{{c}} alert-dismissible fade show d-flex justify-content-between" role="alert">
+            <div>
+                <strong>{{m}}</strong>
+            </div>
+            <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
         <div class="col-xl-8 col-xxl-9">
            <h1>
             soon
            </h1>
         </div>
         <div class="col-xl-4 col-xxl-3">
-            <div class="card p-4 mb-4 bg-primary border-0 shadow-xss rounded-lg">
+            <div class="card bg-primary border-0 shadow-xss rounded-lg">
                 <div class="card-body">
                     <h2 class="text-white font-xsssss fw-700 text-uppercase ls-3 ">{{title}}</h2>
                     <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
@@ -77,4 +91,162 @@
     </div>
 </div>
 
+
+<div class="middle-sidebar-right right-scroll-bar shadow">
+    <div class="middle-sidebar-right-content">
+
+        <div class="card overflow-hidden subscribe-widget p-3 mb-3 rounded-xxl border-0">
+            <div class="card-body p-2 d-block text-center bg-no-repeat bg-image-topcenter">
+
+                <figure class="avatar ml-auto mr-auto mb-5 mt-2"><img
+                        src="https://avatars.dicebear.com/api/big-smile/{%if user %}{{user.username}}{% else %}account{% endif %}.svg"
+                        alt="image" class="shadow rounded-circle w-50 border"></figure>
+                <div class="clearfix"></div>
+                {% if user %}
+                <h2 class="text-black font-xss lh-3 fw-700 mt-3 mb-1">{{user.username}}</h2>
+
+                <ul class="list-inline border-0 mt-4">
+                    <li class="list-inline-item text-center mr-4">
+                        <h4 class="fw-700 font-md">{{user.semister}}
+                        </h4>
+                    </li>
+                    <li class="list-inline-item text-center mr-4">
+                        <h4 class="fw-700 font-md">{{user.group}}
+
+                        </h4>
+                    </li>
+                    <li class="list-inline-item text-center mr-4">
+
+                    </li>
+                </ul>
+                <h4 class="fw-700 font-md">
+                    {{user.score}} points
+                </h4>
+                {% else %}
+                <div class="forms" target="login">
+                    <p>
+                        Looks like you are not logged in :)
+                    </p>
+                    <form method="post" action="{{url_for('studies.login')}}">
+                        <div class="form-group icon-input mb-3">
+                            <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600"
+                                placeholder="Your username" name="username">
+                        </div>
+                        <div class="form-group icon-input mb-1">
+                            <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
+                                placeholder="Your password" name="pswd">
+                        </div>
+                        <button
+                            class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Login</button>
+                    </form>
+
+                    <div class="col-sm-12 p-0 text-left">
+                        <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a
+                                class="fw-700 ml-1 switcher btn">Create one</a></h6>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card theme-light-bg overflow-hidden rounded-xxl border-0 mb-3">
+            <div class="card-body d-flex justify-content-between align-items-end p-4">
+                <div>
+                    <h4
+                        class="font-xsss text-grey-900 mb-2 d-flex align-items-center justify-content-between mt-2 fw-700">
+
+                    </h4>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+    // login signup
+    forms = $('.forms')
+    switcher = $('.switcher')
+    $(window).on('click', (e) => {
+        if (e.target.classList.contains('switcher')) {
+            if (forms.attr('target') == 'login') {
+                forms.attr('target', 'rr')
+                forms.html(`
+            <form method="post">       
+                <div class= "form-group icon-input mb-3" >
+                    <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="choose a unique username" name="username">
+                </div>
+                <div class="form-group icon-input mb-1">
+                    <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="pswd" placeholder="Password">
+                </div>
+                <p class="text-start mb-0">Semister</p>
+                <div class="form-group icon-input mb-2">
+                    <select class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="semister">
+                        <option value="s1">S1</option>
+                        <option value="s2">S2</option>
+                        <option value="s3">S3</option>
+                        <option value="s3">S3</option>
+                        <option value="s4">S4</option>
+                        <option value="s5">S5</option>
+                        <option value="s6">S6</option>
+                    </select>
+                </div>
+
+                <p class="text-start mb-0">Group</p>
+                <div class="form-group icon-input mb-2">
+                    <select class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="group">
+                        <option value="g1">g1</option>
+                        <option value="g2">g2</option>
+                        <option value="g3">g3</option>
+                        <option value="g3">g3</option>
+                        <option value="g4">g4</option>
+                        <option value="g5">g5</option>
+                        <option value="g6">g6</option>
+                    </select>
+                </div>
+
+                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 register">Register</button>
+            </form >
+            <div class="col-sm-12 p-0 text-left">
+                <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">You already have an account <a class="fw-700 ml-1 switcher btn">Login</a></h6>
+            </div>
+        `)
+            }
+            else {
+                forms.attr('target', 'login')
+                forms.html(`
+                <form method="post" action="{{url_for('studies.login')}}">       
+                <div class="form-group icon-input mb-3">
+                    <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
+                </div>
+                <div class="form-group icon-input mb-1">
+                    <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
+                        placeholder="Your password" name="pswd">
+                </div>
+                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">Login</button>
+            </form>
+                
+            <div class="col-sm-12 p-0 text-left">
+                <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a 
+                        class="fw-700 ml-1 switcher btn">Create one</a></h6>
+            </div>
+            
+        `)
+            }
+
+        }
+    })
+    
+    
+   
+    
+</script>
 {% endblock %}

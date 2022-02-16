@@ -95,7 +95,7 @@ def terms():
 
 @st.route('/s1/reading')
 def reading():
-    return render_template('studies/lesson.html', title='guided reading')
+    return render_template('studies/lesson.html', title='Reading comp. precis 1')
 
 
 @st.route('/s1/spoken')
