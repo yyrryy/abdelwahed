@@ -19,6 +19,19 @@
     <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
     <link href="/static/css/h2.css" rel="stylesheet">
 
+    <meta name="image" content="/static/images/a.jpg">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Abdelouahed Portfolio">
+    <meta itemprop="description" content="this is abdelouahed's portfolio">
+    <meta itemprop="image" content="/static/images/a.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Abdelouahed Portfolio">
+    <meta name="twitter:description" content="this is abdelouahed's portfolio">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="Abdelouahed Portfolio">
+    <meta name="og:description" content="this is abdelouahed's portfolio">
+    <meta name="og:type" content="website">
 </head>
 <!-- Body Start -->
 
@@ -276,7 +289,7 @@
                             <div class="feature-content">
                                 <h5>Google indexing</h5>
                                 <p>
-                                    <a href="fg">fsgsd</a>
+                                   
                                 <ul>
                                     <li>
                                         Register aebsite in google search console
@@ -397,7 +410,7 @@
                             <div class="blog-info p-2 bg-white  border rounded-1"
                                 dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
                                 <h6 class="">
-                                    <a href="/blog/post/{{i.id}}" class="text-dark">
+                                    <a href="/blog/{{i.id}}/{{i.title.strip().replace(' ', '-')}}" class="text-dark">
                                         {{i.title}}
                                     </a>
                                 </h6>
@@ -466,8 +479,8 @@
 
     <!-- jquery -->
     <script src="/static/js/jquery.min.js"></script>
-
     <script src="/static/js/h2.js"></script>
+    <script src="/static/js/bootstrappooper.min.js"></script>
 
 </body>
 <!-- Body End -->

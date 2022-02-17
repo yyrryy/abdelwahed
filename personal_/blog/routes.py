@@ -20,8 +20,8 @@ def blog():
     title='My blog')
 
 
-@log.route('/post/<int:id>')
-def post(id):
+@log.route('/<int:id>/<string:name>')
+def post(id, name):
     p=Posts.query.get(id)
     next=Posts.query.get(p.id+1)
     previous=Posts.query.get(p.id-1)

@@ -20,12 +20,16 @@ def index():
     posts=posts,
     projects=projects)
 
-@main.route('/projects')
-def projects():
-    projects = Projects.query.all()
-    return render_template('blog/blog.html', 
-    title='Projects',
-    projects=projects)
+
+@main.route('/project1')
+def peoject1():
+    return render_template('project1.html', title='Project1 - static website')
+# @main.route('/projects')
+# def projects():
+#     projects = Projects.query.all()
+#     return render_template('blog/blog.html', 
+#     title='Projects',
+#     projects=projects)
 
 
 # @main.route('/resume')
@@ -34,6 +38,3 @@ def projects():
 #     return send_file(path, as_attachment=True)
 
 
-@main.route('/h')
-def h():
-    return render_template('h2.html')
