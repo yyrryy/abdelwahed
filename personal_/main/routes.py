@@ -1,6 +1,8 @@
 from flask import (
+    jsonify,
     render_template,
     Blueprint,
+    request,
 )
 from personal_.models import Posts, Projects
 import os
@@ -38,3 +40,14 @@ def peoject1():
 #     return send_file(path, as_attachment=True)
 
 
+@main.route('/ecom')
+def ecom():
+    return render_template('ecom.html')
+
+@main.route('/calc', methods=['POST'])
+def calculate():
+    data=request.get_json()
+    n=data['n']
+    return jsonify({
+        "n": 5
+    })

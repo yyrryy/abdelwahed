@@ -28,7 +28,7 @@ st = Blueprint('studies', __name__, url_prefix='/studies')
 
 @st.route('/')
 def studies():
-    return render_template('studies/t.html')
+    return render_template('studies/t.html', title='Flash Ait Melloul')
 
 
 
@@ -215,6 +215,7 @@ def login():
         user = Students.query.filter_by(username=username).first()
         if user and bcrypt.check_password_hash(user.pswd, request.form["pswd"]):
             session['userid'] = user.id
+            session['_remember'] = 'set'
             flash("Logged in", 'success')
             return redirect(url_for("studies.quizes"))
         flash('Username or passsword not correct!', 'warning')

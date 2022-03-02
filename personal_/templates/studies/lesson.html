@@ -5,9 +5,20 @@
 {% block nav %}
 <div class="nav-top">
     <i class="feather-slack text-success display1-size mr-3 ml-3"></i><span
-            class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xl logo-text mb-0">Lesson.
+            class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xl logo-text mb-0">{{title}} Lesson.
         </span>
     
+</div>
+
+<div class="card bg-primary border-0 shadow-xss rounded-lg">
+    <div class="card-body">
+        <h2 class="text-white font-xsssss fw-700 text-uppercase ls-3 ">{{title}}</h2>
+        <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+            About {{title}}
+        </h4>
+
+
+    </div>
 </div>
 <div class="mt-5 fw-600 font-xssss text-grey-500"><span>Courses</div>
 
@@ -44,11 +55,7 @@
 {% endblock %}
 
 
-{% block header %}
-<button class="btn ms-auto sidebar-right"><img
-        src="https://avatars.dicebear.com/api/big-smile/{%if user %}{{user.username}}{% else %}account{% endif %}.svg"
-        alt="user" class="shadow rounded-circle  border w50 mt--1"></button>
-{% endblock %}
+
 
 
 
@@ -69,12 +76,8 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-        <div class="col-xl-8 col-xxl-9">
-           <h1>
-            soon
-           </h1>
-        </div>
-        <div class="col-xl-4 col-xxl-3">
+        
+        <!-- <div class="col-xl-4 col-xxl-3">
             <div class="card bg-primary border-0 shadow-xss rounded-lg">
                 <div class="card-body">
                     <h2 class="text-white font-xsssss fw-700 text-uppercase ls-3 ">{{title}}</h2>
@@ -86,85 +89,123 @@
                 </div>
             </div>
            
+        </div> -->
+
+        <div class="card  border-0 ">
+            <h2 class="fw-700 font-md d-block lh-4 mb-2" id="about">
+                about
+            </h2>
+            <p class="font-xsss fw-500 lh-30 text-grey-700 mb-0 pl-2">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique ipsa pariatur omnis quod dolores consectetur. Praesentium nam a et neque architecto quaerat magnam dicta alias earum. Fugiat quos voluptas voluptatibus!
+                Reprehenderit, nemo fugit recusandae cupiditate, eius facere ut maxime deserunt neque illum quisquam minima dolor voluptate, modi voluptatem porro. Explicabo a obcaecati soluta unde laudantium nam animi ut magni ad!
+                Id dolorem ex minima corporis at iste tempore totam quo molestiae eveniet sit, libero quidem quos unde neque minus, illum laudantium qui asperiores nostrum dolorum, fugiat cum. Sint, libero incidunt!
+                Libero exercitationem cum voluptas quia fugit nulla. Voluptate in modi nostrum sed delectus assumenda amet ut corporis obcaecati voluptatibus, accusamus ex totam cumque iure libero et aperiam corrupti earum suscipit!
+                Ducimus eaque sit, sapiente temporibus qui blanditiis voluptate doloribus officiis eos quia voluptatem voluptas magni quibusdam labore nostrum quo, asperiores dolores numquam odio laborum cum modi aperiam accusamus! Delectus, deleniti.
+                Facilis ex ad quae et officiis, quidem ratione. Aliquam accusantium quibusdam repudiandae itaque eius ut. Vero praesentium placeat cum. At inventore aut ducimus assumenda voluptatibus harum, excepturi voluptates iusto laudantium!
+                Earum suscipit qui ipsam velit. Harum, dolorem voluptatum, in provident labore eaque voluptatibus similique enim officiis nam at qui autem. Unde maxime ut sapiente, accusantium ducimus asperiores obcaecati beatae at.
+                Totam, blanditiis. Accusantium quia nulla dolorum repellat unde natus dolore libero distinctio commodi, eius minus debitis voluptates autem cumque? Sed accusamus esse quam molestiae doloremque incidunt quos sint sapiente accusantium!
+                Ipsa recusandae unde maxime odio ea, ad nihil libero fugiat magni harum officiis id repellat. Exercitationem, quos reiciendis. Repellendus sint debitis excepturi necessitatibus soluta voluptates est velit dolores aut ex.
+                Culpa cum velit aperiam qui corporis ipsam, aliquam nihil beatae voluptates ipsa! Dolorum, quis iure corrupti optio aut quidem! Vero harum esse nesciunt sint porro quasi quos ducimus ratione alias.
+            </p>
+            
+
         </div>
 
-    </div>
-</div>
-
-
-<div class="middle-sidebar-right right-scroll-bar shadow">
-    <div class="middle-sidebar-right-content">
-
-        <div class="card overflow-hidden subscribe-widget p-3 mb-3 rounded-xxl border-0">
-            <div class="card-body p-2 d-block text-center bg-no-repeat bg-image-topcenter">
-
-                <figure class="avatar ml-auto mr-auto mb-5 mt-2"><img
-                        src="https://avatars.dicebear.com/api/big-smile/{%if user %}{{user.username}}{% else %}account{% endif %}.svg"
-                        alt="image" class="shadow rounded-circle w-50 border"></figure>
-                <div class="clearfix"></div>
-                {% if user %}
-                <h2 class="text-black font-xss lh-3 fw-700 mt-3 mb-1">{{user.username}}</h2>
-
-                <ul class="list-inline border-0 mt-4">
-                    <li class="list-inline-item text-center mr-4">
-                        <h4 class="fw-700 font-md">{{user.semister}}
-                        </h4>
-                    </li>
-                    <li class="list-inline-item text-center mr-4">
-                        <h4 class="fw-700 font-md">{{user.group}}
-
-                        </h4>
-                    </li>
-                    <li class="list-inline-item text-center mr-4">
-
-                    </li>
-                </ul>
-                <h4 class="fw-700 font-md">
-                    {{user.score}} points
-                </h4>
-                {% else %}
-                <div class="forms" target="login">
-                    <p>
-                        Looks like you are not logged in :)
+        <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4 mb-5">
+            <h2 class="fw-700 font-sm mb-3 mt-1 pl-1 mb-3">Requirements</h2>
+            <p class="font-xssss fw-500 lh-28 text-grey-600 mb-0 pl-2">After creating more than a dozen courses on Microsoft
+                Access databases and programming in VBA, many students have contacted me with discussions on specific problems
+                and scenarios. From these discussions,</p>
+            <ul class="list-style-disc pl-4 mt-3">
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">move around shapes in Excel with codes,</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">rotate shapes,</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">understand 3D rotations in X, Y, Z axis</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">Morphing of shapes</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">create amazing animated splash screens to create
+                        first impression when a user clicks open your Excel workbook. Its a winning trick you'd always use once
+                        you learn</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">create loading screens like seen on web pages
+                        /&nbsp; mobile apps in your Excel workbooks</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">create animated password access splash screen
+                        system to your Excel workbooks. </p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">learn different styles of animated menus like
+                        slide out menus, slide down menus, scaling menus, toggle button animated menus</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">loop animations</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">chart animation / graph animation in Excel</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">Learn text animation, that you'll always use in
+                        all simple to big Excel projects. Because it's insanely easy and useful!</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">learn to apply various animations in all kinds of
+                        dashboards/reports/simple information workbook</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">learn awesome button animations for that great
+                        user experience every time someone interacts with your dashboards/reports/projects</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">creative mouse hover animation for all projects
                     </p>
-                    <form method="post" action="{{url_for('studies.login')}}">
-                        <div class="form-group icon-input mb-3">
-                            <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600"
-                                placeholder="Your username" name="username">
-                        </div>
-                        <div class="form-group icon-input mb-1">
-                            <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
-                                placeholder="Your password" name="pswd">
-                        </div>
-                        <button
-                            class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Login</button>
-                    </form>
-
-                    <div class="col-sm-12 p-0 text-left">
-                        <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a
-                                class="fw-700 ml-1 switcher btn">Create one</a></h6>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="card theme-light-bg overflow-hidden rounded-xxl border-0 mb-3">
-            <div class="card-body d-flex justify-content-between align-items-end p-4">
-                <div>
-                    <h4
-                        class="font-xsss text-grey-900 mb-2 d-flex align-items-center justify-content-between mt-2 fw-700">
-
-                    </h4>
-                </div>
-
-
-            </div>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">various transitions and effect animations</p>
+                </li>
+                <li>
+                    <p class="font-xssss fw-500 lh-28 text-grey-500 mb-0 pl-2">learn all properties of shapes such as
+                        transparency, blur, Scale height/width, glow, color to achieve amazing animation effects that can be
+                        applied to any project.</p>
+                </li>
+            </ul>
         </div>
 
 
+        <div class="card  border-0  mt-5">
+            <h2 class="fw-700 font-md d-block lh-4 mb-2" id="chapter1">
+                chapter1
+            </h2>
+            <p class="font-xsss fw-500 lh-30 text-grey-700 mb-0 pl-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ipsa enim earum voluptates voluptatem cupiditate modi
+                suscipit. Laboriosam totam aliquam delectus hic quisquam eos placeat iusto nobis aspernatur. Cupiditate, quos?
+                Debitis aliquid labore ipsam nam voluptas quos? Fugiat ad temporibus quis dignissimos voluptatum expedita obcaecati
+                veniam consequuntur repellendus quia fuga ex nesciunt ipsum asperiores itaque eveniet dolor, nostrum nulla dicta.
+                Similique cumque ab consequuntur? Porro sed voluptas architecto, deserunt maiores laboriosam? Veniam ipsa quas
+                laboriosam cumque dignissimos fuga, tempora, ad omnis dolorum natus enim exercitationem molestias repellendus,
+                quidem accusamus iure.
+                Nemo, reprehenderit laborum, necessitatibus iusto recusandae rerum dolorem eos nam quisquam suscipit fugiat incidunt
+                beatae adipisci soluta quidem. Eius labore ad exercitationem ipsa nostrum vero repudiandae sed recusandae sapiente
+                eveniet?
+                Reprehenderit, odit dolore, iure repudiandae eum illum magni repellendus fugiat commodi voluptatem saepe non
+                molestias tempore exercitationem excepturi harum quibusdam fugit eos dolorum soluta! Obcaecati commodi nobis
+                corrupti maxime quaerat?
+            </p>
+        </div>
 
     </div>
 </div>
+
+
+
 
 
 {% endblock %}
