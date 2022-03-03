@@ -49,7 +49,6 @@ def stress():
     if request.method == "POST":
         word=request.form['word']
         ns, press= strss(word)
-        print(ns)
         return jsonify({
             'n':str(ns),
             'press':str(press)
@@ -186,7 +185,6 @@ def score(id):
     data=request.get_json()
     ans=data['ans']
     user=Students.query.get(int(data['userid']))
-    print(user)
     correct=0
     coef=3 if quiz.id==1 or quiz.id==7 else 2
     for i in range(len(answers)):
