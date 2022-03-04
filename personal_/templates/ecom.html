@@ -86,11 +86,11 @@
                     </div>
                 </div>
                 <div class=" col-md-6 mb-3">
-                    <label for="confirmation">
-                        confirmation rate
+                    <label>
+                        Confirmation rate
                     </label>
                     <div class="d-flex">
-                        <input type="range" class="slide confirmation w-100" min="10" max="100" step="5" value="50">
+                        <input type="range" class="slide confrate w-100" min="10" max="100" step="5" value="50">
                     <span class="range-slider__value">50</span>
                     </div>
 
@@ -101,10 +101,55 @@
                     </label>
                     <div class="d-flex">
                         <input type="range" min="1" max="200" class="slide margin w-100" value="10">
-                    <span class="range-slider__value">10</span>
+                        <span class="range-slider__value">10</span>
                     </div>
-
+                
                 </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Confirmation cost:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide conf w-100" value="10">
+                        <span class="range-slider__value">10</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Maximum delivery  cost:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide deli w-100" value="10">
+                        <span class="range-slider__value">10</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Maximum packaging cost:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide pack w-100" value="5">
+                        <span class="range-slider__value">5</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Maximum ads estimation:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide ad w-100" value="50">
+                        <span class="range-slider__value">50</span>
+                    </div>
+                
+                </div>
+
             </div>
 
             <div class="mt-5 row container">
@@ -150,54 +195,58 @@
 </body>
 <script src="/static/js/jquery.min.js"></script>
 <script>
-    function calc(qty, cost, cn, marge) {
-        pr = cn / 100
+    function calc(qty, cost, confrate, conf, deli, pack, marge, ad) {
+        pr = confrate / 100
         p = Math.floor(qty / (pr * pr))
-        ads = Math.floor(p * 20)
-        conf = Math.floor(p * 0.6 * 15)
-        packing = Math.floor(qty * 8)
-        delivery = Math.floor(qty * 25)
+        ads = Math.floor(p * ad)
+        confi = Math.floor(p * 0.6 * conf)
+        packing = Math.floor(qty * pack)
+        delivery = Math.floor(qty * deli)
         totalexpences = ads + conf + packing + delivery
         realcost = Math.floor(cost + (ads / qty) + (conf / qty) + (packing / qty) + (delivery / qty))
         price = parseInt(realcost) + marge
-        return [ads, conf, packing, delivery, totalexpences, realcost, price]
+        return [ads, confi, packing, delivery, totalexpences, realcost, price]
     }
-    function makecall(d) {
-        console.log(JSON.stringify(d))
-        $.ajax({
-            type: 'post',
-            url: "/calc",
-            data: JSON.stringify(d),
-            contentType: "application/json",
-            success: (data) => {
-                console.log(data.n)
-            }
-        })
-    }
+    // function makecall(d) {
+    //     console.log(JSON.stringify(d))
+    //     $.ajax({
+    //         type: 'post',
+    //         url: "/calc",
+    //         data: JSON.stringify(d),
+    //         contentType: "application/json",
+    //         success: (data) => {
+    //             console.log(data.n)
+    //         }
+    //     })
+    // }
 
-    const totalcost = $('.totalcost')
     // const totalads = $('.totalads')
     // const totalconf = $('.totalconf')
     // const totladelivey = $('.totladelivey')
+    const totalcost = $('.totalcost')
     const cost = $('.cost')
     const fprice = $('.fprice')
     const rcost = $('.rcost')
     const qq = $('.qty')
     const calculate = $('.calculate')
-    const margin = $('.margin')
 
     $('.slide').each((i, e)=>{
         $(e).on('input', ()=>{
-            console.log('rrr')
             console.log($(e).siblings())
             $(e).siblings().text($(e).val())
         })
     })
     $('.switchers').on('input', (e) => {
-        if (cost.val() > 1 && qq.val() > 0 && $('.confirmation').val() > 0) {
+        if (cost.val() > 1 && qq.val() > 0 && $('.confrate').val() > 0) {
             qty = parseFloat(qq.val())
             cs = parseFloat(cost.val())
-            const [ads, conf, packing, delivery, totalexpences, realcost, price] = calc(qty, cs, parseFloat($('.confirmation').val()), parseFloat(margin.val()))
+            confrate= parseFloat($('.confrate').val())
+            deli = parseFloat($('.deli').val())
+            pack = parseFloat($('.pack').val())
+            margin= parseFloat($('.margin').val())
+            conf = parseFloat($('.conf').val())
+            ad = parseFloat($('.ad').val())
+            const [ads, confi, packing, delivery, totalexpences, realcost, price] = calc(qty, cs, confrate, conf, deli, pack, margin, ad)
             totalcost.text(parseFloat(cost.val()) * parseFloat(qq.val()))
             // totalads.text(ads)
             // totalconf.text(totalexpences)
