@@ -26,6 +26,8 @@ def index():
 @main.route('/project1')
 def peoject1():
     return render_template('project1.html', title='Project1 - static website')
+
+
 # @main.route('/projects')
 # def projects():
 #     projects = Projects.query.all()
@@ -34,10 +36,18 @@ def peoject1():
 #     projects=projects)
 
 
-# @main.route('/resume')
-# def resume():
+# @main.route('/cv1')
+# def cv1():
 #     path='static/thiscv.pdf'
 #     return send_file(path, as_attachment=True)
+
+
+# @main.route('/cv2')
+# def cv2():
+#     path='static/thiscv.pdf'
+#     return send_file(path, as_attachment=True)
+
+
 
 
 @main.route('/ecom')
