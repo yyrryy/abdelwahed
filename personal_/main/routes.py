@@ -3,6 +3,7 @@ from flask import (
     render_template,
     Blueprint,
     request,
+    send_file,
 )
 from personal_.models import Posts, Projects
 import os
@@ -42,10 +43,10 @@ def peoject1():
 #     return send_file(path, as_attachment=True)
 
 
-# @main.route('/cv2')
-# def cv2():
-#     path='static/thiscv.pdf'
-#     return send_file(path, as_attachment=True)
+@main.route('/cv')
+def cv():
+    path='static/cv_abdelouahed.pdf'
+    return send_file(path, as_attachment=True)
 
 
 

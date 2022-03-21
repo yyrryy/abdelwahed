@@ -6,7 +6,8 @@ from flask import (
     Blueprint,
     request,
     session,
-    url_for
+    url_for,
+    Markup
 )
 from flask.json import jsonify
 from itsdangerous import json
@@ -92,9 +93,12 @@ def terms():
     return render_template('studies/guided/terms.html', title='Literature terms')
 
 
-@st.route('/s1/reading')
+@st.route('/s1/reading1')
 def reading():
-    return render_template('studies/lesson.html', title='Reading comp. precis 1')
+    course='<h1>this is a course</h1>'
+    return render_template('studies/lesson.html',
+    course=Markup(course),
+    title='Reading comp. precis 1')
 
 
 @st.route('/s1/spoken')
