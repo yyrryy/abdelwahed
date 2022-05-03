@@ -25,6 +25,10 @@ html {
   overflow-x: hidden;
 }
 
+:root{
+  --secondcolor:#7ca9bf;
+}
+
 body {
   background: #10101a;
   color: rgba(255, 255, 255, 0.8);
@@ -55,7 +59,7 @@ img {
 }
 
 a {
-  color: #ff9301;
+  color: var(--secondcolor);
 }
 a:hover {
   color: #d77c00;
@@ -63,7 +67,7 @@ a:hover {
 }
 
 mark {
-  background-image: linear-gradient(#ff9301, #ff9301);
+  background-image: linear-gradient(var(--secondcolor), var(--secondcolor));
   background-size: 100% 3px;
   background-repeat: no-repeat;
   background-position: 0 bottom;
@@ -215,7 +219,7 @@ mark {
   height: 100%;
 }
 .header-left .hl-top a {
-  background: #ff9301;
+  background: var(--secondcolor);
   color: #fff;
   font-weight: 600;
   text-decoration: none;
@@ -262,11 +266,11 @@ mark {
 }
 @media (min-width: 768px) {
   .header-left .nav-menu li .nav-link:hover {
-    color: #ff9301;
+    color: var(--secondcolor);
   }
 }
 .header-left .nav-menu li .nav-link.active {
-  color: #ff9301;
+  color: var(--secondcolor);
   font-weight: 600;
 }
 .header-left .social-icons {
@@ -283,7 +287,7 @@ mark {
   margin-right: 17px;
 }
 .header-left .social-icons a:hover {
-  color: #ff9301;
+  color: var(--secondcolor);
 }
 
 .tooltip {
@@ -319,7 +323,9 @@ mark {
 .theme-light.fixed-header .mob-header {
   background: #fff;
 }
-
+.bg-secondcolor{
+  background: var(--secondcolor);
+}
 .toggler-menu {
   width: 40px;
   height: 40px;
@@ -328,7 +334,6 @@ mark {
   border-radius: 0;
   padding: 0;
   margin-left: 15px;
-  background: #ff9301;
   border: none;
   margin-left: auto;
 }
@@ -381,7 +386,7 @@ mark {
   color: #0b0b13;
 }
 .footer .nav a:hover {
-  color: #ff9301;
+  color: var(--secondcolor);
 }
 .footer p {
   color: #fff;
@@ -477,16 +482,16 @@ mark {
   font-weight: 500;
 }
 .pagination .page-item .page-link:hover {
-  background: #ff9301;
-  border-color: #ff9301;
+  background: var(--secondcolor);
+  border-color: var(--secondcolor);
   color: #fff;
 }
 .pagination .page-item.disabled .page-link {
   opacity: 0.5;
 }
 .pagination .page-item.active .page-link {
-  background: #ff9301;
-  border-color: #ff9301;
+  background: var(--secondcolor);
+  border-color: var(--secondcolor);
   color: #fff;
 }
 
@@ -505,7 +510,7 @@ mark {
   background: #f7f7ff;
 }
 .tag-cloud a:hover {
-  background: #ff9301;
+  background: var(--secondcolor);
   color: #fff;
 }
 
@@ -548,8 +553,8 @@ mark {
 }
 .article .article-title h6 a {
   text-transform: uppercase;
-  color: #ff9301;
-  border-bottom: 1px solid #ff9301;
+  color: var(--secondcolor);
+  border-bottom: 1px solid var(--secondcolor);
 }
 .article .article-title h2 {
   color: #fff;
@@ -582,7 +587,7 @@ mark {
 }
 .article .article-title .media .media-body label {
   font-weight: 600;
-  color: #ff9301;
+  color: var(--secondcolor);
   margin: 0;
 }
 .article .article-title .media .media-body span {
@@ -611,7 +616,7 @@ mark {
 .article .article-content blockquote p {
   font-size: 20px;
   font-weight: 500;
-  color: #ff9301;
+  color: var(--secondcolor);
   margin: 0;
 }
 .article .article-content blockquote .blockquote-footer {
@@ -763,7 +768,7 @@ mark {
   bottom: 0;
   margin: auto;
   height: 2px;
-  background: #ff9301;
+  background: var(--secondcolor);
   position: absolute;
   -moz-transition: ease all 0.55s;
   -o-transition: ease all 0.55s;
@@ -898,7 +903,7 @@ mark {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: #ff9301;
+  background: var(--secondcolor);
   position: absolute;
   top: -8px;
   left: -15px;
@@ -940,6 +945,319 @@ mark {
 
 /* Home Banner
 -----------------------------------*/
+
+
+.wrap {
+  perspective-origin: 50% 50%;
+}
+
+
+
+.svg {
+  stroke: #3d3e3d;
+  position: absolute;
+  bottom: -100vh;
+  transform-style: preserve-3d;
+}
+
+.svg:nth-child(1) {
+  left: 92%;
+  -webkit-animation: raise1 18s linear infinite;
+          animation: raise1 18s linear infinite;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+  transform: scale(-0.3) rotate(258deg);
+  z-index: -6;
+  filter: blur(-5px);
+}
+@-webkit-keyframes raise1 {
+  to {
+    bottom: 150vh;
+    transform: scale(-0.3) rotate(194deg);
+  }
+}
+@keyframes raise1 {
+  to {
+    bottom: 150vh;
+    transform: scale(-0.3) rotate(194deg);
+  }
+}
+
+.svg:nth-child(2) {
+  left: 53%;
+  -webkit-animation: raise2 12s linear infinite;
+          animation: raise2 12s linear infinite;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+  transform: scale(0) rotate(335deg);
+  z-index: -5;
+  filter: blur(-4px);
+}
+@-webkit-keyframes raise2 {
+  to {
+    bottom: 150vh;
+    transform: scale(0) rotate(285deg);
+  }
+}
+@keyframes raise2 {
+  to {
+    bottom: 150vh;
+    transform: scale(0) rotate(285deg);
+  }
+}
+
+.svg:nth-child(3) {
+  left: -10%;
+  -webkit-animation: raise3 14s linear infinite;
+          animation: raise3 14s linear infinite;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+  transform: scale(0.3) rotate(186deg);
+  z-index: -4;
+  filter: blur(-3px);
+}
+@-webkit-keyframes raise3 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.3) rotate(315deg);
+  }
+}
+@keyframes raise3 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.3) rotate(315deg);
+  }
+}
+
+.svg:nth-child(4) {
+  left: 85%;
+  -webkit-animation: raise4 19s linear infinite;
+          animation: raise4 19s linear infinite;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+  transform: scale(0.6) rotate(145deg);
+  z-index: -3;
+  filter: blur(-2px);
+}
+@-webkit-keyframes raise4 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.6) rotate(70deg);
+  }
+}
+@keyframes raise4 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.6) rotate(70deg);
+  }
+}
+
+.svg:nth-child(5) {
+  left: 33%;
+  -webkit-animation: raise5 9s linear infinite;
+          animation: raise5 9s linear infinite;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+  transform: scale(0.9) rotate(1deg);
+  z-index: -2;
+  filter: blur(-1px);
+}
+@-webkit-keyframes raise5 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.9) rotate(77deg);
+  }
+}
+@keyframes raise5 {
+  to {
+    bottom: 150vh;
+    transform: scale(0.9) rotate(77deg);
+  }
+}
+
+.svg:nth-child(6) {
+  left: -10%;
+  -webkit-animation: raise6 11s linear infinite;
+          animation: raise6 11s linear infinite;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+  transform: scale(1.2) rotate(15deg);
+  z-index: -1;
+  filter: blur(0px);
+}
+@-webkit-keyframes raise6 {
+  to {
+    bottom: 150vh;
+    transform: scale(1.2) rotate(264deg);
+  }
+}
+@keyframes raise6 {
+  to {
+    bottom: 150vh;
+    transform: scale(1.2) rotate(264deg);
+  }
+}
+
+.svg:nth-child(7) {
+  left: 31%;
+  -webkit-animation: raise7 10s linear infinite;
+          animation: raise7 10s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  transform: scale(1.5) rotate(114deg);
+  z-index: 0;
+  filter: blur(1px);
+}
+@-webkit-keyframes raise7 {
+  to {
+    bottom: 150vh;
+    transform: scale(1.5) rotate(148deg);
+  }
+}
+@keyframes raise7 {
+  to {
+    bottom: 150vh;
+    transform: scale(1.5) rotate(148deg);
+  }
+}
+
+.svg:nth-child(8) {
+  left: 22%;
+  -webkit-animation: raise8 15s linear infinite;
+          animation: raise8 15s linear infinite;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+  transform: scale(1.8) rotate(250deg);
+  z-index: 1;
+  filter: blur(2px);
+}
+@-webkit-keyframes raise8 {
+  to {
+    bottom: 150vh;
+    transform: scale(1.8) rotate(289deg);
+  }
+}
+@keyframes raise8 {
+  to {
+    bottom: 150vh;
+    transform: scale(1.8) rotate(289deg);
+  }
+}
+
+.svg:nth-child(9) {
+  left: 98%;
+  -webkit-animation: raise9 17s linear infinite;
+          animation: raise9 17s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  transform: scale(2.1) rotate(342deg);
+  z-index: 2;
+  filter: blur(3px);
+}
+@-webkit-keyframes raise9 {
+  to {
+    bottom: 150vh;
+    transform: scale(2.1) rotate(203deg);
+  }
+}
+@keyframes raise9 {
+  to {
+    bottom: 150vh;
+    transform: scale(2.1) rotate(203deg);
+  }
+}
+
+.svg:nth-child(10) {
+  left: 67%;
+  -webkit-animation: raise10 21s linear infinite;
+          animation: raise10 21s linear infinite;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+  transform: scale(2.4) rotate(14deg);
+  z-index: 3;
+  filter: blur(4px);
+}
+@-webkit-keyframes raise10 {
+  to {
+    bottom: 150vh;
+    transform: scale(2.4) rotate(88deg);
+  }
+}
+@keyframes raise10 {
+  to {
+    bottom: 150vh;
+    transform: scale(2.4) rotate(88deg);
+  }
+}
+/* bg animation */
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin: auto;
+  width: 90vw;
+}
+
+.line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+  -webkit-animation: drop 7s 0s infinite;
+          animation: drop 7s 0s infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+          animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+.line:nth-child(1) {
+  margin-left: -25%;
+}
+.line:nth-child(1)::after {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.line:nth-child(3) {
+  margin-left: 25%;
+}
+.line:nth-child(3)::after {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+
+@-webkit-keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+@keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
 .home-banner {
   position: relative;
   overflow: hidden;
@@ -993,7 +1311,7 @@ mark {
   font-weight: 500;
 }
 .home-banner .hb-top-fixed .hb-lang li:hover, .home-banner .hb-top-fixed .hb-lang li.active {
-  background: #ff9301;
+  background: var(--secondcolor);
 }
 .theme-light .home-banner .hb-top-fixed .hb-lang li:hover a, .theme-light .home-banner .hb-top-fixed .hb-lang li.active a {
   color: #fff;
@@ -1132,7 +1450,7 @@ mark {
   border: 5px solid #fff;
 }
 .theme-light .about-me .img-in {
-  border: 5px solid #ff9301;
+  border: 5px solid var(--secondcolor);
 }
 .about-me .img {
   position: relative;
@@ -1205,7 +1523,7 @@ mark {
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-  background: #ff9301;
+  background: var(--secondcolor);
   color: #fff;
 }
 
@@ -1270,7 +1588,7 @@ mark {
   height: 200px;
   border-radius: 50%;
   z-index: -2;
-  background: #ff9301;
+  background: var(--secondcolor);
   -moz-transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.15s;
   -o-transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.15s;
   -webkit-transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.15s;
@@ -1448,7 +1766,7 @@ mark {
   padding: 5px 10px;
   border-radius: 3px;
   color: #fff;
-  background: #ff9301;
+  background: var(--secondcolor);
   font-size: 12px;
   font-weight: 500;
 }
@@ -1495,7 +1813,7 @@ mark {
   -webkit-transition: ease all 0.55s;
   transition: ease all 0.55s;
   height: 10px;
-  background: #ff9301;
+  background: var(--secondcolor);
 }
 
 .aducation-box {
@@ -1563,7 +1881,7 @@ mark {
 .contact-info li i {
   width: 30px;
   text-align: center;
-  color: #ff9301;
+  color: var(--secondcolor);
   font-size: 22px;
 }
 .contact-info li span {

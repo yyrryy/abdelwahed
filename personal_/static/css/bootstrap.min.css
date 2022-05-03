@@ -4223,12 +4223,7 @@ fieldset:disabled .btn {
 .accordion-button:hover {
   z-index: 2;
 }
-.accordion-button:focus {
-  z-index: 3;
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
+
 .accordion-header {
   margin-bottom: 0;
 }

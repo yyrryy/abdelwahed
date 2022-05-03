@@ -1,0 +1,208 @@
+{% extends 'studies/quizlyt.html' %}
+
+
+<!--nav bar block -->
+{% block nav %}
+<div class="nav-top">
+    <span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xl logo-text mb-0">{{title}}.
+    </span>
+</div>
+
+<div class="card bg-primary border-0 mb-3 shadow-xss rounded-lg">
+    <div class="card-body">
+        <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+            About {{title}}
+        </h4>
+
+
+    </div>
+</div>
+
+<div>
+        
+    <h2 class="font-xsssss fw-700 text-uppercase ls-3 ">Program</h2>
+
+    <div id="accordion" class="mb-5">
+        <!-- passive voice -->
+        <div class="card mb-2">
+            <div class="" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed accordion-button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="false" aria-controls="collapseOne">Passive voice</button>
+                </h5>
+            </div>
+        
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="d-flex flex-column">
+                    <a href="#Formatting" class="ps-3 font-xsss border-bottom">Formatting the passive</a>
+                    <a href="#Using" class="ps-3 font-xsss border-bottom">Using the passive</a>
+                    <a href="#Indirect" class="ps-3 font-xsss border-bottom">Indirect object as passive subject</a>
+                    <a href="#Madals" class="ps-3 font-xsss border-bottom">Madals and phrasal modals</a>
+                    <a href="#Stative" class="ps-3 font-xsss border-bottom">Stative passive</a>
+                    <a href="#Preposition" class="ps-3 font-xsss border-bottom">Preposition + stative passive verbs</a>
+                    <a href="#Passive" class="ps-3 font-xsss border-bottom">Passive with get</a>
+                    <a href="#Participal" class="ps-3 font-xsss border-bottom">Participal adjectives</a>
+                    <a href="#formatting" class="ps-3 font-xsss border-bottom">Formatting the passive</a>
+                </div>
+            </div>
+        </div>
+
+        <!--  noun clause -->
+        <div class="card mb-2">
+            <div class="" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed accordion-button" data-toggle="collapse" data-target="#collapset"
+                        aria-expanded="false" aria-controls="collapset">Noun clauses</button>
+                </h5>
+            </div>
+        
+            <div id="collapset" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="d-flex flex-column">
+                    <a href="#Introduction" class="ps-3 font-xsss border-bottom">Introductio</a>
+                    <a href="#NC1" class="ps-3 font-xsss border-bottom">N.C beginning with a question word</a>
+                    <a href="#NC2" class="ps-3 font-xsss border-bottom">N.C beginning with if/weather</a>
+                    <a href="#Question" class="ps-3 font-xsss border-bottom">Question words + infinitif</a>
+                    <a href="#N.C" class="ps-3 font-xsss border-bottom">NC beginning with that</a>
+                    <a href="#Quoted" class="ps-3 font-xsss border-bottom">Quoted speech</a>
+                    <a href="#Reported" class="ps-3 font-xsss border-bottom">Reported speech</a>
+                    <a href="#subjonctive" class="ps-3 font-xsss border-bottom">Using subjonctive in noun clause</a>
+                    <a href="#ever" class="ps-3 font-xsss border-bottom">Using -ever words</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- adjective clause -->
+        <div class="card mb-2">
+            <div class="" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed accordion-button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false"
+                        aria-controls="collapse3">Adjective clauses</button>
+                </h5>
+            </div>
+        
+            <div id="collapse3" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="d-flex flex-column">
+                    <a href="#Introduction2" class="ps-3 font-xsss border-bottom">Introductio</a>
+                    <a href="#Using" class="ps-3 font-xsss border-bottom">Using the passive</a>
+                    <a href="#NC1" class="ps-3 font-xsss border-bottom">N.C beginning with a question word</a>
+                    <a href="#NC2" class="ps-3 font-xsss border-bottom">N.C beginning with if/weather</a>
+                    <a href="#Question" class="ps-3 font-xsss border-bottom">Question words + infinitif</a>
+                    <a href="#N.C" class="ps-3 font-xsss border-bottom">NC beginning with that</a>
+                    <a href="#Quoted" class="ps-3 font-xsss border-bottom">Quoted speech</a>
+                    <a href="#Reported" class="ps-3 font-xsss border-bottom">Reported speech</a>
+                    <a href="#subjonctive" class="ps-3 font-xsss border-bottom">Using subjonctive in noun clause</a>
+                    <a href="#ever" class="ps-3 font-xsss border-bottom">Using -ever words</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" id="verb">
+    <input type="search" name="word" id="verb" placeholder="input a verb to get it's PP">
+    </form>
+    <div class="result">
+        <span></span>
+        <h3></h3>
+        <h4></h4>
+        <h5></h5>
+    </div>
+    
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+{% block contentq %}
+<div class="middle-sidebar-left">
+    <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for c, m in messages %}
+        <div class="col-12 mt-5 alert alert-{{c}} alert-dismissible fade show d-flex justify-content-between"
+            role="alert">
+            <div>
+                <strong>{{m}}</strong>
+            </div>
+            <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- <div class="col-xl-4 col-xxl-3">
+            <div class="card bg-primary border-0 shadow-xss rounded-lg">
+                <div class="card-body">
+                    <h2 class="text-white font-xsssss fw-700 text-uppercase ls-3 ">{{title}}</h2>
+                    <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+                        About {{title}}
+                    </h4>
+                    
+
+                </div>
+            </div>
+           
+        </div> -->
+
+        <div class="course">
+            {{course}}
+        </div>
+
+    </div>
+    <div class="course">
+        <h1 id="Formatting">
+            Formatting the passive
+        </h1>
+        <kbd>
+            hsdfhsdf + kjfdgksd +fg s
+        </kbd>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+   $('#verb').on('submit', (e)=>{
+       $('.result>h3').text('')
+       $('.result>h4').text('')
+       $('.result>h5').text('')
+       $('.result>span').text('9l yan imik')
+
+       word= $($('#verb').find('input')).val()
+       e.preventDefault()
+       $.ajax({
+           url:'/studies/getverb',
+           method:'post',
+           data:{
+               word:word
+           },
+           success:(data)=>{
+               $('.result>span').text('')
+               r= data.data.split(':')
+               $('.result>h3').text(word)
+               $('.result>h4').text(r[0])
+               $('.result>h5').text(r[1])
+               console.log(data)
+           },
+           error:(err)=>{
+               $('.result>span').text('Check if there is a typo')
+               console.log(err)
+           }
+       })
+   })
+
+
+</script>
+{% endblock %}

@@ -93,6 +93,12 @@ def terms():
     return render_template('studies/guided/terms.html', title='Literature terms')
 
 
+
+@st.route('/s1/')
+def s1():
+    return render_template('studies/semisters/s1.html')
+
+
 @st.route('/s1/reading1')
 def reading():
     course='<h1>this is a course</h1>'
@@ -120,14 +126,22 @@ def study():
     return render_template('studies/lesson.html', title='Study skills')
 
 
-# s2
+# s2 semister
+
+
+@st.route('/s2/')
+def s2():
+    return render_template('studies/semisters/s2.html')
+
+
+
 @st.route('/s2/reading2')
 def reading2():
     return render_template('studies/lesson.html', title='Reading2')
 
 @st.route('/s2/grammar2')
 def grammar2():
-    return render_template('studies/lesson.html', title='grammar2')
+    return render_template('studies/grammar2/home.html', title='grammar2')
 
 @st.route('/s2/culture')
 def culture():

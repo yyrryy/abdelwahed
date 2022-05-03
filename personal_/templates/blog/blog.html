@@ -13,9 +13,9 @@
             {% for i in posts %}
             <div class="col-md-6 m-15px-tb">
                 <div class="blog-grid " dir='{% if i.lang=="fr" %}ltr{%else%}rtl{% endif %}'>
-                    <div class="p-2 blog-info bg-white  border rounded-1">
+                    <div class="p-2 blog-info  border rounded-1">
                         <h6>
-                            <a href="/blog/{{i.id}}/{{i.title.strip().replace(' ', '-')}}" class="text-dark">
+                            <a href="/blog/{{i.id}}/{{i.title.strip().replace(' ', '-')}}" class="">
                                 {{i.title}}
                             </a>
                         </h6>
