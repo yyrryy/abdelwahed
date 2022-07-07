@@ -1,86 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
+    <!-- metas -->
+    <meta charset="utf-8">
+    <meta name="author" content="themepaa">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/static/css/admin.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-icons.css">
-    <link href="/static/images/fav.jpg" rel="icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> {{title}} </title>
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="fGtZBzoqn622P46tyorLr-uRP4YdfCxS-n5XBK8grCc" />
+    <meta content="abdelouahed ait ali's portfolio" name="description">
+    <meta content="abdelouahed ait ali, abdelouahed, ait ali, abdelwahed ait ali" name="keywords">
+    <!-- Favicon -->
+        <link href="/static/images/fav.jpg" rel="icon">
 
+    <!-- plugin CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/css/h2.css" rel="stylesheet">
+  
 </head>
+<!-- Body Start -->
 
-<body>
-    <div class="container">
-
-
-
-
-        <header class="py-2 d-flex justify-content-between bg-light">
-            <a class="border btn bi bi-house" href="/admin">
-            </a>
-
-            <div class="border dropdown">
-                <button class="btn dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Menu
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li>
-                        <a class="dropdown-item" href="/" target=_blank>
-                            Portfolio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item" href="./create">
-                            Craete a post
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="./createproject">
-                            Craete a project
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="./docs">
-                            Docs
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="./getout">
-                            Get out
-                        </a>
-                    </li>
-                </ul>
+<body data-spy="scroll" data-target="#navbar-collapse-toggle" data-offset="70">
+    <!-- page loading -->
+    <div id="loading">
+        <div class="load-circle"><span class="one"></span></div>
+    </div>
+    <!-- End -->
+    <!-- Header Start -->
+    <div class="mob-header mb-5 bg-dark">
+        <div class="d-flex">
+            <div class="navbar-brand">
+                <div class="hl-top">
+                    
+                </div>
+            </div>
+            <button class="toggler-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+    <!-- End Header -->
+    <!-- nav bar -->
+    <header class="header-left" id="navbar-collapse-toggle">
+        <div class="scroll-bar">
+            <div class="hl-top">
+                <div class="hl-logo">
+                    <a href="/admin">
+                        A
+                    </a>
+                </div>
             </div>
 
 
+            <!-- nav -->
+            <ul class="nav nav-menu d-flex flex-column">
+                <li>
+                    <a class="nav-link" href="/admin/createpost">
+                        +Post
+                    </a>
+                </li>
+            
+                <li>
+                    <a class="nav-link" href="/admin/createproject">
+                        +Project
+                    </a>
+                </li>
+            
+                <li>
+                    <a class="nav-link" href="/admin/createquiz">
+                        +Quiz
+                    </a>
+                </li>
+            
+                <li>
+                    <a class="nav-link" href="/admin/createlesson">
+                        +Lesson
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/" traget="_blank">
+                        Home
+                    </a>
+                </li>
+            
+            </ul>
+        </div>
+    </header>
+    <!-- End nav bar -->
+    <!-- Main Start -->
+    <main class="main-left">
+        <div class="container mt-5">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for c, m in messages %}
+            <div class="alert alert-{{c}} mt-5">
+                {{m}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    
 
 
-        </header>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-
-        {% for category, message in messages %}
-        <p class="alert-{{category}}">{{ message }}</p>
-        {% endfor %}
-
-        {% endif %}
-        {% endwith %}
-        {% block main %}
-        {% endblock %}
-    </div>
+    <!-- jquery -->
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.bundle.min.js"></script>
-    {% block js %}
+    <script src="/static/js/bootstrappooper.min.js"></script>
+
+    
+    <script src="/static/js/h2.js"></script>
+    {% block js%}
     {% endblock %}
+    <!-- end appear -->
+    <!--bootstrap-->
+    
+    <!-- end -->
 </body>
+<!-- Body End -->
 
 </html>

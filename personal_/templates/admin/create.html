@@ -6,29 +6,22 @@
 <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
 {% endblock %}
 
-{% block main %}
+{% block content %}
 
 {% if update %}
-<form action="/admin/edit/{{postid}}" method="POST">
+<form action="/admin/edit/{{p.id}}" method="POST" dir="{% if p.lang=='fr' %}ltr{% else %}rtl{% endif %}">
 
-    <h1 class="mt-5">Update Post (#{{ post_id }})</h1>
+
     <br>
     <div class="form-outline mb-4">
         <label class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" value=" {{posttitle}} " />
+        <input type="text" name="title" class="form-control" value=" {{p.title}} " />
     </div>
 
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-        <label class="form-label">slogan</label>
-        <input type="text" name="slogan" class="form-control" maxlength="40" value=" {{postslogan}} " />
-    </div>
 
     <div class="form-outline mb-4">
         <label class="form-label">Content</label>
-        <textarea name="content" class="form-control" rows="8">
-                    {{postcontent}}
-                </textarea>
+        <textarea name="content" class="form-control" rows="8">{{content}}</textarea>
     </div>
 
     <!-- Checkbox 
@@ -46,14 +39,16 @@
     <!-- Name input -->
 
 </form>
-<button class="btn btn-danger deletepost">Delete</button>
+<form action="/admin/deletepost/{{p.id}}", method="post">
+    <button class="btn btn-danger deletepost">Delete</button>
+</form>
 {% else %}
 
 
 <!-- create form -->
-<form action="/admin/create" method="POST" enctype="multipart/form-data">
 
-    <h1 class="mt-5">New Post (#{{ post_id }})</h1>
+<form action="/admin/createpost" method="POST" enctype="multipart/form-data">
+
     <br>
     <div class="row">
         <div class="form-outline mb-4 col-md-6">
@@ -62,7 +57,7 @@
         </div>
         <div class="form-outline mb-4 col-md-6">
             <label class="form-label">language</label>
-            <select class="form-select" aria-label="Default select example" name="lang">
+            <select class="form-select lang" aria-label="Default select example" name="lang">
                 <option value="fr" selected>fr</option>
                 <option value="ar">ar</option>
             </select>
@@ -70,15 +65,9 @@
     </div>
 
 
-    <!-- slogan input -->
-    <div class="form-outline mb-4">
-        <label class="form-label">slogan</label>
-        <textarea name="slogan" class="form-control" rows="8"></textarea>
-    </div>
-
     <div class="form-outline mb-4">
         <label class="form-label">Content</label>
-        <textarea name="content" class="form-control" rows="8"></textarea>
+        <textarea name="content" class="form-control content" rows="8"></textarea>
     </div>
 
 
@@ -98,6 +87,9 @@
 {% endblock %}
 {% block js %}
 <script>
+    l=document.querySelector('.lang')
+    b = document.querySelector('.content')
+    l.onchange = () => { if (l.value == 'ar') { b.setAttribute('dir', 'rtl') } }
     $('.deletepost').click(() => {
         console.log('clicked')
     })

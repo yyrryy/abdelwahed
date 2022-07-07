@@ -1,0 +1,169 @@
+{% extends 'studies/quizlyt.html' %}
+
+
+<!--nav bar block -->
+{% block nav %}
+<div class="nav-top">
+    <span
+        class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xl logo-text mb-0">{{title}}.
+    </span>
+</div>
+
+<div class="card bg-primary border-0 mb-3 shadow-xss rounded-lg">
+    <div class="card-body">
+        <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+            About {{title}}
+        </h4>
+
+
+    </div>
+</div>
+
+<div class="border shadow-xss rounded-lg">
+    <div class="card-body">
+        <h2 class="font-xsssss fw-700 text-uppercase ls-3 ">Program</h2>
+
+        <ul class="navbar-navtext-center">
+            <li>xfgsdf</li>
+            <li>xfgsdf</li>
+            <li>xfgsdf</li>
+        </ul>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+{% block contentq %}
+<div class="middle-sidebar-left">
+    <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for c, m in messages %}
+        <div class="col-12 mt-5 alert alert-{{c}} alert-dismissible fade show d-flex justify-content-between" role="alert">
+            <div>
+                <strong>{{m}}</strong>
+            </div>
+            <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
+        <!-- <div class="col-xl-4 col-xxl-3">
+            <div class="card bg-primary border-0 shadow-xss rounded-lg">
+                <div class="card-body">
+                    <h2 class="text-white font-xsssss fw-700 text-uppercase ls-3 ">{{title}}</h2>
+                    <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+                        About {{title}}
+                    </h4>
+                    
+
+                </div>
+            </div>
+           
+        </div> -->
+
+        <div class="course">
+            {{course}}
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+    // login signup
+    forms = $('.forms')
+    switcher = $('.switcher')
+    $(window).on('click', (e) => {
+        if (e.target.classList.contains('switcher')) {
+            if (forms.attr('target') == 'login') {
+                forms.attr('target', 'rr')
+                forms.html(`
+            <form method="post">       
+                <div class= "form-group icon-input mb-3" >
+                    <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="choose a unique username" name="username">
+                </div>
+                <div class="form-group icon-input mb-1">
+                    <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="pswd" placeholder="Password">
+                </div>
+                <p class="text-start mb-0">Semister</p>
+                <div class="form-group icon-input mb-2">
+                    <select class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="semister">
+                        <option value="s1">S1</option>
+                        <option value="s2">S2</option>
+                        <option value="s3">S3</option>
+                        <option value="s3">S3</option>
+                        <option value="s4">S4</option>
+                        <option value="s5">S5</option>
+                        <option value="s6">S6</option>
+                    </select>
+                </div>
+
+                <p class="text-start mb-0">Group</p>
+                <div class="form-group icon-input mb-2">
+                    <select class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" name="group">
+                        <option value="g1">g1</option>
+                        <option value="g2">g2</option>
+                        <option value="g3">g3</option>
+                        <option value="g3">g3</option>
+                        <option value="g4">g4</option>
+                        <option value="g5">g5</option>
+                        <option value="g6">g6</option>
+                    </select>
+                </div>
+
+                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 register">Register</button>
+            </form >
+            <div class="col-sm-12 p-0 text-left">
+                <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">You already have an account <a class="fw-700 ml-1 switcher btn">Login</a></h6>
+            </div>
+        `)
+            }
+            else {
+                forms.attr('target', 'login')
+                forms.html(`
+                <form method="post" action="{{url_for('studies.login')}}">       
+                <div class="form-group icon-input mb-3">
+                    <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
+                </div>
+                <div class="form-group icon-input mb-1">
+                    <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
+                        placeholder="Your password" name="pswd">
+                </div>
+                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">Login</button>
+            </form>
+                
+            <div class="col-sm-12 p-0 text-left">
+                <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a 
+                        class="fw-700 ml-1 switcher btn">Create one</a></h6>
+            </div>
+            
+        `)
+            }
+
+        }
+    })
+    
+    
+   
+    
+</script>
+{% endblock %}

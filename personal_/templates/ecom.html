@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Pricing product | E-commerce </title>
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="fGtZBzoqn622P46tyorLr-uRP4YdfCxS-n5XBK8grCc" />
+    <meta content="this is abdelouahed ait ali's portfolio" name="description">
+    <meta content="abdelouahed ait ali, abdelouahed, ait ali, abdelwahed ait ali" name="keywords">
+    <!-- Favicon -->
+    <link href="/static/images/fav.jpg" rel="icon">
+
+    <!-- plugin CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/css/h2.css" rel="stylesheet">
+
+    <meta name="image" content="/static/images/a.jpg">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Abdelouahed Portfolio">
+    <meta itemprop="description" content="this is abdelouahed's portfolio">
+    <meta itemprop="image" content="/static/images/a.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Abdelouahed Portfolio">
+    <meta name="twitter:description" content="this is abdelouahed's portfolio">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="Abdelouahed Portfolio">
+    <meta name="og:description" content="this is abdelouahed's portfolio">
+    <meta name="og:type" content="website">
+
+</head>
+
+<body>
+    <style>
+        .range-slider__value {
+            display: inline-block;
+            position: relative;
+            width: 60px;
+            color: #000;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 3px;
+            background: #fff;
+            padding: 5px 10px;
+            margin-left: 8px;
+            }
+            .range-slider__value:after {
+            position: absolute;
+            top: 8px;
+            left: -7px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-right: 7px solid #fff;
+            border-bottom: 7px solid transparent;
+            content: "";
+            }
+    </style>
+    <div class="row container">
+        <div class="col-md-6 m-auto ">
+            <div class="bi bi-calculator fs-5 text-center mt-5">
+                <p>
+                    Pricing
+                </p>
+            </div>
+            <div class="row switchers">
+                <div class=" col-md-6 mb-3">
+                    <label for="cost">
+                        cost:
+                    </label>
+                    <input type="number" class="cost form-control">
+                </div>
+                <div class=" col-md-6 mb-3">
+                    <label for="qty">
+                        qty:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" class="slide qty w-100" value="10">
+                    
+                    <span class="range-slider__value">10</span>
+                    </div>
+                </div>
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Confirmation rate
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" class="slide confrate w-100" min="10" max="100" step="5" value="50">
+                    <span class="range-slider__value">50</span>
+                    </div>
+
+                </div>
+                <div class=" col-md-6 mb-3">
+                    <label for="margin">
+                        margin:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="200" class="slide margin w-100" value="10">
+                        <span class="range-slider__value">10</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Confirmation cost:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide conf w-100" value="10">
+                        <span class="range-slider__value">10</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Maximum delivery  cost:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide deli w-100" value="10">
+                        <span class="range-slider__value">10</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Maximum packaging cost:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide pack w-100" value="5">
+                        <span class="range-slider__value">5</span>
+                    </div>
+                
+                </div>
+
+                <div class=" col-md-6 mb-3">
+                    <label>
+                        Maximum ads estimation:
+                    </label>
+                    <div class="d-flex">
+                        <input type="range" min="1" max="100" class="slide ad w-100" value="50">
+                        <span class="range-slider__value">50</span>
+                    </div>
+                
+                </div>
+
+            </div>
+
+            <div class="mt-5 row container">
+                <div class="border-bottom mb-3 col-md-6 d-flex justify-content-between">
+                    <span>
+                        total item cost:
+                    </span>
+                    <span class="totalcost"></span>
+                </div>
+                <!-- <div class="border-bottom mb-3 col-md-6 d-flex justify-content-between">
+                    <span>
+                        Ads: 
+                    </span>
+                    <span class="totalads"></span>
+                </div>
+                <div class="border-bottom mb-3 col-md-6 d-flex justify-content-between">
+                    <span>
+                        Total cost: 
+                    </span>
+                    <span class="totalconf"></span>
+                </div>
+                <div class="border-bottom mb-3 col-md-6 d-flex justify-content-between">
+                    <span>
+                        delivered cost: 
+                    </span>
+                    <span class="totladelivey"></span>
+                </div> -->
+                <div class="border-bottom mb-3 col-md-6 d-flex justify-content-between">
+                    <span>
+                        real item cost:
+                    </span>
+                    <span class="rcost"></span>
+                </div>
+                <div class="border-bottom mb-3  d-flex justify-content-between">
+                    <span>
+                        Sell price:
+                    </span>
+                    <span class="fprice"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    function calc(qty, cost, confrate, conf, deli, pack, marge, ad) {
+        pr = confrate / 100
+        p = Math.floor(qty / (pr * pr))
+        ads = Math.floor(p * ad)
+        confi = Math.floor(p * 0.6 * conf)
+        packing = Math.floor(qty * pack)
+        delivery = Math.floor(qty * deli)
+        totalexpences = ads + conf + packing + delivery
+        realcost = Math.floor(cost + (ads / qty) + (conf / qty) + (packing / qty) + (delivery / qty))
+        price = parseInt(realcost) + marge
+        return [ads, confi, packing, delivery, totalexpences, realcost, price]
+    }
+    // function makecall(d) {
+    //     console.log(JSON.stringify(d))
+    //     $.ajax({
+    //         type: 'post',
+    //         url: "/calc",
+    //         data: JSON.stringify(d),
+    //         contentType: "application/json",
+    //         success: (data) => {
+    //             console.log(data.n)
+    //         }
+    //     })
+    // }
+
+    // const totalads = $('.totalads')
+    // const totalconf = $('.totalconf')
+    // const totladelivey = $('.totladelivey')
+    const totalcost = $('.totalcost')
+    const cost = $('.cost')
+    const fprice = $('.fprice')
+    const rcost = $('.rcost')
+    const qq = $('.qty')
+    const calculate = $('.calculate')
+
+    $('.slide').each((i, e)=>{
+        $(e).on('input', ()=>{
+            console.log($(e).siblings())
+            $(e).siblings().text($(e).val())
+        })
+    })
+    $('.switchers').on('input', (e) => {
+        if (cost.val() > 1 && qq.val() > 0 && $('.confrate').val() > 0) {
+            qty = parseFloat(qq.val())
+            cs = parseFloat(cost.val())
+            confrate= parseFloat($('.confrate').val())
+            deli = parseFloat($('.deli').val())
+            pack = parseFloat($('.pack').val())
+            margin= parseFloat($('.margin').val())
+            conf = parseFloat($('.conf').val())
+            ad = parseFloat($('.ad').val())
+            const [ads, confi, packing, delivery, totalexpences, realcost, price] = calc(qty, cs, confrate, conf, deli, pack, margin, ad)
+            totalcost.text(parseFloat(cost.val()) * parseFloat(qq.val()))
+            // totalads.text(ads)
+            // totalconf.text(totalexpences)
+            // totladelivey.text(delivery)
+            rcost.text(realcost)
+            fprice.text(price)
+        }
+    })
+
+    // cost.on('change', () => {
+
+    //     if (cost.val().length > 1 && parseInt(qq.val()) > 0) {
+    //         qty = parseFloat(qq.val())
+    //         cs = parseFloat(cost.val())
+    //         const [ads, conf, packing, delivery, totalexpences, realcost] = calc(qty, cs)
+    //         totalcost.text(parseFloat(cost.val()) * parseFloat(qq.val()) + 'Dh')
+    //         totalads.text(ads)
+    //         totalconf.text(conf)
+    //         totladelivey.text(delivery)
+    //         rcost.text(realcost)
+    //     }
+
+    // })
+    // qq.on('change', () => {
+
+    //     if (cost.val().length > 1 && parseInt(qq.val()) > 0) {
+    //         qty = parseFloat(qq.val())
+    //         cs = parseFloat(cost.val())
+    //         const [ads, conf, packing, delivery, totalexpences, realcost] = calc(qty, cs)
+    //         totalcost.text(parseFloat(cost.val()) * parseFloat(qq.val()) + 'Dh')
+    //         totalads.text(ads)
+    //         totalconf.text(conf)
+    //         totladelivey.text(delivery)
+    //         rcost.text(realcost)
+    //     }
+
+    // })
+
+</script>
+
+</html>

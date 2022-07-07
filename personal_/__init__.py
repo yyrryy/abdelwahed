@@ -3,26 +3,18 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import os
 from urllib.parse import urlparse
-import datetime
 
-today = datetime.date.today()
-future = datetime.date(2022, 1, 3)
-diff = (future - today).days
+
 
 app = Flask(__name__)
 
-@app.context_processor
-def inject_days():
-    return dict(days=diff)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('abdelouaheddb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
 
 
-
 db = SQLAlchemy(app)
 bcrypt  = Bcrypt(app)
-
 from personal_.admin.routes import admin
 from personal_.main.routes import main
 from personal_.blog.routes import log
@@ -35,7 +27,9 @@ app.register_blueprint(log)
 app.register_blueprint(st)
 app.register_blueprint(cvbuilder)
 
+
 from personal_.models import Posts
+
 
 @app.route("/sitemap")
 @app.route("/sitemap/")
@@ -81,3 +75,9 @@ def sitemap():
 
     return response
  
+
+@app.route("/ads.txt")
+def asd():
+    file=render_template('ads.txt')
+    response=make_response(file)
+    return response

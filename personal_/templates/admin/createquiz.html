@@ -1,0 +1,125 @@
+{% extends 'admin/adminlyt.html' %}
+
+
+{% block css%}
+<link rel="stylesheet" href="../../static/css/admin.css">
+<link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% if update %}
+<form action="/admin/editquiz/{{id}}" method="POST">
+
+
+    <br>
+    <div class="row">
+        <div class="form-outline mb-4 col-12">
+            <label class="form-label">Title</label>
+            <input required type="text" name="title" class="form-control" value="{{t}}" />
+        </div>
+        
+        <div class="text-center">
+            <div>Q&A</div>
+            <button class="btn bg-orange w-100 addq">
+                +
+            </button>
+        </div>
+        <div class="form-outline mb-4 col-md-4 q">
+            <label class="form-label">Questions</label>
+            {% for i in questions %}
+            <input required type="text" name="questions" class="form-control mb-2" value="{{i}}" />
+            {% endfor %}
+        </div>
+        <div class="form-outline mb-4 col-md-4 o">
+            <label class="form-label">Options</label>
+            {% for i in options %}
+            <input required type="text" name="options" class="form-control mb-2" value="{{', '.join(i)}}" />
+            {% endfor %}
+        </div>
+        <div class="form-outline mb-4 col-md-4 a">
+            <label class="form-label">Answers</label>
+            {% for i in answers %}
+            <input required type="text" name="answers" class="form-control mb-2" value="{{i}}" />
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-primary btn-block mb-4">Update</button>
+
+
+    <!-- Name input -->
+
+</form>
+<form action="/admin/deletequiz/{{id}}", method="post">
+    <button class="btn btn-danger deletepost">Delete</button>
+</form>
+{% else %}
+
+
+<!-- create form -->
+
+<form action="/admin/createquiz" method="POST">
+
+    <br>
+    <div class="row">
+        <div class="form-outline mb-4 col-12">
+            <label class="form-label">Title</label>
+            <input required type="text" name="title" class="form-control" />
+        </div>
+        
+        <div class="text-center">
+            <div>Q&A</div>
+            <button class="btn bg-orange w-100 addq">
+                +
+            </button>
+        </div>
+        <div class="form-outline mb-4 col-md-4 q">
+            <label class="form-label">Questions</label>
+            <input required type="text" name="questions" class="form-control mb-2" />
+        </div>
+        <div class="form-outline mb-4 col-md-4 o">
+            <label class="form-label">Options</label>
+            <input required type="text" name="options" class="form-control mb-2" />
+        </div>
+        <div class="form-outline mb-4 col-md-4 a">
+            <label class="form-label">Answers</label>
+            <input required type="text" name="answers" class="form-control mb-2" />
+        </div>
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
+
+
+    <!-- Name input -->
+
+</form>
+
+
+{% endif %}
+
+
+
+
+{% endblock %}
+{% block js %}
+<script>
+    $('.addq').click((e) => {
+        e.preventDefault()
+        $('.q').append(`
+                <input required type="text" name="questions" class="form-control mb-2" />
+            `)
+        $('.o').append(`
+                <input required type="text" name="options" class="form-control mb-2" />
+            `)
+        $('.a').append(`
+                <input required type="text" name="answers" class="form-control mb-2" />
+            `)        
+    })
+</script>
+{% endblock %}
+

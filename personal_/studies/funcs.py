@@ -1,6 +1,26 @@
 import requests as req
 from bs4 import BeautifulSoup as bs
 from random import choice
+import functools
+from flask import session, redirect, url_for
+def login_required(view):
+    """
+    Creates wrap that prevents unlogged in viewers from accessing admin-only routes.
+    """
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        print(session)
+        if session.get('user_id') is None:
+            return redirect(url_for('studies.login'))
+
+        return view(**kwargs)
+
+    return wrapped_view
+
+
+
+
+
 
 def tr(word):
     

@@ -2,40 +2,124 @@
 <html lang="en">
 
 <head>
-    {% if title %}
-    <title>Abdelouahed ait ali | Blog | {{title}}</title>
-    {% else %}
-    <title>Abdelouahed ait ali | Blog </title>
-    {% endif %}
-    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1200592303129169"
+            crossorigin="anonymous"></script>
+    <!-- metas -->
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> {% if title %}{{title}} | Abdelouahed ait ali{% else %} Portfolio | Abdelouahed ait ali {% endif %} </title>
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="fGtZBzoqn622P46tyorLr-uRP4YdfCxS-n5XBK8grCc" />
+    <meta content="abdelouahed ait ali's Blog" name="description">
     <meta content="abdelouahed ait ali, abdelouahed, ait ali, abdelwahed ait ali" name="keywords">
-    {% block meta%}
-    {% endblock %}
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-icons.css">
+    <!-- Favicon -->
     <link href="/static/images/fav.jpg" rel="icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;900&display=swap" rel="stylesheet">
+
+    <!-- plugin CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/css/h2.css" rel="stylesheet">
+
+    <meta name="image" content="/static/images/a.jpg">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Abdelouahed Blog">
+    <meta itemprop="description" content="this is abdelouahed's Blog">
+    <meta itemprop="image" content="https://abdelouahed.me/static/images/a.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Abdelouahed Blog">
+    <meta name="twitter:description" content="this is abdelouahed's Blog">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="Abdelouahed Blog">
+    <meta name="og:description" content="this is abdelouahed's Blog">
+    <meta name="og:type" content="article">
 
 </head>
+<!-- Body Start -->
 
-<body>
-    <div class="container">
-        <header class="bm-5">
-            <a href="/" class="btn bi bi-house border"></a>
-        </header>
-        <br>
-        {% block main %}
-        {% endblock %}
+<body data-spy="scroll" data-target="#navbar-collapse-toggle" data-offset="70" class="theme-dark">
+    <!-- page loading -->
+    <div id="loading">
+        <div class="load-circle"><span class="one"></span></div>
     </div>
+    <!-- End -->
+    <!-- Header Start -->
+    <div class="mob-header mb-5 border-bottom">
+        <div class="d-flex">
+            
+            <div class="toggler-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+    <!-- nav bar -->
+    <header class="header-left" id="navbar-collapse-toggle">
+        <div class="scroll-bar">
+            <div class="hl-top">
+                <div class="hl-logo">
+                    <a href="/">
+                        A
+                    </a>
+                </div>
+            </div>
 
+
+            <!-- nav -->
+            <ul class="nav nav-menu">
+                <li>
+                    <a class="nav-link active" href="/blog" data-toggle="tooltip" title="Home blog">
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- End nav bar -->
+    <!-- Main Start -->
+    <main class="main-left d-flex flex-column vh-100">
+        {% block content %}
+        {% endblock %}
+        <!-- Footer Start -->
+        <footer class="footer white mt-auto">
+            <div class="container row align-items-center justify-content-between">
+                <div class="text-center">
+                    <div>
+                        aitaliabdelwahed@gmail.com
+                    </div>
+                </div>
+                <div class="m-10px-tb col-md-6">
+                    <div class="nav justify-content-center">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 m-10px-tb text-center text-md-right">
+                    <p>© 2020 copyright all right reserved</p>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </main>
+    <!-- End Main -->
+   
+
+    <!-- jquery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrappooper.min.js"></script>
+
+    <script src="/static/js/h2.js"></script>
+    <!-- end appear -->
+    <!--bootstrap-->
+    {% block js %}
+    {% endblock %}
+    <!-- end -->
 </body>
-<script src="/static/js/jquery.min.js"></script>
-{% block js %}
-{% endblock %}
+<!-- Body End -->
+
 </html>

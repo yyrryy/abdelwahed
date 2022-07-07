@@ -1,0 +1,95 @@
+{% extends 'admin/adminlyt.html' %}
+
+
+{% block css%}
+<link rel="stylesheet" href="../../static/css/admin.css">
+<link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% if update %}
+<form action="/admin/edit/{{p.id}}" method="POST" dir="{% if p.lang=='fr' %}ltr{% else %}rtl{% endif %}">
+
+
+    <br>
+    <div class="row">
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" value=" {{p.title}} " />
+        </div>
+        
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">About</label>
+            <textarea name="about" class="form-control" rows="8">{{p.content}}</textarea>
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label">Content</label>
+        <textarea name="content" class="form-control" rows="8">{{p.content}}</textarea>
+    </div>
+
+
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+
+
+    <!-- Name input -->
+
+</form>
+<!-- <form action="/admin/deletelesson/{{p.id}}", method="post">
+    <button class="btn btn-danger deletepost">Delete</button>
+</form> -->
+{% else %}
+
+
+<!-- create form -->
+
+<form action="/admin/createpost" method="POST" enctype="multipart/form-data">
+
+    <br>
+    <div class="row">
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" />
+        </div>
+        <div class="form-outline mb-4 col-md-6">
+            <label class="form-label">About</label>
+            <textarea name="about" class="form-control" rows="8"></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-outline mb-4">
+        <label class="form-label">Content</label>
+        <textarea name="content" class="form-control content" rows="8"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-block mb-4">Post</button>
+
+
+    <!-- Name input -->
+
+</form>
+
+
+{% endif %}
+
+
+
+
+{% endblock %}
+{% block js %}
+<script>
+    l=document.querySelector('.lang')
+    b = document.querySelector('.content')
+    l.onchange = () => { if (l.value == 'ar') { b.setAttribute('dir', 'rtl') } }
+    $('.deletepost').click(() => {
+        console.log('clicked')
+    })
+</script>
+{% endblock %}
+

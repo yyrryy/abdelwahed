@@ -1,0 +1,82 @@
+{% extends 'studies/quizlyt.html' %}
+
+
+<!--nav bar block -->
+{% block nav %}
+<div class="nav-top">
+    <span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xl logo-text mb-0">{{title}}.
+    </span>
+</div>
+
+<div class="card bg-primary border-0 mb-3 shadow-xss rounded-lg">
+    <div class="card-body">
+        <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+            About {{title}}
+        </h4>
+
+
+    </div>
+</div>
+
+<div class="border shadow-xss rounded-lg">
+    <div class="card-body">
+        <h2 class="font-xsssss fw-700 text-uppercase ls-3 ">Program</h2>
+
+        <ul class="navbar-navtext-center">
+            <li>xfgsdf</li>
+            <li>xfgsdf</li>
+            <li>xfgsdf</li>
+        </ul>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block contentq %}
+<div class="middle-sidebar-left">
+    <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for c, m in messages %}
+        <div class="col-12 mt-5 alert alert-{{c}} alert-dismissible fade show d-flex justify-content-between"
+            role="alert">
+            <div>
+                <strong>{{m}}</strong>
+            </div>
+            <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- <div class="col-xl-4 col-xxl-3">
+            <div class="card bg-primary border-0 shadow-xss rounded-lg">
+                <div class="card-body">
+                    <h2 class="text-white font-xsssss fw-700 text-uppercase ls-3 ">{{title}}</h2>
+                    <h4 class="text-white fw-500 mb-4 lh-24 font-xssss">
+                        About {{title}}
+                    </h4>
+                    
+
+                </div>
+            </div>
+           
+        </div> -->
+
+        <div class="course">
+            {{course}}
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
