@@ -1,7 +1,7 @@
 let exholder=$('.exholder')
 let presentholder=$('.presentholder')
 let pastholder=$('.pastholder')
-let futurholder=$('.futurholder')
+let futureholder=$('.futureholder')
 
 const present=[
     {
@@ -30,9 +30,8 @@ const present=[
         
         s:'Progressive',
         u:[
-            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
-            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
-            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+           ['a current action, an action in progress or an unfinished action', 'The children are sleeping right now.'],
+            ['It is often used for descriptions', "The jaguar is lying on a tree branch."]
         ]
     },
     
@@ -51,9 +50,18 @@ const past=[
     {   
         s:'Perfect',
         u:[
-            ["refer to something that happened more in the past than something else.", "My brother sold his car on Saturday. He’d had it for 20 years!"],
-            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
-            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+            [
+                "refer to something that happened more in the past than something else. We usually use the past perfect to make it clear which action happened first. Maybe we are already talking about something in the past and we want to mention something else that is further back in time. This is often used to explain or give a reason for something in the past.",
+                "My brother sold his car on Saturday. He’d had it for 20 years!"
+            ],
+            [
+                "Something that started in the past and continued up to another action or time in the past. The past perfect tells us 'how long', just like the present perfect, but this time the action continues up to a point in the past rather than the present. Usually we use 'for + time'. We can also use the past perfect continuous here, so we most often use the past perfect simple with <a href='#st'>stative verbs.</a>",
+                "When he graduated, he had been in London for six years. (= He arrived in London six years before he graduated and lived there until he graduated, or even longer.)"
+            ],
+            [
+                "To talk about unreal or imaginary things in the past. In the same way that we use the past simple to talk about unreal or imaginary things in the present, we use the past perfect (one step back in time) to talk about unreal things in the past. This is common in the third conditional and after 'wish'.",
+                "If I had known you were ill, I would have visited you."
+            ]
         ]
     },
     
@@ -61,15 +69,19 @@ const past=[
         
         s:'Progressive',
         u:[
-            ['Actions which started in the past and are still continuing', 'He has lived in Canada for five years'],
-            ['Actions (single action or repeated actions) which happened at some unknown time in the past', "I've already seen that film. I don't want to see it again"],
-            ['Actions which happened in the past, but have an effect in the present', "I've lost my keys."]
+            [
+                "Continuous action in the past.",
+                "I was walking to the station when I met John. (I started walking before I met John, and maybe I continued afterwards.)"
+            ],
+            [
+
+            ]
         ]
     },
     
 ]  
 
-const futur=[
+const future=[
     {
         
         s:'Simple',
@@ -254,13 +266,50 @@ present.map((v, i)=>{
     usage=[]
     ll=[]
     for (let i of v.u) {
-        ll.push(i.join(': '))
+        ll.push(i.join(': <br>'))
     }
     for (let i of ll){usage.push(`<li>${i}</li>`)}
     presentholder.append(`
     <div class="tab">
         <input hidden type="checkbox" id="${v.s}">
         <label class="tab-label" for="${v.s}">${v.s}</label>
+        <div class="tab-content">
+            ${usage.join('<br>')}
+        </div>
+    </div>
+    `)
+    
+})
+
+past.map((v, i)=>{
+    usage=[]
+    ll=[]
+    for (let i of v.u) {
+        ll.push(i.join(': <br>'))
+    }
+    for (let i of ll){usage.push(`<li>${i}</li>`)}
+    pastholder.append(`
+    <div class="tab">
+        <input hidden type="checkbox" id="past${v.s}">
+        <label class="tab-label" for="past${v.s}">${v.s}</label>
+        <div class="tab-content">
+            ${usage.join('<br>')}
+        </div>
+    </div>
+    `)
+    
+})
+future.map((v, i)=>{
+    usage=[]
+    ll=[]
+    for (let i of v.u) {
+        ll.push(i.join(': <br>'))
+    }
+    for (let i of ll){usage.push(`<li>${i}</li>`)}
+    futureholder.append(`
+    <div class="tab">
+        <input hidden type="checkbox" id="future${v.s}">
+        <label class="tab-label" for="future${v.s}">${v.s}</label>
         <div class="tab-content">
             ${usage.join('<br>')}
         </div>

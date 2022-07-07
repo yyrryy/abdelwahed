@@ -53,16 +53,16 @@ def getverb():
         })
 
 
-@st.route('/grammar')
+@st.route('/s1/grammar')
 def grammar():
     return render_template('studies/grammar/grhome.html')
-@st.route('/grammar/tenses')
+@st.route('/s1/grammar/tenses')
 def tenses():
     return render_template('studies/grammar/tenses.html', title='Tenses')
-@st.route('/grammar/time')
+@st.route('/s1/grammar/time')
 def time():
     return render_template('studies/grammar/time.html', title='Time clauses')
-@st.route('/grammar/modals')
+@st.route('/s1/grammar/modals')
 def modals():
     return render_template('studies/grammar/modals.html', title='Time clauses')
 
@@ -72,37 +72,37 @@ def modals():
 
 
 
-@st.route('/guided')
+@st.route('/s1/guided')
 def guided():
     return render_template('studies/guided/home.html')
-@st.route('/guided/shorts')
+@st.route('/s1/guided/shorts')
 def shorts():
     return render_template('studies/guided/shorts.html', title='Short stories')
-@st.route('/guided/terms')
+@st.route('/s1/guided/terms')
 def terms():
     return render_template('studies/guided/terms.html', title='Literature terms')
 
 
-@st.route('/reading')
+@st.route('/s1/reading')
 def reading():
     return render_template('studies/reading/home.html')
 
 
-@st.route('/spoken')
+@st.route('/s1/spoken')
 def spoken():
     return render_template('studies/spoken/home.html')
 
-@st.route('/writing')
+@st.route('/s1/writing')
 def writing():
     return render_template('studies/writing/home.html', m='Writing')
 
 
-@st.route('/language')
+@st.route('/s1/language')
 def language():
     return render_template('studies/language/home.html', m='Language et comm.')
 
 
-@st.route('/study')
+@st.route('/s1/study')
 def study():
     return render_template('studies/study/home.html', m='Study skills')
 
