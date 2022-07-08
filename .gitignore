@@ -6,3 +6,6 @@ get.py
 penv
 test.*
 tasks.*
+personal_/static/css/removecss.py
+personal_/static/css/h2.css
+Coverage-20220707T220216.json
