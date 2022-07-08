@@ -1603,18 +1603,7 @@ mark {
   left: -40px;
   border-radius: 50%;
 }
-.feature-box-01:hover:after {
-  content: "";
-  width: 120%;
-  left: -10%;
-  top: -10%;
-  height: 120%;
-  border-radius: 0;
-  -moz-transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.55s;
-  -o-transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.55s;
-  -webkit-transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.55s;
-  transition: cubic-bezier(0.39, 0.58, 0.57, 1) all 0.55s;
-}
+
 
 .feature-box-02 {
   background: #0b0b13;
