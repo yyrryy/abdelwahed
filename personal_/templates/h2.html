@@ -17,7 +17,7 @@
     <!-- plugin CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/css/newh2.css" rel="stylesheet">
+    <link href="/static/css/h2.css" rel="stylesheet">
 
     <meta name="image" content="/static/images/a.jpg">
     <!-- Schema.org for Google -->
@@ -241,7 +241,7 @@
                     {% for i in projects %}
                     <div class="grid-item {{i.cat}}">
                         <div class="mb-2">
-                            <div class=" rounded-1 shadow">
+                            <div class="rounded-1 myshadow border">
                                 <div class="p-2">
                                     <h3>
                                         {{i.title}}
@@ -479,7 +479,7 @@
                     {% for i in posts %}
                     <div class="col-md-6 m-15px-tb">
                         <div class="blog-grid">
-                            <div class="blog-info p-2   border rounded-1"
+                            <div class="blog-info p-2 rounded-1 myshadow border"
                                 dir='{% if i.lang=="fr" %} ltr {%else%}rtl{% endif %}'>
                                 <h6 class="">
                                     <a href="/blog/{{i.id}}/{{i.title.strip().replace(' ', '-')}}" class="">
