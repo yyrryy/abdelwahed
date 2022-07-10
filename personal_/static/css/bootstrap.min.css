@@ -6029,11 +6029,11 @@ fieldset:disabled .btn {
   display: none !important;
 }
 .myshadow{
-  box-shadow:  -12px 12px 0rem rgb(80 80 80) !important;
+  box-shadow:  -6px 6px 0rem rgb(80 80 80) !important;
   transition: all .5s ease;
 }
 .myshadow:hover{
-  box-shadow:  -5px 5px 0rem gray !important;
+  box-shadow:  -2px 2px 0rem gray !important;
 }
 .position-static {
   position: static !important;
