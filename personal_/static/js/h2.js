@@ -404,11 +404,8 @@
       NAY.OnePageTop(),
       NAY.MenuClose(),
       NAY.MenuTogglerClose(),
-      NAY.Gallery(),
       NAY.MegaMenu(),
       NAY.ProgressBar(),
-      NAY.mTypeIt(),
-      NAY.Owl(),
       $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
   });
 
@@ -417,13 +414,5 @@
     NAY.ProgressBar(), NAY.HeaderFixd();
   });
 
-  // Window on Resize
-  $(window).on("resize", function () {});
 })(jQuery);
 
-
-
-
- $(".scroll-bar").mCustomScrollbar({
-   theme: "minimal",
- });

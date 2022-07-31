@@ -29,7 +29,7 @@ st = Blueprint('studies', __name__, url_prefix='/studies')
 
 @st.route('/')
 def studies():
-    return render_template('studies/t.html', title='Flash Ait Melloul')
+    return render_template('studies/home.html', title='Flash Ait Melloul')
 
 
 
