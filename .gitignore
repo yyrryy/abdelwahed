@@ -6,3 +6,4 @@ get.py
 penv
 test.*
 tasks.*
+personal_/store.db
