@@ -6,6 +6,6 @@ get.py
 penv
 test.*
 tasks.*
-migrations
 app.db
 store.db
+migrations
