@@ -1,3 +1,5 @@
+from email.policy import default
+from turtle import title
 from . import db
 from datetime import datetime
 from random import randint
@@ -38,3 +40,12 @@ class Quiz(db.Model):
     options=db.Column(db.Text)
     answers=db.Column(db.Text)
     explanations=db.Column(db.Text)
+
+class Votes(db.Model):
+    # voting system model
+    id = db.Column(db.Integer, primary_key=True)
+    title=db.Column(db.String(20), nullable=False)
+    description=db.Column(db.Text)
+    votes = db.Column(db.Integer, default=0)    # number of votes
+
+# table related to studies

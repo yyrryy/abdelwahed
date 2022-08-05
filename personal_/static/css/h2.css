@@ -6,7 +6,7 @@ html {
 }
 
 :root{
-  --secondcolor:#ffd661;
+  --secondcolor:#857c65;
 }
 
 body {
@@ -42,7 +42,7 @@ a {
   color: var(--secondcolor);
 }
 a:hover {
-  color: #ffffff;
+  color: #1f4a8a;
   text-decoration: none;
 }
 
@@ -890,7 +890,7 @@ mark {
   z-index: -1;
 }
 .theme-light .title h3:after {
-  background: rgba(255, 147, 1, 0.5);
+  background: var(--secondcolor);
 }
 @media (max-width: 991px) {
   .title h3:after {
@@ -1186,7 +1186,7 @@ mark {
   height: 100%;
   top: 0;
   left: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(65, 65, 65, 0.479);
   overflow: hidden;
 }
 .line::after {
@@ -1197,7 +1197,7 @@ mark {
   width: 100%;
   top: -50%;
   left: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+  background: linear-gradient(to bottom, rgba(88, 88, 88, 0) 0%, #585858 75%, #ffffff 100%);
   -webkit-animation: drop 7s 0s infinite;
           animation: drop 7s 0s infinite;
   -webkit-animation-fill-mode: forwards;
@@ -1593,11 +1593,9 @@ mark {
   margin: 0;
 }
 .theme-light .feature-box-01:hover {
-  color: #fff;
+  color: var(--secondcolor);
 }
-.theme-light .feature-box-01:hover h5 {
-  color: #fff;
-}
+
 .feature-box-01:hover:before {
   top: -72px;
   left: -40px;
