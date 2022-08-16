@@ -1,5 +1,3 @@
-from email.policy import default
-from turtle import title
 from . import db
 from datetime import datetime
 from random import randint
