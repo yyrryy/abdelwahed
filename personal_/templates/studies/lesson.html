@@ -143,7 +143,7 @@
             else {
                 forms.attr('target', 'login')
                 forms.html(`
-                <form method="post" action="{{url_for('studies.login')}}">       
+                <form method="post">       
                 <div class="form-group icon-input mb-3">
                     <input type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
                 </div>
@@ -151,7 +151,7 @@
                     <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
                         placeholder="Your password" name="pswd">
                 </div>
-                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">Login</button>
+                <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 loginbtn">Login</button>
             </form>
                 
             <div class="col-sm-12 p-0 text-left">
@@ -166,7 +166,9 @@
     })
     
     
-   
+    $('.loginbtn').on('click', ()=>{
+        console.log('login')
+    })
     
 </script>
 {% endblock %}

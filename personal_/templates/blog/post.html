@@ -30,7 +30,11 @@
                 <button class="btn btn-dark upvote">
                     Upvote <span class="bi bi-arrow-up"></span>
                 </button>
+                
             </div>
+            {% if isadmin %}
+            <a href="{{url_for('admin.edit', postid=post.id)}}" class="btn btn-dark w-100" target="_blank">Edit</a>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -3,7 +3,8 @@ from flask import (
     render_template,
     request,
     Blueprint,
-    Markup
+    Markup,
+    session
 )
 from personal_.models import Posts
 from urllib.parse import urlparse
@@ -24,6 +25,10 @@ def blog():
 def post(id, name):
     p=Posts.query.get(id)
     next=Posts.query.get(p.id+1)
+    isadmin=session.get('isadmin'),
+    
+    if isadmin[0]:
+        print('rr')
     previous=Posts.query.get(p.id-1)
     return render_template('blog/post.html', 
     content=Markup(p.content),
@@ -31,6 +36,7 @@ def post(id, name):
     post=p,
     next=next,
     previous=previous,
+    isadmin=isadmin[0],
     root = urlparse(request.host_url)
     )
 

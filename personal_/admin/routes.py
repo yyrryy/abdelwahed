@@ -27,7 +27,7 @@ def login_required(view):
     """
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if session.get('user_id') is None:
+        if session.get('isadmin') is None:
             return redirect(url_for('admin.login'))
 
         return view(**kwargs)
@@ -66,7 +66,7 @@ def login():
         if user and bcrypt.check_password_hash(user.pswd, request.form["password"]):
 
             session.clear()
-            session['user_id'] = user.username
+            session['isadmin'] = True
             flash("What would you like to do today?")
             return redirect(url_for("admin.adminpanel"))
         
@@ -145,7 +145,7 @@ def create():
         content = request.form["content"].strip()
         # c=convertor(content)
         print(content)
-        data = Posts(title=title, votes=randint(0, 20), content=content, lang=lang)
+        data = Posts(title=title, votes=randint(0, 7), content=content, lang=lang)
         db.session.add(data)
         db.session.commit()
         flash("Success, your post is live.", 'success')
@@ -190,7 +190,7 @@ def edit(postid):
     else:
         return render_template("admin/create.html", 
         p=post,
-        content=post.content,
+        content=Markup(post.content),
         update=True,
         title=f'Update post #{postid}')
     

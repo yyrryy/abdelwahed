@@ -12,7 +12,7 @@
 {% block content %}
 
 {% if update %}
-<form action="/admin/edit/{{p.id}}" method="POST" dir="{% if p.lang=='fr' %}ltr{% else %}rtl{% endif %}">
+<form action="/admin/edit/{{p.id}}" method="POST" dir="{% if p.lang=='fr' %}ltr{% else %}rtl{% endif %}" class="form">
 
 
     <br>
@@ -35,8 +35,7 @@
                     </div>-->
 
     <!-- Submit button -->
-    {{content}}
-    <button type="submit" class="btn btn-primary btn-block mb-4 submit2">Update</button>
+    <button type="submit" class="btn btn-primary btn-block my-2 submit2">Update</button>
 
 
     <!-- Name input -->
@@ -45,15 +44,12 @@
 <form action="/admin/deletepost/{{p.id}}", method="post">
     <button class="btn btn-danger deletepost">Delete</button>
 </form>
-<script>
-    $('.note-editable').html("{{content}}");
-</script>
 {% else %}
 
 
 <!-- create form -->
 
-<form action="/admin/createpost" method="POST" enctype="multipart/form-data">
+<form action="/admin/createpost" method="POST" enctype="multipart/form-data" class="form">
 
     <br>
     <div class="row">
@@ -104,6 +100,9 @@
             ['view', ['fullscreen', 'codeview', 'help']]
         ]
     });
+    // $('.note-editable').html("{{content}}");
+    $('#summernote').summernote('code', '{{content}}');
+
 </script>
 <script>
     // watch the lang input and edit the direction of .note-editor
@@ -118,7 +117,7 @@
         e.preventDefault();
         var content = $('.note-editable').html();
         $('.content').html(content);
-        $('form').submit()
+        $('.form').submit()
     });
 
     $('.deletepost').click(() => {

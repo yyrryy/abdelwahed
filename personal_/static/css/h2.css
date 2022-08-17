@@ -178,23 +178,17 @@ mark {
   background: #f7f7ff;
 }
 
-@media (min-width: 768px) {
-  .main-left {
-    padding-left: 80px;
-  }
-}
+
 
 .header-left {
   width: 80px;
   position: fixed;
   bottom: 0;
   top: 0;
-  background: #0c0c14;
+  z-index: 1;
   border-right: 1px solid rgba(11, 11, 19, 0.1);
 }
-.theme-light .header-left {
-  background: #fff;
-}
+
 .header-left .scroll-bar {
   height: 100%;
 }
@@ -316,7 +310,9 @@ mark {
   margin-left: 15px;
   border: none;
   margin-left: auto;
+  cursor: pointer;
 }
+
 .toggler-menu span {
   position: absolute;
   top: 0;
@@ -327,9 +323,8 @@ mark {
   height: 2px;
   margin: auto;
   box-shadow: 0px -8px 0 0px currentColor, 0px 8px 0 0px currentColor;
-  background: #fff;
-  color: #fff;
-}
+  color: rgb(0, 0, 0);
+}  
 
 @media (max-width: 767px) {
   .mob-header {
@@ -346,6 +341,7 @@ mark {
   }
   .header-left.menu-open {
     left: 0;
+    background: white;
   }
 }
 .footer {
