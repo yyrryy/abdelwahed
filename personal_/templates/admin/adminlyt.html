@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <!-- metas -->
@@ -8,17 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> {{title}} </title>
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="unindex, unfollow">
     <meta name="google-site-verification" content="fGtZBzoqn622P46tyorLr-uRP4YdfCxS-n5XBK8grCc" />
-    <meta content="abdelouahed ait ali's portfolio" name="description">
-    <meta content="abdelouahed ait ali, abdelouahed, ait ali, abdelwahed ait ali" name="keywords">
+    <!-- metas -->
     <!-- Favicon -->
         <link href="/static/images/fav.jpg" rel="icon">
 
     <!-- plugin CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/h2.css" rel="stylesheet">
-  
+    <script src="/static/js/jquery.min.js"></script>
+
+    {% block head %}
+    {% endblock %}
 </head>
 <!-- Body Start -->
 
@@ -111,7 +113,6 @@
 
 
     <!-- jquery -->
-    <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrappooper.min.js"></script>
 
     

@@ -1,9 +1,12 @@
 {% extends 'admin/adminlyt.html' %}
 
 
-{% block css%}
-<link rel="stylesheet" href="../../static/css/admin.css">
-<link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+
+{% block head%}
+<!-- include summernote css/js -->
+<link href="/static/css/admin/wysiwyg.css" rel="stylesheet">
+<script src="/static/js/admin/wsiwyg.js"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -19,10 +22,9 @@
     </div>
 
 
-    <div class="form-outline mb-4">
-        <label class="form-label">Content</label>
-        <textarea name="content" class="form-control" rows="8">{{content}}</textarea>
-    </div>
+    
+    <div id="summernote"></div>
+    <textarea name="content" class="form-control content" hidden></textarea>
 
     <!-- Checkbox 
                     <div class="form-check d-flex justify-content-center mb-4">
@@ -33,7 +35,8 @@
                     </div>-->
 
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+    {{content}}
+    <button type="submit" class="btn btn-primary btn-block mb-4 submit2">Update</button>
 
 
     <!-- Name input -->
@@ -42,6 +45,9 @@
 <form action="/admin/deletepost/{{p.id}}", method="post">
     <button class="btn btn-danger deletepost">Delete</button>
 </form>
+<script>
+    $('.note-editable').html("{{content}}");
+</script>
 {% else %}
 
 
@@ -65,13 +71,11 @@
     </div>
 
 
-    <div class="form-outline mb-4">
-        <label class="form-label">Content</label>
-        <textarea name="content" class="form-control content" rows="8"></textarea>
-    </div>
+    
+    <div id="summernote"></div>
+    <textarea name="content" class="form-control content" hidden ></textarea>
 
-
-    <button type="submit" class="btn btn-primary btn-block mb-4">Post</button>
+    <button type="submit" class="mt-2 btn btn-primary btn-block mb-4 submit2">Post</button>
 
 
     <!-- Name input -->
@@ -87,9 +91,36 @@
 {% endblock %}
 {% block js %}
 <script>
-    l=document.querySelector('.lang')
-    b = document.querySelector('.content')
-    l.onchange = () => { if (l.value == 'ar') { b.setAttribute('dir', 'rtl') } }
+    $('#summernote').summernote({
+        tabsize: 1,
+        height: 400,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>
+<script>
+    // watch the lang input and edit the direction of .note-editor
+    $('select[name=lang]').on('change', ()=>{
+        if($('input[name=lang]').val()=='fr'){
+            $('.note-editor').attr('dir','ltr');
+        }else{
+            $('.note-editor').attr('dir','rtl');
+        }
+    });
+    $('.submit2').on('click', function(e) {
+        e.preventDefault();
+        var content = $('.note-editable').html();
+        $('.content').html(content);
+        $('form').submit()
+    });
+
     $('.deletepost').click(() => {
         console.log('clicked')
     })
