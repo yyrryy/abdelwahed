@@ -62,3 +62,10 @@ def calculate():
     return jsonify({
         "n": 5
     })
+
+
+@main.route('/laptops')
+def laptops():
+    return render_template('laptops.html')
+
+# route to create admin

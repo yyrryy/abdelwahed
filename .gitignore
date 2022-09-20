@@ -8,5 +8,6 @@ test.*
 tasks.*
 app.db
 store.db
-migrations
 createadmin.py
+aaenv
+migrations

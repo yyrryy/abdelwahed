@@ -181,14 +181,22 @@ mark {
 
 
 .header-left {
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
   width: 80px;
   position: fixed;
   bottom: 0;
   top: 0;
-  z-index: 1;
+  transition: ease all 0.35s;
+  left: -200px;
+  z-index: 222;
   border-right: 1px solid rgba(11, 11, 19, 0.1);
 }
-
+.header-left.menu-open {
+  left: 0;
+  background: white;
+}
 .header-left .scroll-bar {
   height: 100%;
 }
@@ -270,7 +278,6 @@ mark {
 
 .mob-header {
   padding: 15px;
-  display: none;
   position: fixed;
   top: 0;
   width: 100%;
@@ -331,18 +338,8 @@ mark {
     display: block;
   }
 
-  .header-left {
-    -moz-transition: ease all 0.35s;
-    -o-transition: ease all 0.35s;
-    -webkit-transition: ease all 0.35s;
-    transition: ease all 0.35s;
-    left: -200px;
-    z-index: 222;
-  }
-  .header-left.menu-open {
-    left: 0;
-    background: white;
-  }
+  
+  
 }
 .footer {
   padding: 12px 0;

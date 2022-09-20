@@ -1,0 +1,46 @@
+
+{% extends 'admin/adminlyt.html' %}
+
+
+
+{% block head%}
+
+{% endblock %}
+
+{% block content %}
+
+<div>
+
+
+    <br>
+    <div class="row">
+        <div class="form-outline mb-4 col-12">
+            <label class="form-label">Title</label>
+            <input required type="text" name="title" class="form-control" value="{{t}}" />
+        </div>
+        
+        <div class="text-center">
+            <div>Q&A</div>
+            <button class="btn bg-orange w-100 addq">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-primary btn-block mb-4">Update</button>
+
+
+    <!-- Name input -->
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+{% endblock %}
+

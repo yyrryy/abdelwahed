@@ -47,3 +47,27 @@ class Votes(db.Model):
     votes = db.Column(db.Integer, default=0)    # number of votes
 
 # table related to studies
+
+
+# laptop table model with brand, model, generation, ram, stockage, processor, price
+class Laptops(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    brand = db.Column(db.String(20), nullable=False)
+    model = db.Column(db.String(20), nullable=False)
+    generation = db.Column(db.String(20), nullable=False)
+    ram = db.Column(db.String(20), nullable=False)
+    stockage = db.Column(db.String(20), nullable=False)
+    processor = db.Column(db.String(20), nullable=False)
+    price = db.Column(db.String(20), nullable=False)
+    active=db.Column(db.Boolean, default=True)
+    forstudies=db.Column(db.Boolean, default=False)
+    forgaming=db.Column(db.Boolean, default=False)
+    forwork=db.Column(db.Boolean, default=False)
+    forvideoediting=db.Column(db.Boolean, default=False)
+    forprogramming=db.Column(db.Boolean, default=False)
+    forphotoediting=db.Column(db.Boolean, default=False)
+    forgraphicdesign=db.Column(db.Boolean, default=False)
+    formusicproduction=db.Column(db.Boolean, default=False)
+    fordataproccessing=db.Column(db.Boolean, default=False)
+
+    

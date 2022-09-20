@@ -269,3 +269,7 @@ def gadwadapaja():
     return '<h1>created</h1>'
 
 
+# route for add laptop
+@admin.route('/addlaptop')
+def addlaptop():
+    return render_template('admin/addlaptop.html')
