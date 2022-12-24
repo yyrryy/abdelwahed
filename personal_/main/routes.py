@@ -5,7 +5,7 @@ from flask import (
     request,
     send_file,
 )
-from personal_.models import Posts, Projects
+from personal_.models import Posts, Projects, Laptops
 import os
 
 
@@ -66,6 +66,29 @@ def calculate():
 
 @main.route('/laptops')
 def laptops():
-    return render_template('laptops.html')
+    return render_template('laptops.html', title="Laptops")
 
 # route to create admin
+@main.route('/test')
+def test():
+    return render_template('test.html', title="test")
+
+
+# filtration system
+@main.route('/filter/<usage>/<price>/<ram>/<storage>')
+def filter(usage, price, ram, storage):
+    # get all laptops
+    laptops = Laptops.query.all()
+    # filter by usage
+    if usage != 'all':
+        laptops = [laptop for laptop in laptops if laptop.usage == usage]
+    # filter by price
+    if price != 'all':
+        laptops = [laptop for laptop in laptops if laptop.price == price]
+    # filter by ram
+    if ram != 'all':
+        laptops = [laptop for laptop in laptops if laptop.ram == ram]
+    # filter by storage
+    if storage != 'all':
+        laptops = [laptop for laptop in laptops if laptop.storage == storage]
+    return render_template('laptops.html', title="Laptops", laptops=laptops)

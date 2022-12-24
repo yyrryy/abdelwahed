@@ -44,21 +44,19 @@
 
 <div class="middle-sidebar-left">
     <div class="row">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        {% for c, m in messages %}
-        <div class="col-12 alert alert-{{c}} alert-dismissible fade show d-flex justify-content-between" role="alert">
+        
+        {% if  not user %}
+        <div class="col-12 alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
             <div>
-                <strong>{{m}}</strong>
+                <strong>
+                    Hey! you need to login. ↗↗
+                </strong>
             </div>
             <button type="button" class="btn btn-primary close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        {% endfor %}
         {% endif %}
-        {% endwith %}
-
         {% for i in quizes %}
         <div class="col-xl-4 col-lg-6 col-md-6">
             <div class="card mb-4 d-block w-100 shadow-xss rounded-lg p-xxl-5 p-4 border-0 text-center">
@@ -121,7 +119,9 @@
                 <p>
                     Looks like you are not logged in :)
                 </p>
-                    <form method="post" action="{{url_for('studies.login')}}">       
+                    <form method="post" action="/studies/login"> 
+                        <div class='errors'></div>
+
                         <div class="form-group icon-input mb-3">
                             <input required type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
                         </div>
@@ -129,7 +129,7 @@
                             <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
                                 placeholder="Your password" name="pswd">
                         </div>
-                        <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Login</button>
+                        <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 btnlogin">Login</button>
                     </form>
                     
                     <div class="col-sm-12 p-0 text-left">
@@ -144,7 +144,11 @@
             <div class="card-body d-flex justify-content-between align-items-end p-4">
                 <div>
                     <h4 class="font-xsss text-grey-900 mb-2 d-flex align-items-center justify-content-between mt-2 fw-700">
-                        
+                        {% if user %}
+                        <a href="/studies/logout">
+                            Logout
+                        </a>
+                        {% endif %}
                     </h4>
                 </div>
                 
@@ -164,6 +168,8 @@
 <script>
     forms=$('.forms')
     switcher = $('.switcher')
+    
+
     $(window).on('click', (e)=>{
         if (e.target.classList.contains('switcher')){
             if (forms.attr('target') == 'login') {
@@ -187,6 +193,7 @@
                         <option value="s4">S4</option>
                         <option value="s5">S5</option>
                         <option value="s6">S6</option>
+                        <option value="Complicated">compliacated</option>
                     </select>
                 </div>
 
@@ -201,6 +208,9 @@
                         <option value="g4">g4</option>
                         <option value="g5">g5</option>
                         <option value="g6">g6</option>
+                        <option value="g7">g7</option>
+                        <option value="g8">g8</option>
+                        <option value="g9">g9</option>
                     </select>
                 </div>
 
@@ -243,8 +253,67 @@
                                         contentType: "application/json",
 
                                     })
-                                    $('.errors').html('<div class="alert alert-success">Account created you can now login</div>')
-                                    $('.register').text('Created')
+                                    forms.attr('target', 'login')
+                                    forms.html(`
+                                    <form method="post" action="/studies/login"> 
+                                        <div class="errors">
+                                            <div class="alert alert-sucess">
+                                                Account created successfully, you can now login
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group icon-input mb-3">
+                                            <input required="" type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
+                                        </div>
+                                        <div class="form-group icon-input mb-1">
+                                            <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3" placeholder="Your password" name="pswd">
+                                        </div>
+                                        <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 btnlogin">Login</button>
+                                    </form>
+                                    
+                                `)
+                                    $('input').val('')
+                                    $('.btnlogin').on('click', (e)=>{
+                                        console.log('lOggg')
+                                        $('.btnlogin').text('Checking...')
+                                        $('.btnlogin').attr('disabled', 'true')
+                                        $('.errors').html('')
+                                        e.preventDefault()
+                                        console.log('clicked')
+                                        data={
+                                            'username':$('input[name=username]').val(),
+                                            'password':$('input[name=pswd]').val()
+                                        }
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '/studies/login',
+                                            data: JSON.stringify(data),
+                                            contentType: "application/json",
+                                            success: function(response) {
+                                                console.log(response)
+                                                if (response.message){
+                                                        
+                                                    $('.errors').html(`<div class="alert alert-danger" role="alert">${response.message}</div>`)    
+                                                    $('.btnlogin').removeAttr('disabled')
+                                                    $('.btnlogin').text('Login')
+                                                    return
+                                                }
+                                                $('.btnlogin').text
+                                                ('Redirecting...')
+                                                $('.errors').html(`<div class="alert alert-success">Success</div>`)
+                                                window.location.href = '/studies/quizes'
+                                            },
+                                            error: function(error) {
+                                                $('.errors').html(`<div class="alert alert-danger" role="alert">Err</div>`)
+                                                $('.btnlogin').removeAttr('disabled')
+                                                $('.btnlogin').text('Login')
+
+                                            }
+
+                                        
+                                        })
+                                
+                                    })
 
                                 }
                             }
@@ -259,16 +328,18 @@
             else {
                 forms.attr('target', 'login')
                 forms.html(`
-                 <form method="post" action="{{url_for('studies.login')}}">       
-                    <div class="form-group icon-input mb-3">
-                        <input required type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
-                    </div>
-                    <div class="form-group icon-input mb-1">
-                        <input required type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
-                            placeholder="Your password" name="pswd">
-                    </div>
-                    <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">Login</button>
-                </form>
+                <form method="post" action="/studies/login"> 
+                        <div class='errors'></div>
+
+                        <div class="form-group icon-input mb-3">
+                            <input required type="text" class="style2-input pl-5 form-control text-grey-900 font-xsss fw-600" placeholder="Your username" name="username">
+                        </div>
+                        <div class="form-group icon-input mb-1">
+                            <input type="Password" class="style2-input pl-5 form-control text-grey-900 font-xss ls-3"
+                                placeholder="Your password" name="pswd">
+                        </div>
+                        <button class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 btnlogin">Login</button>
+                    </form>
                     
                 <div class="col-sm-12 p-0 text-left">
                     <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have an account <a 
@@ -279,8 +350,49 @@
             }
             
         }
+       
+        else if (e.target.classList.contains('btnlogin')){
+            console.log('clicked')
+            e.preventDefault()
+            $('.btnlogin').text('Checking...')
+            $('.btnlogin').attr('disabled', 'true')
+            $('.errors').html('')
+            console.log('clicked')
+            data={
+                'username':$('input[name=username]').val(),
+                'password':$('input[name=pswd]').val()
+            }
+            $.ajax({
+                type: 'POST',
+                url: '/studies/login',
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function(response) {
+                    console.log(response)
+                    if (response.message){
+                                
+                        $('.errors').html(`<div class="alert alert-danger" role="alert">${response.message}</div>`)    
+                        $('.btnlogin').removeAttr('disabled')
+                        $('.btnlogin').text('Login')
+                        return
+                    }
+                    $('.btnlogin').text
+                    ('Redirecting...')
+                    $('.errors').html(`<div class="alert alert-success">Success</div>`)
+                    window.location.href = '/studies/quizes'
+                },
+                error: function(error) {
+                    $('.errors').html(`<div class="alert alert-danger" role="alert">Err</div>`)
+                    $('.btnlogin').removeAttr('disabled')
+                    $('.btnlogin').text('Login')
+
+                }
+
+            
+            })
+        }
+        
     })
-    
 </script>
 {% endblock %}
 

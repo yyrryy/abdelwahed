@@ -62,3 +62,5 @@ $('.gotoselect').on('change', (e) => {
   v = e.target.value
   $('.goto').attr('href', v)
 })
+
+

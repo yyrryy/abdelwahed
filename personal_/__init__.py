@@ -86,3 +86,9 @@ def asd():
     file=render_template('ads.txt')
     response=make_response(file)
     return response
+
+@app.route("/robot.txt")
+def robot():
+    file=render_template('robot.txt')
+    response=make_response(file)
+    return response

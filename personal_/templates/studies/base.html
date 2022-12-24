@@ -18,8 +18,10 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/studies/style.css">
-
-    </head>
+    <script src="/static/js/jquery.min.js"></script>
+    {% block css %}
+    {% endblock %}
+</head>
 
 <body class="color-theme-blue mont-font ">
 
@@ -44,9 +46,26 @@
 
 
 
+    <script>
+        $(document).ready(function () {
+  "use strict";
+        if ($(".preloader").length > 0) {
+      $(".preloader").delay(200).fadeOut(200);
+      $("body").delay(600).addClass("loaded");
+        }
+    $(".header-menu").on("click", function () {
+    // $(this).toggleClass('active');
+    $(".navigation").addClass("nav-active");
+    });
 
+    $(".close-nav").on("click", function () {
+        $(".navigation").removeClass("nav-active");
+        return false;
+    });                                                                               
+        });
 
-    <script src="/static/js/studies/sc.min.js"></script>
+    </script>
+
 
     {% block js %}
     {% endblock %}

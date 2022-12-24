@@ -34,30 +34,25 @@
     </nav>
     <!-- navigation -->
     <!-- main content -->
-    <div class="main-content p-xl-280">
-        <div class="middle-sidebar-header bg-white">
+    <div class="main-content">
+        <div class="middle-sidebar-header bg-white d-flex">
             <button class="header-menu"></button>
             
             {% block header %}
             {% endblock %}
         </div>
-        <div class="middle-sidebar-bottom">
+        <div class="middle-sidebar-bottom container">
             {% block contentq %}
             {% endblock %}
         </div>
     </div>
     <!-- main content -->
+    <script src="/static/js/studies/sc.min.js"></script>    
 
 
     
-
 {% endblock %}
-
+    
     
 {% block js %}
-    <script>
-        $('.register').on('click', (e)=>{
-            console.log('zeze')
-        })
-    </script>
 {% endblock %}

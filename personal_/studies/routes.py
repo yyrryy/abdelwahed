@@ -172,16 +172,23 @@ def business():
 @st.route('/quizes')
 def quizes():
     quizes=Quiz.query.all()
+    user=''
     if 'userid' in session:
-        rank=Students.query.order_by(Students.score.desc()).limit(10).all()
         user=Students.query.get(int(session['userid']))
+    else: user=Students.query.get(0)
+    print(user)
+    if user:
+        rank=Students.query.order_by(Students.score.desc()).limit(10).all()
         return render_template('studies/quizes.html', title='Quizzes', user=user, quizes=quizes, len=len, json=json, rank=rank, enumerate=enumerate)
-    flash('Holy crap! you need to login to take quizes.', 'warning')
     return render_template('studies/quizes.html', title='Quizzes', user=False, quizes=quizes, json=json, len=len)
 @st.route('/quiz/<id>')
 def quiz(id):
+    user=''
     if 'userid' in session:
         user=Students.query.get(int(session['userid']))
+    else: user=Students.query.get(0)
+    print(user)
+    if user:
         quiz=Quiz.query.get(id)
         options=json.loads(quiz.options)
         questions=json.loads(quiz.questions)
@@ -195,7 +202,7 @@ def quiz(id):
         title=f'{quiz.title} Quiz',
         rank=Students.query.order_by(Students.score.desc()).limit(10).all(),
         )
-    else: return '<h1>You are not logged in</h1>'
+    else: return '<h1>Nothing to see here, you need to log in a jmmi</h1>'
 @st.route('/score/<id>', methods=['POST'])
 def score(id):
     quiz=Quiz.query.get(id)
@@ -215,29 +222,28 @@ def score(id):
     }))
     user.score+=correct*coef
     db.session.commit()
-    res.set_cookie(f'test{quiz.id}', 'Answered', expires= datetime.now() + timedelta(hours=24))
+    res.set_cookie(f'test{quiz.id}', 'Answered', expires= datetime.now() + timedelta(hours=2))
     return res
 
 
 # auth
 @st.route("/login", methods=["POST"])
 def login():
-    """
-    Logs a user in (given the email and password are correct).
-    """
-
-    if request.method=='POST':
-        username = request.form["username"]
-        user = Students.query.filter_by(username=username).first()
-        if user and bcrypt.check_password_hash(user.pswd, request.form["pswd"]):
-            session['userid'] = user.id
-            session['_remember'] = 'set'
-            flash("Logged in", 'success')
-            return redirect(url_for("studies.quizes"))
-        flash('Username or passsword not correct!', 'warning')
-        return redirect(url_for("studies.quizes"))
+    data=request.get_json()
+    print('data', data)
+    username=data['username']
+    user=Students.query.filter_by(username=username).first()
+    print('user;',user)
+    if user and bcrypt.check_password_hash(user.pswd, data['password']):
+        session['userid'] = user.id
+        session['_remember'] = 'set'
+        # return a json response
+        return redirect(url_for('studies.quizes'))
     else:
-        return render_template("studies/login.html")
+        return jsonify({
+            'message':'Invalid cridentials',
+        })
+
 
 @st.route("/signup", methods=["POST"])
 def signup():
@@ -248,8 +254,9 @@ def signup():
     pswd = bcrypt.generate_password_hash(data["pswd"]).decode('utf-8')
     db.session.add(Students(username=username, semister=semister, group=group, pswd=pswd))
     db.session.commit()
-    flash('Account successfully created', 'success')
-    return redirect(url_for("studies.quizes"))
+    return jsonify({
+        'valid':True,
+    })
 
 @st.route('/checkuser', methods=['POST'])
 def checkuser():
@@ -259,6 +266,12 @@ def checkuser():
     return jsonify({
         'taken':True if u else False
     })
+
+@st.route('/logout')
+def logout():
+    session.pop('userid', None)
+    print(session)
+    return redirect(url_for('studies.quizes'))
     
 
 
