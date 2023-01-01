@@ -68,35 +68,35 @@ def getverb():
 
 
 
-@st.route('/s1/grammar')
+@st.route('/grammar1')
 def grammar():
     return render_template('studies/grammar/grhome.html')
-@st.route('/s1/grammar/tenses')
+@st.route('/grammar/tenses')
 
 
 
 
 
-@st.route('/s1/guided')
+@st.route('/guided')
 def guided():
     return render_template('studies/lesson.html', title='Guided reading')
 @st.route('/guided/shorts')
 def shorts():
     return render_template('studies/guided/shorts.html', title='Short stories')
-@st.route('/s1/guided/terms')
+@st.route('/guided/terms')
 def terms():
     return render_template('studies/guided/terms.html', title='Literature terms')
 
 
-@st.route('/s1/reading')
+@st.route('/reading')
 
 
-@st.route('/s1/')
+@st.route('/')
 def s1():
     return render_template('studies/semisters/s1.html')
 
 
-@st.route('/s1/reading1')
+@st.route('/reading1')
 def reading():
     course='<h1>this is a course</h1>'
     return render_template('studies/lesson.html',
@@ -104,62 +104,57 @@ def reading():
     title='Reading comp. precis 1')
 
 
-@st.route('/s1/spoken')
+@st.route('/spoken')
 def spoken():
     return render_template('studies/lesson.html', title='Spoken english')
 
-@st.route('/s1/writing')
+@st.route('/writing')
 def writing():
     return render_template('studies/lesson.html', title='Writing')
 
 
 
-@st.route('/s1/language')
+@st.route('/language')
 
-@st.route('/s1/lang1')
+@st.route('/lang1')
 def language():
     return render_template('studies/lesson.html', title='Language et comm.')
 
 
-@st.route('/s1/study')
+@st.route('/study')
 def study():
     return render_template('studies/lesson.html', title='Study skills')
 
 
-# s2 semister
-
-
-@st.route('/s2/')
-def s2():
-    return render_template('studies/semisters/s2.html')
 
 
 
-@st.route('/s2/reading2')
+
+@st.route('/reading2')
 def reading2():
     return render_template('studies/lesson.html', title='Reading2')
 
-@st.route('/s2/grammar2')
+@st.route('/grammar2')
 def grammar2():
     return render_template('studies/grammar2/home.html', title='grammar2')
 
-@st.route('/s2/culture')
+@st.route('/culture')
 def culture():
     return render_template('studies/lesson.html', title='culture')
 
-@st.route('/s2/lang2')
+@st.route('/lang2')
 def lang2():
     return render_template('studies/lesson.html', title='lang2')
 
-@st.route('/s2/comp1')
+@st.route('/comp1')
 def somp1():
     return render_template('studies/lesson.html', title='somp1')
 
-@st.route('/s2/communication')
+@st.route('/communication')
 def communication():
     return render_template('studies/lesson.html', title='communication')
 
-@st.route('/s2/business')
+@st.route('/business')
 def business():
     return render_template('studies/lesson.html', title='business')
 

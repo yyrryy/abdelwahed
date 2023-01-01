@@ -24,6 +24,12 @@ def index():
     projects=projects)
 
 
+@main.route('/convo')
+def convo():
+    #render a downloadable file
+    path='templates/convo.pdf'
+    return send_file(path, as_attachment=True)
+
 @main.route('/project1')
 def peoject1():
     return render_template('project1.html', title='Project1 - static website')
