@@ -79,7 +79,7 @@ def grammar():
 
 @st.route('/guided')
 def guided():
-    return render_template('studies/lesson.html', title='Guided reading')
+    return render_template('studies/guided/home.html', title='Guided reading')
 @st.route('/guided/shorts')
 def shorts():
     return render_template('studies/guided/shorts.html', title='Short stories')

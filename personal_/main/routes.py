@@ -6,7 +6,6 @@ from flask import (
     send_file,
 )
 from personal_.models import Posts, Projects, Laptops
-import os
 
 
 main = Blueprint('main', __name__)
